@@ -1,0 +1,40 @@
+\name{strextr}
+\alias{strextr}
+\title{Extract a Substring}
+\usage{
+strextr(x, pattern, sep = " ", mult = F, unlist = F, cores = 1)
+}
+\arguments{
+  \item{x}{Character vector.}
+
+  \item{pattern}{Regular expression.}
+
+  \item{sep}{Character string which separates the fields.}
+
+  \item{mult}{Logical, if multiple matching fields should
+  be returned, or otherwise NA.}
+
+  \item{unlist}{Logical, unlists multiple results}
+
+  \item{cores}{Integer for number of computational cores to
+  use.}
+}
+\value{
+A character vector of the extracted fields.
+}
+\description{
+This function extracts substring(s).
+}
+\examples{
+s <- c("A1 B1 C1","A2 B2", "AA A1", "AA", "B1 A1", "BB AB A1")
+strextr(s, "^[AB][[:digit:]]$")
+strextr(s, "^[AB][[:digit:]]$", mult = TRUE)
+strextr(s, "^[AB][[:digit:]]$", mult = TRUE, unlist = TRUE)
+strextr(s, "^[C][[:digit:]]$")
+}
+\author{
+Sven E. Templer (\email{sven.templer@gmail.com})
+}
+\keyword{extract}
+\keyword{string}
+

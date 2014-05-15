@@ -1,0 +1,38 @@
+\name{strpart}
+\alias{strpart}
+\title{Split String and Return Part}
+\usage{
+strpart(x, split, n, ..., roll = F)
+}
+\arguments{
+  \item{x}{Character vector.}
+
+  \item{split}{Regular expression splitting strings.}
+
+  \item{n}{Number of part to extract.}
+
+  \item{...}{Arguments passed to \code{strsplit}.}
+
+  \item{roll}{Logical, if to use the last when less than
+  maximum parts.}
+}
+\value{
+A character vector of the extracted parts.
+}
+\description{
+Split character strings by split identifier and return
+certain part.
+}
+\examples{
+strpart(c("abc","abcb","abc"), "", 4)
+}
+\author{
+Sven E. Templer (\email{sven.templer@gmail.com})
+}
+\seealso{
+\link{strsplit}
+}
+\keyword{extract}
+\keyword{part}
+\keyword{string}
+

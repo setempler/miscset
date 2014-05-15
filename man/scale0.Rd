@@ -1,0 +1,24 @@
+\name{scale0}
+\alias{scale0}
+\title{Scale to Range 0 to 1}
+\usage{
+scale0(x)
+}
+\arguments{
+  \item{x}{Numeric vector to transform.}
+}
+\value{
+Numeric vector
+}
+\description{
+Scale numeric values to a range from 0 to 1.
+}
+\examples{
+#
+scale0(-1:3)
+}
+\author{
+Sven E. Templer \email{sven.templer@gmail.com}
+}
+\keyword{scale}
+

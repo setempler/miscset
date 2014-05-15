@@ -1,0 +1,28 @@
+\name{squarematrix}
+\alias{squarematrix}
+\title{Create a Square Matrix}
+\usage{
+squarematrix(x)
+}
+\arguments{
+  \item{x}{Object of class \code{matrix}.}
+}
+\value{
+Returns a \code{matrix}.
+}
+\description{
+Transform any m x n (m != n) matrix to a square matrix by
+column/row names.
+}
+\examples{
+m <- matrix(1:6,2)
+dimnames(m) <- list(2:3,1:3)
+m
+squarematrix(m)
+}
+\author{
+Sven E. Templer (\email{sven.templer@gmail.com})
+}
+\keyword{matrix}
+\keyword{square}
+
