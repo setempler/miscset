@@ -3,5 +3,4 @@
 vignettes/.*\.tex
 vignettes/.*\.toc
 vignettes/.*\.log
-test/
 dev/
