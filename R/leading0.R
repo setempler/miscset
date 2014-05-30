@@ -16,14 +16,11 @@
 #' @export leading0
 leading0 <- function (num, digits = 2) {
   
-  char <- as.character(num)
-  charn <- nchar(char)
-  charm <- max(charn)
-  if (charm > digits) { digits <- charm }
-  for (i in 1:digits) {
-    sub <- char[nchar(char)==i]
-    sub <- paste(paste(rep('0',digits-i),sep='',collapse=''),sub,sep='')
-    char[nchar(char)==i] <- sub }
-  return(char)
+  m <- nchar(num)
+  digits <- max(digits, max(m))
+  zeros <- paste(rep(0, digits), collapse="")
+  paste0(substring(zeros, 0, digits - m), num)
 
 }
+
+# Many thanks to Bill Venables for the improved version.
