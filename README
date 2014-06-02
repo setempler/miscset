@@ -1,6 +1,7 @@
 R package miscset
 
-A set of miscellaneous R tools to simplify the work with several data types and formats.
+A set of miscellaneous R tools to simplify the work with several data types and
+formats.
 
 Copyright (C) 2014 Sven E. Templer <sven.templer@gmail.com>
   
