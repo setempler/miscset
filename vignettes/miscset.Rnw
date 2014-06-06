@@ -1,7 +1,7 @@
 %\VignetteIndexEntry{User Manual}
 %\VignettePackage{miscset}
-%\VignetteEngine{knitr::knitr} % test!
 %\VignetteKeywords{misc}
+%\VignetteEngine{knitr::knitr}
 
 \documentclass[a4paper]{article}
 \usepackage[top=100pt,bottom=60pt,left=75pt,right=60pt]{geometry}
@@ -12,11 +12,10 @@
 \begin{document}
 %\SweaveOpts{concordance=TRUE}
 
-<<include=FALSE>>=
+<<include=FALSE, echo=FALSE>>=
 require(knitr)
 opts_chunk$set(concordance=TRUE)
 @
-% test!
 
 \maketitle
 \tableofcontents
@@ -29,14 +28,13 @@ opts_chunk$set(concordance=TRUE)
 The package \textbf{miscset} provides several R tools to read, create, modify
 and write different types of data. In the following examples, all available
 functions will be presented including explanations of their usage. Find the
-source code online at \url{http://github.com/svenetempler/miscset}.
+source code online at \href{http://github.com/svenetempler/miscset}{github}.
 
 \section{Installation}
 
-To install the package first install the \textbf{devtools} package from cran
-via \texttt{install.packages("devtools")}. Then you can install the package
-from github with \texttt{install\_github("svenetempler/miscset")}. After
-installation load the package with
+To install the package call the command \texttt{install.packages("miscset")}
+within the R console or run \texttt{R CMD install miscset} from a terminal.
+To use it the \texttt{library} or \texttt{require} function load the package.
 
 <<>>=
 require(miscset)
@@ -48,26 +46,35 @@ require(miscset)
 
 \subsection{Generate triangular numbers - \texttt{ntri}}
 
-Return triangular numbers with
+The function generates a series of triangular numbers of length \texttt{n}
+according to \href{https://oeis.org/A000217}{oeis.org}.
+
 <<>>=
 ntri(12)
 @
 
 \subsection{Scale numeric vectors - \texttt{scale0}}
 
-Scale all values in a vector from 0 to 1 with
+The function scales all values in a numeric vector from 0 to 1.
+
 <<>>=
+scale0(0:10)
 scale0(-1:3)
+scale0(2:3)
 @
 
 \section{Summarizing}
 
 \subsection{Print a sorted table - \texttt{sortable}}
 
-Return a sorted table of vectors like \texttt{sort(table())}
+Return a sorted table of vectors like \texttt{sort(table(x))}. Exclude
+\texttt{NA} values by choice and sort the table by increasing counts.
+
 <<>>=
-sortable(c(1,1,2,2,2,3))
-sortable(c(1,1,2,2,2,3),F)
+n <- c(1,2,3,2,2,3,NA)
+sortable(n)
+sortable(n, na = F)
+sortable(n, decr = F)
 @
 
 \section{Data Formatting}
@@ -79,22 +86,46 @@ from an unsymmetric matrix by using the column and row names and filling empty
 pairs with \texttt{NA}.
 
 <<>>=
-matA <- matrix(1:6, 2, dimnames = list(2:3,1:3))
-matA
-squarematrix(matA)
+M <- matrix(1:6, 2, dimnames = list(2:3,1:3))
+M
+squarematrix(M)
 @
 
 \subsection{Generate a pairwise list - \texttt{enpaire}}
 
-The function \texttt{enpaire} creates a pairwise list of matrix values with
-upper and lower triangle values represented in a separate column. The diagonal
-is not returned.
+The function \texttt{enpaire} creates a pairwise list of matrix values. The result
+is a \texttt{data.frame} that containsa column for the names of each dimension and
+the upper and lower triangle values. Unsymmetric matrices are transformed by
+\texttt{squarematrix} (see previous section).
 
 <<>>=
-matB <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
-matB
-enpaire(matB)
+M <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
+M
+enpaire(M)
 @
+
+\section{Data Exporting}
+
+\subsection{Create a latex document containing a table - \texttt{textable}}
+
+This function enhances the functionality of the \texttt{xtable} function from
+the similar named package. The output of \texttt{xtable} is captured, processed
+and then written to a file. The file contains also latex header for an A4
+portrait or landscape article. The function is called with the following
+syntax: \texttt{textable(d, file, caption, rownames, landscape, pt.size,
+margin, digits, align, label)}
+
+\texttt{file} is a character string with the name to the file of the function
+output. \texttt{caption} is a character string with the table's title.
+\texttt{rownames} is logical and allows to switch printing of row names on
+and off. \texttt{landscape} is logical for the orientation of the page,
+\texttt{pt.size} uses an integer value to define the size of the characters.
+\texttt{margin} sets a margin between page and table borders in cm.
+\texttt{digits} defines the number of digits to print for numeric values.
+With \texttt{align} the column alignements can be set. Either a single value
+or a value for the row names column plus each column in \texttt{d}.
+The possible values are \texttt{'r', 'c', 'l'} for alignemt to the right,
+center or left.
 
 \section{Text String Manipulation}
 
@@ -106,32 +137,31 @@ string length. It creates character strings from numeric values while attaching
 each string.
 
 <<>>=
-paste0("page", leading0(1:10, 3))
+paste0("page", leading0(8:10, 3))
 @
 
 \subsection{Extract substrings by pattern - \texttt{strextr}}
 
-The function \texttt{strextr} lets you extract substrings by defining a pattern
-of the part to extract.
+The function \texttt{strextr} splits strings in a character vector by
+\texttt{sep} and extracts all substrings matching a given \texttt{pattern}.
 
 <<>>=
-strA <- c("A1 B1 C1","A2 B2", "AA A1", "AA", "B1 A1", "BB AB A1")
-strA
-strextr(strA, "^[AB][[:digit:]]$")
-strextr(strA, "^[AB][[:digit:]]$", mult = T)
-strextr(strA, "^[AB][[:digit:]]$", mult = T, unlist = T)
-strextr(strA, "^[C][[:digit:]]$")
+s <- c("a1 b1 c1", "a2 b2", "aa a1", "aa", "b1 a1", "bb ab a1")
+strextr(s, "^[ab][[:digit:]]$")
+strextr(s, "^[ab][[:digit:]]$", mult = T)
+strextr(s, "^[ab][[:digit:]]$", mult = T, unlist = T)
+strextr(s, "^[c][[:digit:]]$")
 @
 
 \subsection{Extract substrings by splitting - \texttt{strpart}}
 
 Similar to \texttt{strextr} the function \texttt{strpart} supplies a method to
 extract a substring, but by defining the \texttt{n}th part of the string split
-by a separator.
+by the separator given in \texttt{sep}.
 
 <<>>=
-strC <- c("abc","abcb","abc")
-strpart(strC, "", 4)
+s
+strpart(s, " ", 2)
 @
 
 \subsection{Reverse strings - \texttt{strrev}}
@@ -139,20 +169,22 @@ strpart(strC, "", 4)
 With \texttt{strrev} you can create the reversed version of strings.
 
 <<>>=
-strrev(strC)
+strrev('!dlroW olleH')
+s
+strrev(s)
 @
 
 \subsection{Multiple pattern replacement - \texttt{msub}, \texttt{mgsub}}
 
 \texttt{msub} and \texttt{mgsub} behave like \texttt{sub} and \texttt{gsub} but
 they replace multiple patterns. Replacement is done in order of the pattern
-input.
+input, and multicore support is enabled by \texttt{mclapply} from the parallel
+package.
 
 <<>>=
-patA <- c("a", "b")
-txtA <- c("aba", "aca", "bc")
-msub(patA, "", txtA)
-mgsub(patA, "", txtA)
+s
+msub("A", "X", s)
+mgsub("A", "X", s)
 @
 
 \section{Pattern Matching}
@@ -160,21 +192,22 @@ mgsub(patA, "", txtA)
 \subsection{Get index of expression - \texttt{gregexprind}}
 
 <<>>=
-patB <- c("a")
-txtB <- c("abab", "ab", "xyz", NA)
-gregexprind(patB, txtB, 1)
-gregexprind(patB, txtB, 2)
-gregexprind(patB, txtB, "last")
+s
+gregexprind("a", s, 1)
+gregexprind("a", s, 2)
+gregexprind("a", s, "last")
 @
 
 \subsection{Multiple pattern search - \texttt{mgrepl}}
 
-With \texttt{mgrepl()} you can search for not only one character expression,
-and use any logical function to combine the results for each single expression.
+With \texttt{mgrepl(patterns, text, ...)} you can search for more than one
+regular expression, and use a logical function to combine the results for each
+single expression.
 
 <<>>=
-mgrepl(patA, txtA, any)
-mgrepl(patA, txtA, all)
+s
+mgrepl(c("a","b"), s, any)
+mgrepl(c("a","b"), s, all)
 @
 
 \section{Graphical Tools}
@@ -184,12 +217,13 @@ mgrepl(patA, txtA, all)
 \texttt{gghcl()} creates color palettes. It enhances the \texttt{hcl} function.
 See some examples:
 
-<<label=fig1, fig=TRUE, echo=FALSE>>=
+<<label=fig1, echo=FALSE, fig.width=3, fig.height=4, fig.align='center'>>=
 par(mfrow = c(3,1), mai = c(.1,.1,.5,.1))
 pts <- matrix(1:10, 10)
 image(pts, col = gghcl(5), axes = F, main ="gghcl(5)")
 image(pts, col = gghcl(10), axes = F, main = "gghcl(10)")
 image(pts, col = gghcl(10, 1:5), axes = F, main ="gghcl(10, 1:5)")
+rm(pts)
 @
 
 \section{System Tools}
@@ -197,9 +231,10 @@ image(pts, col = gghcl(10, 1:5), axes = F, main ="gghcl(10, 1:5)")
 \subsection{List details from and remove all objects - \texttt{lsall},
 \texttt{rmall}}
 
-With \texttt{lsall()} all object names, their length, class, mode and size is
-returned in a data.frame from a specified environment. \texttt{rmall()} removes
-the complete list of objects at the global environment.
+With \texttt{lsall(envir, ...)} all object names, their length, class, mode and
+size is returned in a data.frame from a specified environment.
+\texttt{rmall(...)} removes the complete list of objects at the global
+environment.
 
 <<>>=
 lsall()
