@@ -15,22 +15,28 @@ strextr(x, pattern, sep = " ", mult = F, unlist = F, cores = 1)
 \item{mult}{Logical, if multiple matching fields should be returned,
 or otherwise NA.}
 
-\item{unlist}{Logical, unlists multiple results}
+\item{unlist}{Logical, unlists multiple results.}
 
 \item{cores}{Integer for number of computational cores to use.}
 }
 \value{
-A character vector of the extracted fields.
+A list of character vectors containing the substrings that are
+matching \code{pattern} and are separated by \code{sep} or \code{NA} if
+the pattern could not be found.
 }
 \description{
-This function extracts substring(s).
+This function extracts substring(s) which match a given pattern.
 }
 \examples{
+#
+
 s <- c("A1 B1 C1","A2 B2", "AA A1", "AA", "B1 A1", "BB AB A1")
 strextr(s, "^[AB][[:digit:]]$")
 strextr(s, "^[AB][[:digit:]]$", mult = TRUE)
 strextr(s, "^[AB][[:digit:]]$", mult = TRUE, unlist = TRUE)
 strextr(s, "^[C][[:digit:]]$")
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

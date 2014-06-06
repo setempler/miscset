@@ -19,8 +19,12 @@ String length is at least \code{max(nchar(as.character(num)))}.
 Transform numeric values to character string prepending leading zero(s).
 }
 \examples{
-# use with paste to generate strings of equal lengths (nchar):
-paste("observation", leading0(1:10, 3), sep="_")
+#
+
+# use with paste to generate strings of equal size:
+paste0("observation", leading0(1:10, 3))
+
+#
 }
 \author{
 Sven E. Templer \email{sven.templer@gmail.com}

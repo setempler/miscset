@@ -19,11 +19,14 @@ Return a data.frame with a list of all objects of a specified environmet.
 }
 \examples{
 #
+
 lsall()
 obj1 <- 1:3
-obj3 <- list(1:3)
 obj2 <- data.frame(1:3)
+obj3 <- list(1:3)
 lsall()
+
+#
 }
 \author{
 Sven E. Templer \email{sven.templer@gmail.com}

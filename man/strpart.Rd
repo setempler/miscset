@@ -20,10 +20,15 @@ strpart(x, split, n, ..., roll = F)
 A character vector of the extracted parts.
 }
 \description{
-Split character strings by split identifier and return certain part.
+Return the nth part of a splitted string.
 }
 \examples{
+#
+
 strpart(c("abc","abcb","abc"), "", 4)
+strpart(c("abc","abcb","abc"), "", 4, roll=TRUE)
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

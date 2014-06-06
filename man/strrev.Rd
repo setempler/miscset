@@ -15,7 +15,11 @@ Returns a character vector with reversed strings.
 Create a reverse version of strings.
 }
 \examples{
+#
+
 strrev(c("abc","asdf"))
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

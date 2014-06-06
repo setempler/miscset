@@ -8,7 +8,8 @@ gghcl(n, sub = 1:n, h = c(0, 360) + 15, c = 100, l = 65, ...)
 \arguments{
 \item{n}{Numeric value to determine size of palette.}
 
-\item{sub}{Numeric vector with values within range from \code{1} to \code{n} to subset palette.}
+\item{sub}{Numeric vector with values within range from \code{1}
+to \code{n} to subset palette.}
 
 \item{h}{Hue of the colour. Within range of a circle's degrees.}
 
@@ -29,6 +30,8 @@ Calculate HTML colour code from a palette like ggplot2 uses.
 See \code{?hcl} for explanation of \code{h}, \code{c} and \code{l}.
 }
 \examples{
+#
+
 # Plot some palettes:
 par(mfrow = c(3,1), mai = c(.1,.1,1,.1))
 p <- matrix(1:10, 10)
@@ -36,6 +39,8 @@ image(p, col = gghcl(5), axes = FALSE, main ="gghcl(5)")
 image(p, col = gghcl(10), axes = FALSE, main = "gghcl(10)")
 image(p, col = gghcl(10, 1:5), axes = FALSE, main ="gghcl(10, 1:5)")
 # dev.off() # to reset \\code{par}
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

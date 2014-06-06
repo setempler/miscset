@@ -12,13 +12,17 @@ squarematrix(x)
 Returns a \code{matrix}.
 }
 \description{
-Transform any m x n (m != n) matrix to a square matrix by column/row names.
+Transform any m x n matrix to a square matrix by column/row names.
+Stops if no or duplicated dimnames are provided in x.
 }
 \examples{
-m <- matrix(1:6,2)
-dimnames(m) <- list(2:3,1:3)
+#
+
+m <- matrix(1:6, 2, dimnames=list(2:3,1:3))
 m
 squarematrix(m)
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

@@ -21,16 +21,21 @@ enpaire(x, ...)
 \item{...}{Arguments passed to methods.}
 }
 \value{
-Returns a \code{data.frame} with column 1 and 2 as row/column pair name,
-column 3 and 4 with upper and lower matrix values for each pair.
+Returns a \code{data.frame}. The first and second column represent the
+dimension names for a value in \code{x}. The following columns contain
+the values for the upper or lower triangle.
 }
 \description{
-Transform a matrix or dist object to a pairwise list.
+Transform a \code{matrix} or \code{dist} object to a pairwise list.
 }
 \examples{
 #
+
 m <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
 enpaire(m)
+enpaire(m, lower = F)
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

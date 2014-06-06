@@ -2,9 +2,6 @@
 \name{ntri}
 \alias{ntri}
 \title{Return Triangular Numbers}
-\usage{
-ntri(n)
-}
 \arguments{
 \item{n}{Positive integer value for number of triangle rows.}
 }

@@ -26,9 +26,13 @@ See \code{?gregexpr} for further information on arguments.
 See \code{?"regular expression"} for the use of regular expressions.
 }
 \examples{
+#
+
 gregexprind(c("a"),c("abab","ab","xyz",NA), 1)
 gregexprind(c("a"),c("abab","ab","xyz",NA), 2)
 gregexprind(c("a"),c("abab","ab","xyz",NA), "last")
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

@@ -8,15 +8,17 @@ scale0(x)
 \arguments{
 \item{x}{Numeric vector to transform.}
 }
-\value{
-Numeric vector
-}
 \description{
 Scale numeric values to a range from 0 to 1.
 }
 \examples{
 #
+
+scale0(0:10)
 scale0(-1:3)
+scale0(2:3)
+
+#
 }
 \author{
 Sven E. Templer \email{sven.templer@gmail.com}

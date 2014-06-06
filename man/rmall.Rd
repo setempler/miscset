@@ -11,6 +11,16 @@ rmall(...)
 \description{
 Remove all objects from the global environment.
 }
+\examples{
+#
+
+a <- b <- letters
+ls()
+rmall()
+ls()
+
+#
+}
 \author{
 Sven E. Templer \email{sven.templer@gmail.com}
 }
