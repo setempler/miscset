@@ -5,7 +5,8 @@
 #' creation of a pdf with for example pdflatex.
 #' 
 #' @param d Object to transform to a latex table.
-#' @param file Character string with output file name.
+#' @param file Character string with output file name. If missing or \code{""},
+#' the output is printed to the screen.
 #' @param caption Character vector with title of table.
 #' @param rownames Logical, include row names of \code{d}.
 #' @param landscape Logical, use a landscape format for wider tables.
@@ -40,18 +41,19 @@ textable <- function (d, file, caption = NULL, rownames = FALSE, landscape = FAL
   x <- capture.output(print(xtable(
     d, digits=digits, align=align, label=label, caption=caption),
     include.rownames = rownames))
-  tex.landscape <- ''
+  orientation <- ''
   if (landscape)
-		tex.landscape <- 'landscape,'
-	tex <- paste0(
+    orientation <- 'landscape,'
+	out <- paste0(
 		'\\documentclass[a4paper,', pt.size,
 		'pt]{article}\n\\usepackage[a4paper,',
-		tex.landscape,
+		orientation,
 		'margin=',
 		margin,
 		'cm]{geometry}\n\\begin{document}\n') #\\small\n
-  cat(tex, file=file)
-	cat(x, file=file, append=T, sep='\n')
-	cat('\\end{document}\n', file=file, append=T)
-  invisible(NULL)
+  out <- c(out, x, '\n\\end{document}\n')
+  if (missing(file))
+    file <- ""
+  cat(out, file=file, sep='\n')
+	invisible(NULL)
 }
