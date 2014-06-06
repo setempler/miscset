@@ -1,21 +1,28 @@
-#' @name enpaire
-#' @keywords pairwise matrix
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
-#' @title Create a Pairwise List from a Matrix
-#' @description
-#' Transform a matrix or dist object to a pairwise list.
+#' Create a Pairwise List from a Matrix
+#' 
+#' Transform a \code{matrix} or \code{dist} object to a pairwise list.
+#' 
 #' @param x Object of class \code{matrix}.
 #' @param upper Logical, return values from upper triangle.
 #' @param lower Logical, return values from lower triangle.
 #' @param ... Arguments passed to methods.
-#' @return Returns a \code{data.frame} with column 1 and 2 as row/column pair name,
-#' column 3 and 4 with upper and lower matrix values for each pair.
+#' @return
+#' Returns a \code{data.frame}. The first and second column represent the
+#' dimension names for a value in \code{x}. The following columns contain
+#' the values for the upper or lower triangle.
 #' @seealso
 #' \link{squarematrix}
 #' @examples
 #' #
+#' 
 #' m <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
 #' enpaire(m)
+#' enpaire(m, lower = F)
+#' 
+#' #
+#' @name enpaire
+#' @keywords pairwise matrix
+#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @rdname enpaire
 #' @export enpaire

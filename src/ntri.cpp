@@ -1,9 +1,6 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-//' @name ntri
-//' @keywords triangle triangular number
-//' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 //' @title Return Triangular Numbers
 //' @description
 //' Return the series of triangular (/triangle) numbers up to a number of
@@ -12,17 +9,17 @@ using namespace Rcpp;
 //' @param n Positive integer value for number of triangle rows.
 //' @return
 //' Returns an integer vector of length \code{n}.
+//' @name ntri
+//' @keywords triangle triangular number
 //' @import Rcpp
+//' @author Sven E. Templer (\email{sven.templer@@gmail.com})
+
 //' @export ntri
 // [[Rcpp::export]]
 NumericVector ntri(int n) {
-  
   NumericVector ret(n);
-  
   for (int i = 0; i < n; i ++) {
     ret[i] = i * (i + 1) / 2;
   }
-  
   return ret ;
-  
 }

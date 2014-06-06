@@ -1,23 +1,24 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-//' @name sortable
-//' @keywords table sort
-//' @author Sven E. Templer (\email{sven.templer@@gmail.com})
-//' @title Return (Sorted) Table
-//' @description
-//' Same as \code{table(}) from R, but faster (Rcpp) sorted and with the option
-//' to exclude \code{NA} counts.
+//' Return Sorted Table
+//' 
+//' R/C++ version of \code{sort(table(x))}, with the option to switch between
+//' increasing or decreasing order and to include counts of \code{NA}.
+//' 
 //' @param x Vector to create table of counts
 //' @param decr Decreased order if \code{TRUE}.
 //' @param na Include \code{NA} if \code{TRUE}.
 //' @return
 //' Named integer Vector \code{n}.
+//' @name sortable
+//' @keywords table sort
 //' @import Rcpp
+//' @author Sven E. Templer (\email{sven.templer@@gmail.com})
+
 //' @export sortable
 // [[Rcpp::export]]
 IntegerVector sortable(CharacterVector x, bool decr = true, bool na = true) {
-  
   IntegerVector   tab = table(x);
   CharacterVector nam = tab.names();
   IntegerVector   ord = match(clone(tab).sort(), tab);
@@ -38,6 +39,5 @@ IntegerVector sortable(CharacterVector x, bool decr = true, bool na = true) {
     }
   }
   ret.names() = ren;
-  return ret;
-  
+  return ret;  
 }

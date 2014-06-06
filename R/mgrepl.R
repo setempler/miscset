@@ -1,15 +1,12 @@
-#' @name mgrepl
-#' @importFrom parallel mclapply
-#' @keywords multiple grep sub gsub
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
-#' @title Multiple Pattern Matching and Replacement
-#' @description
+#' Multiple Pattern Matching and Replacement
+#' 
 #' \code{mgrepl} searches for any or all multiple amount of patterns and
 #' return logical values. Combination of the results is done via the logic
 #' functions any or all. Multicore feature is made available by the imported
 #' function \code{parallel:mclapply}.
-#' \code{sub} and \link{gsub} replace a multiple number of patterns in a 
+#' \code{msub} and \code{mgsub} replace a multiple number of patterns in a 
 #' vector.
+#' 
 #' @param patterns A character vector containing a regular expressions.
 #' (\link{regex}) to be searched in \code{text}.
 #' @param text Character vector where the search and replace is performed.
@@ -21,9 +18,9 @@
 #' \code{mclapply}.
 #' @param \dots Further arguments passed to functions \code{grepl()}, \code{sub()} and \code{gsub()}.
 #' @return
-#' \code{msub} and \link{mgsub}:
-#' Same as \code{text} but with all \code{patterns} replaced.
-#' \code{mgrepl}:
+#' \code{msub} and \code{mgsub}:\cr
+#' Same as \code{text} but with all \code{patterns} replaced.\cr
+#' \code{mgrepl}:\cr
 #' Logical vector of length \code{length(text)} where \code{TRUE} means either
 #' any or all patterns in \code{patternlist} are matched in \code{text}
 #' depending on \code{log.fun}.
@@ -31,6 +28,8 @@
 #' \link{grep}, \link{mclapply}
 #'  
 #' @examples
+#' #
+#' 
 #' # Compare different "log.fun" parameters:
 #' mgrepl(c("a","b"), c("ab","ac","bc"), any)
 #' mgrepl(c("a","b"), c("ab","ac","bc"), all)
@@ -38,6 +37,12 @@
 #' # Replace several patterns (gplobally):
 #' msub(letters[1:3], "<replaced>", letters[1:5])
 #' mgsub(letters[1:2], "<replaced>", c("ab","ba","acb",NA))
+#' 
+#' #
+#' @name mgrepl
+#' @importFrom parallel mclapply
+#' @keywords multiple grep sub gsub
+#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export mgrepl
 mgrepl <- function(patterns, text, log.fun = any, cores = 1, ...) {
