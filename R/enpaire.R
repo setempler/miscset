@@ -31,14 +31,12 @@ enpaire <- function (x, ...) {
 }
 
 #' @method enpaire default
-#' @S3method enpaire default
 enpaire.default <- function (x, ...) {
   stop("x must be of class matrix or dist.")
 }
 
 #' @rdname enpaire
 #' @method enpaire dist
-#' @S3method enpaire dist
 enpaire.dist <- function (x, upper = T, lower = T, ...) {
   x <- as.matrix(x)
   NextMethod("enpaire")
@@ -46,7 +44,6 @@ enpaire.dist <- function (x, upper = T, lower = T, ...) {
 
 #' @rdname enpaire
 #' @method enpaire matrix
-#' @S3method enpaire matrix
 enpaire.matrix <- function (x, upper = T, lower = T, ...) {
   if (!upper & !lower)
     stop("Nothing to return, set at least one of upper/lower TRUE.")
