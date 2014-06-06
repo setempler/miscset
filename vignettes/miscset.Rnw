@@ -1,5 +1,7 @@
 %\VignetteIndexEntry{User Manual}
 %\VignettePackage{miscset}
+%\VignetteEngine{knitr::knitr} % test!
+%\VignetteKeywords{misc}
 
 \documentclass[a4paper]{article}
 \usepackage[top=100pt,bottom=60pt,left=75pt,right=60pt]{geometry}
@@ -9,6 +11,12 @@
 
 \begin{document}
 %\SweaveOpts{concordance=TRUE}
+
+<<include=FALSE>>=
+require(knitr)
+opts_chunk$set(concordance=TRUE)
+@
+% test!
 
 \maketitle
 \tableofcontents
