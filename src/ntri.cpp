@@ -5,7 +5,7 @@ using namespace Rcpp;
 //' @description
 //' Return the series of triangular (/triangle) numbers up to a number of
 //' \code{n} rows of a triangle. The series has the entry number "A000217"
-//' at \url[oeis.org]{https://oeis.org/A000217} and starts like this:
+//' at \url{https://oeis.org/A000217} and starts like this:
 //' 0, 1, 3, 6, 10, ...
 //' @param n Positive integer value for sequence length.
 //' @return
