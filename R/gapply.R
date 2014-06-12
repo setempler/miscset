@@ -13,7 +13,7 @@
 #' @param d A data.frame or data.table object.
 #' @param by A character vector with colnames for the grid to subset.
 #' @param fun A function to apply on \code{d}.
-#' @param ... Additional arguments to \code{fun}.
+#' @param ... Additional arguments to \code{fun} or to \code{as.data.frame} method.
 #' @param drop Drop grid columns for \code{fun}.
 #' @param cores Number of multicores as \code{mc.cores} in \code{mclapply}.
 #' @param x Object of class \code{gapply}.
@@ -71,7 +71,7 @@ levels.gapply <- function (x) {
 #' @rdname gapply
 #' @export as.data.frame.gapply
 #' @method as.data.frame gapply
-as.data.frame.gapply <- function (x) {
+as.data.frame.gapply <- function (x, ...) {
   g <- levels(x)
   use <- sapply(x, function(y) {
     is <- FALSE
@@ -84,7 +84,7 @@ as.data.frame.gapply <- function (x) {
   g <- g[use,]
   g <- split(g, 1:nrow(g))
   ret <- Map(function(x, g) {
-    data.frame(as.data.frame(rbind(x)), g, stringsAsFactors=F)
+    data.frame(as.data.frame(rbind(x), ...), g, stringsAsFactors=F)
   }, x=x, g=g)
   ret <- do.call(rbind, ret)
   row.names(ret) <- NULL

@@ -26,7 +26,7 @@
 #' @examples
 #' #
 #' 
-#' textable(head(trees), rownames=T, digits=4, caption='"trees" dataset from R datasets.')
+#' textable(head(trees), rownames=TRUE, digits=4, caption='R "trees" dataset.')
 #' 
 #' #
 #' @name textable
