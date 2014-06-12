@@ -37,7 +37,7 @@ lsall <- function (envir=.GlobalEnv, ...) {
   
   # get attributes
   l <- sapply(n, function(y) length(get(y,envir)))
-  c <- sapply(n, function(y) class(get(y,envir)))
+  c <- sapply(n, function(y) class(get(y,envir))[1])
   m <- sapply(n, function(y) mode(get(y,envir)))
   s <- sapply(n, function(y) object.size(get(y,envir)))
   u <- rep("byte", length(s))

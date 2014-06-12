@@ -1,6 +1,10 @@
 NEWS
 
-++ miscset v 0.2 ++
+++ miscset v 0.2.1 ++ 
+
+function fixed: lsall error for objects with multiple class inheritance
+
+++ miscset v 0.2 ++ 2014/06/12
 
 function added: gapply apply by grid on a data.frame
 function added: textable creates a complete tex article including an xtable

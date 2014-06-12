@@ -1,7 +1,7 @@
 Package: miscset
 Type: Package
 Title: Miscellaneous Tools Set
-Version: 0.2
+Version: 0.2.1
 Date: 2014-06-12
 Author: Sven E. Templer
 Maintainer: Sven E. Templer <sven.templer@gmail.com>
