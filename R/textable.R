@@ -24,12 +24,17 @@
 #' @seealso
 #' \link{xtable} 
 #' @examples
-#' # NA
+#' #
+#' 
+#' textable(head(trees), rownames=T, digits=4, caption='"trees" dataset from R datasets.')
+#' 
+#' #
 #' @name textable
 #' @importFrom xtable xtable
 #' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
-
+#' @rdname textable
+#' @export textable
 textable <- function (d, file, caption = NULL, rownames = FALSE, landscape = FALSE,
                       pt.size = 10, margin = 2, digits = NULL, align = NULL,
                       label = NULL)
