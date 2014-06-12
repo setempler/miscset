@@ -1,0 +1,15 @@
+NEWS
+
+++ miscset v 0.2 ++
+
+function added: gapply apply by grid on a data.frame
+function added: textable creates a complete tex article including an xtable
+function removed: sortable has missing bugfix
+function improved: enpaire now completes missing dimnames
+function improved: leading0 shorter runtime thanks to Douglas Bates
+vignette added: gapply, textable
+vignette removed: sortable
+
+++ miscset v 0.1 ++ 2014/05/15
+
+first release
