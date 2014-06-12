@@ -42,6 +42,24 @@ require(miscset)
 
 \part{Functions}
 
+\section{Apply Functions}
+
+\subsection{Apply a function on a data.frame by a grid - \texttt{gapply}}
+
+To apply a function on a subset of a dataset, all named columns are used
+to create a grid for which each unique combination is used to extract the
+rows in the \texttt{data.frame}. Multicore support is implemented by
+\texttt{mclapply}. The grid can be extracted by the function \texttt{levels}
+and a row binding of elements that can be coerced to data.frames is implemented
+in the method \texttt{as.data.frame}.
+
+<<>>==
+f <- function (x) c(conc.diff = diff(range(x$conc)), uptake.sum=sum(x$uptake))
+d <- gapply(CO2, c('Type', 'Treatment'), f)
+levels(d)
+head(as.data.frame(d))
+@
+
 \section{Numeric Functions}
 
 \subsection{Generate triangular numbers - \texttt{ntri}}
@@ -87,7 +105,7 @@ the upper and lower triangle values. Unsymmetric matrices are transformed by
 <<>>=
 M <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
 M
-#enpaire(M)
+enpaire(M)
 @
 
 \section{Data Exporting}
@@ -112,6 +130,10 @@ With \texttt{align} the column alignements can be set. Either a single value
 or a value for the row names column plus each column in \texttt{d}.
 The possible values are \texttt{'r', 'c', 'l'} for alignemt to the right,
 center or left.
+
+<<>>==
+textable(head(trees,3), rownames=T, digits=4, align='c', caption='R dataset "trees".')
+@
 
 \section{Text String Manipulation}
 
