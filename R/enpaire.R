@@ -30,12 +30,14 @@ enpaire <- function (x, ...) {
   UseMethod("enpaire")
 }
 
+#' @rdname enpaire
 #' @method enpaire default
 enpaire.default <- function (x, ...) {
   stop("x must be of class matrix or dist.")
 }
 
 #' @rdname enpaire
+#' @export enpaire.dist
 #' @method enpaire dist
 enpaire.dist <- function (x, upper = T, lower = T, ...) {
   x <- as.matrix(x)
@@ -43,10 +45,16 @@ enpaire.dist <- function (x, upper = T, lower = T, ...) {
 }
 
 #' @rdname enpaire
+#' @export enpaire.matrix
 #' @method enpaire matrix
 enpaire.matrix <- function (x, upper = T, lower = T, ...) {
   if (!upper & !lower)
     stop("Nothing to return, set at least one of upper/lower TRUE.")
+  d <- dimnames(x)
+  if (is.null(d))
+    dimnames(x) <- list(1:nrow(x), 1:ncol(x))
+  else
+    dimnames(x) <- lapply(dimnames(x), function (y) if (is.null(y)) 1:nrow(x) else y)
   x <- squarematrix(x)
   pairs <- t(combn(rownames(x), 2))
   colnames(pairs) <- c("row", "col")
@@ -55,6 +63,6 @@ enpaire.matrix <- function (x, upper = T, lower = T, ...) {
     l <- t(x)[upper.tri(x)]
   if (lower)
     u <- t(x)[lower.tri(x)]
-  ret <- data.frame(pairs, upper = u, lower = l, stringsAsFactors = F)
+  ret <- data.frame(pairs, lower = l, upper = u, stringsAsFactors = F)
   return(ret)
 }
