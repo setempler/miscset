@@ -36,7 +36,7 @@ Transform a \code{matrix} or \code{dist} object to a pairwise list.
 
 m <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
 enpaire(m)
-enpaire(m, lower = F)
+enpaire(m, lower = FALSE)
 
 #
 }

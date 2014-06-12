@@ -9,7 +9,7 @@ gapply(d, by, fun, ..., drop = F, cores = 1)
 
 \method{levels}{gapply}(x)
 
-\method{as.data.frame}{gapply}(x)
+\method{as.data.frame}{gapply}(x, ...)
 }
 \arguments{
 \item{d}{A data.frame or data.table object.}
@@ -18,7 +18,7 @@ gapply(d, by, fun, ..., drop = F, cores = 1)
 
 \item{fun}{A function to apply on \code{d}.}
 
-\item{...}{Additional arguments to \code{fun}.}
+\item{...}{Additional arguments to \code{fun} or to \code{as.data.frame} method.}
 
 \item{drop}{Drop grid columns for \code{fun}.}
 
