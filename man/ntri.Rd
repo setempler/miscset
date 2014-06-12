@@ -3,7 +3,7 @@
 \alias{ntri}
 \title{Return Triangular Numbers}
 \arguments{
-\item{n}{Positive integer value for number of triangle rows.}
+\item{n}{Positive integer value for sequence length.}
 }
 \value{
 Returns an integer vector of length \code{n}.
@@ -11,7 +11,8 @@ Returns an integer vector of length \code{n}.
 \description{
 Return the series of triangular (/triangle) numbers up to a number of
 \code{n} rows of a triangle. The series has the entry number "A000217"
-at \url{https://oeis.org/} and starts like this: 0, 1, 3, 6, 10, ...
+at \url{https://oeis.org/A000217} and starts like this:
+0, 1, 3, 6, 10, ...
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

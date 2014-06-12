@@ -9,7 +9,8 @@ textable(d, file, caption = NULL, rownames = FALSE, landscape = FALSE,
 \arguments{
 \item{d}{Object to transform to a latex table.}
 
-\item{file}{Character string with output file name.}
+\item{file}{Character string with output file name. If missing or \code{""},
+the output is printed to the screen.}
 
 \item{caption}{Character vector with title of table.}
 
@@ -40,7 +41,11 @@ and adds a header/footer for the document structure to allow a direct
 creation of a pdf with for example pdflatex.
 }
 \examples{
-# NA
+#
+
+textable(head(trees), rownames=T, digits=4, caption='"trees" dataset from R datasets.')
+
+#
 }
 \author{
 Sven E. Templer (\email{sven.templer@gmail.com})

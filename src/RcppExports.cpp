@@ -20,20 +20,3 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// sortable
-IntegerVector sortable(CharacterVector x, bool decr = true, bool na = true);
-RcppExport SEXP miscset_sortable(SEXP xSEXP, SEXP decrSEXP, SEXP naSEXP) {
-BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< CharacterVector >::type x(xSEXP );
-        Rcpp::traits::input_parameter< bool >::type decr(decrSEXP );
-        Rcpp::traits::input_parameter< bool >::type na(naSEXP );
-        IntegerVector __result = sortable(x, decr, na);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
-END_RCPP
-}
