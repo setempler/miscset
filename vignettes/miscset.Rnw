@@ -63,20 +63,6 @@ scale0(-1:3)
 scale0(2:3)
 @
 
-\section{Summarizing}
-
-\subsection{Print a sorted table - \texttt{sortable}}
-
-Return a sorted table of vectors like \texttt{sort(table(x))}. Exclude
-\texttt{NA} values by choice and sort the table by increasing counts.
-
-<<>>=
-n <- c(1,2,3,2,2,3,NA)
-sortable(n)
-sortable(n, na = F)
-sortable(n, decr = F)
-@
-
 \section{Data Formatting}
 
 \subsection{Transform to squared matrix - \texttt{squarematrix}}
@@ -101,7 +87,7 @@ the upper and lower triangle values. Unsymmetric matrices are transformed by
 <<>>=
 M <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
 M
-enpaire(M)
+#enpaire(M)
 @
 
 \section{Data Exporting}
