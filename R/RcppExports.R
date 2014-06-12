@@ -5,8 +5,9 @@
 #' @description
 #' Return the series of triangular (/triangle) numbers up to a number of
 #' \code{n} rows of a triangle. The series has the entry number "A000217"
-#' at \url{https://oeis.org/} and starts like this: 0, 1, 3, 6, 10, ...
-#' @param n Positive integer value for number of triangle rows.
+#' at \url{https://oeis.org/A000217} and starts like this:
+#' 0, 1, 3, 6, 10, ...
+#' @param n Positive integer value for sequence length.
 #' @return
 #' Returns an integer vector of length \code{n}.
 #' @name ntri
@@ -18,26 +19,5 @@ NULL
 #' @export ntri
 ntri <- function(n) {
     .Call('miscset_ntri', PACKAGE = 'miscset', n)
-}
-
-#' Return Sorted Table
-#' 
-#' R/C++ version of \code{sort(table(x))}, with the option to switch between
-#' increasing or decreasing order and to include counts of \code{NA}.
-#' 
-#' @param x Vector to create table of counts
-#' @param decr Decreased order if \code{TRUE}.
-#' @param na Include \code{NA} if \code{TRUE}.
-#' @return
-#' Named integer Vector \code{n}.
-#' @name sortable
-#' @keywords table sort
-#' @import Rcpp
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
-NULL
-
-#' @export sortable
-sortable <- function(x, decr = TRUE, na = TRUE) {
-    .Call('miscset_sortable', PACKAGE = 'miscset', x, decr, na)
 }
 
