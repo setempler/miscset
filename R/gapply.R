@@ -81,7 +81,7 @@ as.data.frame.gapply <- function (x, ...) {
   if (!any(use))
     stop("No elements are data.frames.")
   x <- x[use]
-  g <- g[use,]
+  g <- g[use, , drop=F]
   g <- split(g, 1:nrow(g))
   ret <- Map(function(x, g) {
     data.frame(as.data.frame(rbind(x), ...), g, stringsAsFactors=F)
