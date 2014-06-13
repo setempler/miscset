@@ -1,19 +1,18 @@
 #' Multiple Pattern Matching and Replacement
 #' 
-#' \code{mgrepl} searches for any or all multiple amount of patterns and
-#' return logical values. Combination of the results is done via the logic
-#' functions any or all. Multicore feature is made available by the imported
-#' function \code{parallel:mclapply}.
-#' \code{msub} and \code{mgsub} replace a multiple number of patterns in a 
-#' vector.
+#' \code{mgrepl} searches for any or all patterns and returns logical values.
+#' Combination of the results is done via the logic functions \code{any} or
+#' \code{all}. Multicore feature is made available by \code{parallel:::mclapply}.
+#' \code{msub} and \code{mgsub} replace multiple patterns in a 
+#' vector by the order of 
 #' 
-#' @param patterns A character vector containing a regular expressions.
+#' @param patterns A character vector containing a regular expression
 #' (\link{regex}) to be searched in \code{text}.
 #' @param text Character vector where the search and replace is performed.
 #' @param replacement Character vector with the replacement pattern.
 #' @param log.fun For \code{mgrepl}. Logical function (\code{any} or 
 #' \code{all}) to evaluate occurence of each pattern in \code{patterns} in each
-#' value of \code{text}.
+#' value of \code{text}. Can also be custom. See examples.
 #' @param cores Numeric value for how many cores to use for computation using 
 #' \code{mclapply}.
 #' @param \dots Further arguments passed to functions \code{grepl()}, \code{sub()} and \code{gsub()}.
@@ -21,7 +20,7 @@
 #' \code{msub} and \code{mgsub}:\cr
 #' Same as \code{text} but with all \code{patterns} replaced.\cr
 #' \code{mgrepl}:\cr
-#' Logical vector of length \code{length(text)} where \code{TRUE} means either
+#' Logical vector of sam length as \code{text} where \code{TRUE} means either
 #' any or all patterns in \code{patternlist} are matched in \code{text}
 #' depending on \code{log.fun}.
 #' @seealso
@@ -33,6 +32,7 @@
 #' # Compare different "log.fun" parameters:
 #' mgrepl(c("a","b"), c("ab","ac","bc"), any)
 #' mgrepl(c("a","b"), c("ab","ac","bc"), all)
+#' mgrepl(letters[1:3], c("ax","xab","xbc"), function (x) sum(x)>1)
 #' 
 #' # Replace several patterns (gplobally):
 #' msub(letters[1:3], "<replaced>", letters[1:5])
