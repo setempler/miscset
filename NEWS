@@ -1,5 +1,11 @@
 NEWS
 
+++ miscset v 0.2.2 ++ 
+
+added file: INDEX
+function fixed: gapply dropped dimensions
+vignette added: install via github
+
 ++ miscset v 0.2.1 ++ 
 
 function fixed: lsall error for objects with multiple class inheritance
