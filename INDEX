@@ -1,0 +1,15 @@
+gapply                Apply a function on a data.frame by a grid.
+ntri                  Generate triangular numers.
+scale0                Scale numeric vectors.
+squarematrix          Transorm to squared matrix.
+enpaire               Generate a pairwise list.
+textable              Create a latex document containing a table.
+leading0              Prepend zeroes to unify number lengths.
+strextr               Extract substrings by pattern.
+strpart               Extract substrings by splitting.
+strrev                Reverse strings.
+msub, mgsub           Multiple pattern replacement.
+gregexprind           Get index of expression.
+mgrepl                Multiple pattern search.
+gghcl                 Create a color palette.
+lsall, rmall          List details from and remove all objects.
