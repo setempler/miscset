@@ -35,8 +35,8 @@ source code online at \href{http://github.com/svenetempler/miscset}{github}.
 To install the package call the command \texttt{install.packages("miscset")}
 within the R console or run \texttt{R CMD install miscset} from a terminal.
 To use it the \texttt{library} or \texttt{require} function load the package.
-For the most recent version use \textttt{install_github} from the package
-\textttt{devtools} with the parameters \textttt{repo='svenetempler/miscset'}.
+For the most recent version use \texttt{install\_github} from the package
+\texttt{devtools} with the parameters \texttt{repo='svenetempler/miscset'}.
 
 <<>>=
 require(miscset)
