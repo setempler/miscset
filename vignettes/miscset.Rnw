@@ -53,7 +53,9 @@ to create a grid for which each unique combination is used to extract the
 rows in the \texttt{data.frame}. Multicore support is implemented by
 \texttt{mclapply}. The grid can be extracted by the function \texttt{levels}
 and a row binding of elements that can be coerced to data.frames is implemented
-in the method \texttt{as.data.frame}.
+in the method \texttt{as.data.frame}. If a \texttt{data.table} is preferred,
+the method \texttt{as.data.table} is implemented and works only if the package
+is installed.
 
 <<>>==
 f <- function (x) c(conc.diff = diff(range(x$conc)), uptake.sum=sum(x$uptake))
