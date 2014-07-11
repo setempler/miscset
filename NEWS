@@ -1,5 +1,10 @@
 NEWS
 
+++ miscset v 0.3.1 ++ 
+
+vignette bugfix
+vignette added as.data.table.gapply
+
 ++ miscset v 0.3 ++ 
 
 function added: as.data.table.gapply
