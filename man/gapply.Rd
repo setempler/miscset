@@ -58,6 +58,6 @@ as.data.frame(d)
 Sven E. Templer (\email{sven.templer@gmail.com})
 }
 \seealso{
-\link{mclapply}, \link{setkeyv}
+\link{mclapply}, \link[data.table]{setkeyv}
 }
 

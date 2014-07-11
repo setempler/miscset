@@ -20,7 +20,7 @@
 #' @param keyv Character vector for \code{data.table} keys.
 #' 
 #' @seealso
-#' \link{mclapply}, \link{setkeyv}
+#' \link{mclapply}, \link[data.table]{setkeyv}
 #' @examples
 #' #
 #' 
