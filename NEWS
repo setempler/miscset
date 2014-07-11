@@ -1,5 +1,9 @@
 NEWS
 
+++ miscset v 0.3 ++ 
+
+function added: as.data.table.gapply
+
 ++ miscset v 0.2.2 ++ 
 
 added file: INDEX
