@@ -25,18 +25,11 @@ opts_chunk$set(concordance=TRUE)
 
 \section{Introduction}
 
-The package \textbf{miscset} provides several R tools to read, create, modify
-and write different types of data. In the following examples, all available
-functions will be presented including explanations of their usage. Find the
-source code online at \href{http://github.com/svenetempler/miscset}{github}.
+The package \textbf{miscset} provides several R tools to read, create, modify and write different types of data. In the following examples, all available functions will be presented including explanations of their usage. Find the source code online at \href{http://github.com/setempler/miscset}{github}.
 
 \section{Installation}
 
-To install the package call the command \texttt{install.packages("miscset")}
-within the R console or run \texttt{R CMD install miscset} from a terminal.
-To use it the \texttt{library} or \texttt{require} function load the package.
-For the most recent version use \texttt{install\_github} from the package
-\texttt{devtools} with the parameters \texttt{repo='svenetempler/miscset'}.
+To install the package call the command \texttt{install.packages("miscset")} within the R console or run \texttt{R CMD INSTALL miscset} from a terminal. To use it the \texttt{library} or \texttt{require} function load the package. For the most recent version use the package \texttt{devtools} with the function \texttt{install\_github(repo='setempler/miscset')} from the package with the parameters \texttt{}.
 
 <<>>=
 require(miscset)
@@ -48,14 +41,7 @@ require(miscset)
 
 \subsection{Apply a function on a data.frame by a grid - \texttt{gapply}}
 
-To apply a function on a subset of a dataset, all named columns are used
-to create a grid for which each unique combination is used to extract the
-rows in the \texttt{data.frame}. Multicore support is implemented by
-\texttt{mclapply}. The grid can be extracted by the function \texttt{levels}
-and a row binding of elements that can be coerced to data.frames is implemented
-in the method \texttt{as.data.frame}. If a \texttt{data.table} is preferred,
-the method \texttt{as.data.table} is implemented and works only if the package
-is installed.
+To apply a function on a subset of a dataset, all named columns are used to create a grid for which each unique combination is used to extract the rows in the \texttt{data.frame}. Multicore support is implemented by \texttt{mclapply}. The grid can be extracted by the function \texttt{levels} and a row binding of elements that can be coerced to data.frames is implemented in the method \texttt{as.data.frame}. If a \texttt{data.table} is preferred, the method \texttt{as.data.table} is implemented and works only if the package is installed.
 
 <<>>==
 f <- function (x) c(conc.diff = diff(range(x$conc)), uptake.sum=sum(x$uptake))
@@ -68,8 +54,7 @@ head(as.data.frame(d))
 
 \subsection{Generate triangular numbers - \texttt{ntri}}
 
-The function generates a series of triangular numbers of length \texttt{n}
-according to \href{https://oeis.org/A000217}{oeis.org}.
+The function generates a series of triangular numbers of length \texttt{n} according to \href{https://oeis.org/A000217}{oeis.org}.
 
 <<>>=
 ntri(12)
@@ -89,9 +74,7 @@ scale0(2:3)
 
 \subsection{Transform to squared matrix - \texttt{squarematrix}}
 
-The function \texttt{squarematrix} can generate a symmetric (square) matrix
-from an unsymmetric matrix by using the column and row names and filling empty
-pairs with \texttt{NA}.
+The function \texttt{squarematrix} can generate a symmetric (square) matrix from an unsymmetric matrix by using the column and row names and filling empty pairs with \texttt{NA}.
 
 <<>>=
 M <- matrix(1:6, 2, dimnames = list(2:3,1:3))
@@ -101,10 +84,7 @@ squarematrix(M)
 
 \subsection{Generate a pairwise list - \texttt{enpaire}}
 
-The function \texttt{enpaire} creates a pairwise list of matrix values. The result
-is a \texttt{data.frame} that containsa column for the names of each dimension and
-the upper and lower triangle values. Unsymmetric matrices are transformed by
-\texttt{squarematrix} (see previous section).
+The function \texttt{enpaire} creates a pairwise list of matrix values. The result is a \texttt{data.frame} that containsa column for the names of each dimension and the upper and lower triangle values. Unsymmetric matrices are transformed by \texttt{squarematrix} (see previous section).
 
 <<>>=
 M <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
@@ -116,24 +96,9 @@ enpaire(M)
 
 \subsection{Create a latex document containing a table - \texttt{textable}}
 
-This function enhances the functionality of the \texttt{xtable} function from
-the similar named package. The output of \texttt{xtable} is captured, processed
-and then written to a file. The file contains also latex header for an A4
-portrait or landscape article. The function is called with the following
-syntax: \texttt{textable(d, file, caption, rownames, landscape, pt.size,
-margin, digits, align, label)}
+This function enhances the functionality of the \texttt{xtable} function from the similar named package. The output of \texttt{xtable} is captured, processed and then written to a file. The file contains also latex header for an A4 portrait or landscape article. The function is called with the following syntax: \texttt{textable(d, file, caption, rownames, landscape, pt.size, margin, digits, align, label)}
 
-\texttt{file} is a character string with the name to the file of the function
-output. \texttt{caption} is a character string with the table's title.
-\texttt{rownames} is logical and allows to switch printing of row names on
-and off. \texttt{landscape} is logical for the orientation of the page,
-\texttt{pt.size} uses an integer value to define the size of the characters.
-\texttt{margin} sets a margin between page and table borders in cm.
-\texttt{digits} defines the number of digits to print for numeric values.
-With \texttt{align} the column alignements can be set. Either a single value
-or a value for the row names column plus each column in \texttt{d}.
-The possible values are \texttt{'r', 'c', 'l'} for alignemt to the right,
-center or left.
+\texttt{file} is a character string with the name to the file of the function output. \texttt{caption} is a character string with the table's title. \texttt{rownames} is logical and allows to switch printing of row names on and off. \texttt{landscape} is logical for the orientation of the page, \texttt{pt.size} uses an integer value to define the size of the characters. \texttt{margin} sets a margin between page and table borders in cm. \texttt{digits} defines the number of digits to print for numeric values. With \texttt{align} the column alignements can be set. Either a single value or a value for the row names column plus each column in \texttt{d}. The possible values are \texttt{'r', 'c', 'l'} for alignemt to the right, center or left.
 
 <<>>==
 textable(head(trees,3), rownames=T, digits=4, align='c', caption='R dataset "trees".')
@@ -143,10 +108,7 @@ textable(head(trees,3), rownames=T, digits=4, align='c', caption='R dataset "tre
 
 \subsection{Prepend zeroes to unify number lengths - \texttt{leading0}}
 
-The function \texttt{leading0} aims to create e.g. index names with a common
-string length. It creates character strings from numeric values while attaching
-\texttt{0} in front of the number up to a certain length of total digits of
-each string.
+The function \texttt{leading0} aims to create e.g. index names with a common string length. It creates character strings from numeric values while attaching \texttt{0} in front of the number up to a certain length of total digits of each string.
 
 <<>>=
 paste0("page", leading0(8:10, 3))
@@ -154,8 +116,7 @@ paste0("page", leading0(8:10, 3))
 
 \subsection{Extract substrings by pattern - \texttt{strextr}}
 
-The function \texttt{strextr} splits strings in a character vector by
-\texttt{sep} and extracts all substrings matching a given \texttt{pattern}.
+The function \texttt{strextr} splits strings in a character vector by \texttt{sep} and extracts all substrings matching a given \texttt{pattern}.
 
 <<>>=
 s <- c("a1 b1 c1", "a2 b2", "aa a1", "aa", "b1 a1", "bb ab a1")
@@ -167,9 +128,7 @@ strextr(s, "^[c][[:digit:]]$")
 
 \subsection{Extract substrings by splitting - \texttt{strpart}}
 
-Similar to \texttt{strextr} the function \texttt{strpart} supplies a method to
-extract a substring, but by defining the \texttt{n}th part of the string split
-by the separator given in \texttt{sep}.
+Similar to \texttt{strextr} the function \texttt{strpart} supplies a method to extract a substring, but by defining the \texttt{n}th part of the string split by the separator given in \texttt{sep}.
 
 <<>>=
 s
@@ -188,10 +147,7 @@ strrev(s)
 
 \subsection{Multiple pattern replacement - \texttt{msub}, \texttt{mgsub}}
 
-\texttt{msub} and \texttt{mgsub} behave like \texttt{sub} and \texttt{gsub} but
-they replace multiple patterns. Replacement is done in order of the pattern
-input, and multicore support is enabled by \texttt{mclapply} from the parallel
-package.
+\texttt{msub} and \texttt{mgsub} behave like \texttt{sub} and \texttt{gsub} but they replace multiple patterns. Replacement is done in order of the pattern input, and multicore support is enabled by \texttt{mclapply} from the parallel package.
 
 <<>>=
 s
@@ -212,9 +168,7 @@ gregexprind("a", s, "last")
 
 \subsection{Multiple pattern search - \texttt{mgrepl}}
 
-With \texttt{mgrepl(patterns, text, ...)} you can search for more than one
-regular expression, and use a logical function to combine the results for each
-single expression.
+With \texttt{mgrepl(patterns, text, ...)} you can search for more than one regular expression, and use a logical function to combine the results for each single expression.
 
 <<>>=
 s
@@ -226,8 +180,7 @@ mgrepl(c("a","b"), s, all)
 
 \subsection{Create a color palette - \texttt{gghcl}}
 
-\texttt{gghcl()} creates color palettes. It enhances the \texttt{hcl} function.
-See some examples:
+\texttt{gghcl()} creates color palettes. It enhances the \texttt{hcl} function. See some examples:
 
 <<label=fig1, echo=FALSE, fig.width=3, fig.height=4, fig.align='center'>>=
 par(mfrow = c(3,1), mai = c(.1,.1,.5,.1))
@@ -243,10 +196,7 @@ rm(pts)
 \subsection{List details from and remove all objects - \texttt{lsall},
 \texttt{rmall}}
 
-With \texttt{lsall(envir, ...)} all object names, their length, class, mode and
-size is returned in a data.frame from a specified environment.
-\texttt{rmall(...)} removes the complete list of objects at the global
-environment.
+With \texttt{lsall(envir, ...)} all object names, their length, class, mode and size is returned in a data.frame from a specified environment. \texttt{rmall(...)} removes the complete list of objects at the global environment.
 
 <<>>=
 lsall()
