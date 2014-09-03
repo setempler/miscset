@@ -14,6 +14,11 @@
 
 NULL
 
+#' @importFrom parallel mclapply
+#' @importFrom xtable xtable
+#' @importFrom data.table as.data.table setkeyv
+#' @importFrom gridExtra grid.arrange
+
 .onAttach <- function(libname, pkgname) {
   if (interactive()) { packageStartupMessage(
     'Package miscset version ',
