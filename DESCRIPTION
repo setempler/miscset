@@ -16,6 +16,7 @@ Imports:
     xtable
 LinkingTo: Rcpp
 Suggests:
-    knitr
+    knitr,
+		ggplot2
 VignetteBuilder: knitr
 URL: https://github.com/setempler/miscset

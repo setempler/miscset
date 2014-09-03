@@ -208,7 +208,7 @@ image(matrix(1:5, 1), col = gghcl(10, 1:5), axes = F, main ="gghcl(10, 1:5)")
 
 Currently there is no example available in the vignette due to CRAN error check and \texttt{ggplot2} library incompatibilites. You can try this code to see the results:
 
-<<label=fig_ggplotlist, eval=FALSE, fig.width=6, fig.height=3, fig.align='center'>>=
+<<label=fig_ggplotlist, eval=TRUE, fig.width=6, fig.height=3, fig.align='center'>>=
 library(ggplot2)
 gg1 <- ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,col=b)) + geom_line()
 gg2 <- ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,shape=factor(b))) + geom_point()
