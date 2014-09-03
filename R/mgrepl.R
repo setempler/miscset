@@ -40,7 +40,6 @@
 #' 
 #' #
 #' @name mgrepl
-#' @importFrom parallel mclapply
 #' @keywords multiple grep sub gsub
 #' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 

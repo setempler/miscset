@@ -30,7 +30,6 @@
 #' 
 #' #
 #' @name textable
-#' @importFrom xtable xtable
 #' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @rdname textable
