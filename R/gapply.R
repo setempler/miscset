@@ -8,7 +8,8 @@
 #' 
 #' The output of \code{gapply} is a list inheriting from the S3 class gapply which stores
 #' the grid of the original data. Support for subsetting grid entries is not yet
-#' supported.
+#' supported. The function \code{fun} receives the subset of the data frame as
+#' first argument.
 #' 
 #' @param d A data.frame or data.table object.
 #' @param by A character vector with colnames for the grid to subset.
@@ -35,7 +36,7 @@
 #' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export gapply
-gapply <- function (d, by, fun, ..., drop = F, cores = 1) {
+gapply <- function (d, by, fun, ..., drop = TRUE, cores = 1) {
   fun <- match.fun(fun)
   d <- as.data.frame(d, stringsAsFactors=F)
   gr <- lapply(d[,by,drop=F], unique)
@@ -98,7 +99,7 @@ as.data.frame.gapply <- function (x, ...) {
 #' @method as.data.table gapply
 as.data.table.gapply <- function (x, keyv = NULL, ...) {
   if (!require(data.table))
-    stop("Package data.table not installed.")
+    stop("Package data.table not installed. Use as.data.frame.")
   ret <- as.data.table(as.data.frame(x, ...))
   if (!is.null(keyv))
     setkeyv(ret, keyv)
