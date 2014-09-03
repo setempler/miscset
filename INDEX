@@ -1,38 +1,33 @@
-Apply Functions
-
-gapply                Apply a function on a data.frame by a grid.
-
-Numeric Functions
+Numeric
 
 ntri                  Generate triangular numers.
 scale0                Scale numeric vectors.
 
-Data Formatting
+Conversions
 
 squarematrix          Transorm to squared matrix.
 enpaire               Generate a pairwise list.
 
-Data Exporting
+Data and System
 
+gapply                Apply a function on a data.frame by a grid.
+as.data.frame, as.data.table
+                      Convert gapply results back to data.frames.
 textable              Create a latex document containing a table.
+lload                 Load objects from R data files into a list.
+lsall, rmall          List details from and remove all objects.
 
-String Manipulation
+Strings and Pattern
 
 leading0              Prepend zeroes to unify number lengths.
 strextr               Extract substrings by pattern.
 strpart               Extract substrings by splitting.
 strrev                Reverse strings.
 msub, mgsub           Multiple pattern replacement.
-
-Pattern Matching
-
 gregexprind           Get index of expression.
 mgrepl                Multiple pattern search.
 
-Graphical Tools
+Graphics
 
 gghcl                 Create a color palette.
-
-System Tools
-
-lsall, rmall          List details from and remove all objects.
+ggplotlist            Plot a list containing ggplot objects.
