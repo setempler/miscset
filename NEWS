@@ -1,9 +1,17 @@
 NEWS
 
+++ miscset v 0.4 ++ 
+
+function added: ggplotlist
+function added: lload
+vignette added: ggplotlist and lload
+vignette improved: merged chapters
+file dropped: INDEX
+
 ++ miscset v 0.3.1 ++ 
 
 vignette bugfix
-vignette added as.data.table.gapply
+vignette added: as.data.table.gapply
 
 ++ miscset v 0.3 ++ 
 
@@ -11,7 +19,7 @@ function added: as.data.table.gapply
 
 ++ miscset v 0.2.2 ++ 
 
-added file: INDEX
+file added: INDEX
 function fixed: gapply dropped dimensions
 vignette added: install via github
 
