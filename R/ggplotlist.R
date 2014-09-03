@@ -13,11 +13,12 @@
 #' @examples
 #' #
 #' 
+#' \dontrun{
 #' library(ggplot2)
 #' x <- list(
 #'   ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,col=b)) + geom_line(),
 #'   ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,shape=factor(b))) + geom_point())
-#' ggplotlist(x, 2)
+#' ggplotlist(x, 2)}
 #' 
 #' #
 #' @name ggplotlist
