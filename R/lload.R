@@ -3,9 +3,11 @@
 #' Load multiple .RData files and return a (simplified) list.
 #' 
 #' @param path Character string with the path, as used in \link{list.files}.
-#' @param pattern A regular expression for file name patterns, as used in \link{list.files}.
+#' @param pattern A regular expression for file name patterns, as used in
+#' \link{list.files}.
 #' @param recursive Logical. Search the path recursive.
 #' @param simplify Logical, unlist when there are only unique object names.
+#' @param verbose Logical. Print information on screen about loading process.
 #' @return
 #' Returns a list of length n, when there are n data files loaded. All objects
 #' are stored in sublists. Names are according to files, and names of sublists
