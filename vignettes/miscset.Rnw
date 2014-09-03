@@ -29,26 +29,13 @@ The package \textbf{miscset} provides several R tools to read, create, modify an
 
 \section{Installation}
 
-To install the package call the command \texttt{install.packages("miscset")} within the R console or run \texttt{R CMD INSTALL miscset} from a terminal. To use it the \texttt{library} or \texttt{require} function load the package. For the most recent version use the package \texttt{devtools} with the function \texttt{install\_github(repo='setempler/miscset')} from the package with the parameters \texttt{}.
+To install the package call the command \texttt{install.packages("miscset")} within the R console or run \texttt{R CMD INSTALL miscset} from a terminal. To use it the \texttt{library} or \texttt{require} function load the package. For the most recent version use: \texttt{install\_github(repo='setempler/miscset')} from the package \texttt{devtools}.
 
 <<>>=
 require(miscset)
 @
 
 \part{Functions}
-
-\section{Apply Functions}
-
-\subsection{Apply a function on a data.frame by a grid - \texttt{gapply}}
-
-To apply a function on a subset of a dataset, all named columns are used to create a grid for which each unique combination is used to extract the rows in the \texttt{data.frame}. Multicore support is implemented by \texttt{mclapply}. The grid can be extracted by the function \texttt{levels} and a row binding of elements that can be coerced to data.frames is implemented in the method \texttt{as.data.frame}. If a \texttt{data.table} is preferred, the method \texttt{as.data.table} is implemented and works only if the package is installed.
-
-<<>>==
-f <- function (x) c(conc.diff = diff(range(x$conc)), uptake.sum=sum(x$uptake))
-d <- gapply(CO2, c('Type', 'Treatment'), f)
-levels(d)
-head(as.data.frame(d))
-@
 
 \section{Numeric Functions}
 
@@ -70,7 +57,20 @@ scale0(-1:3)
 scale0(2:3)
 @
 
-\section{Data Formatting}
+\newpage
+
+\section{Data and System}
+
+\subsection{Apply a function on a data.frame by a grid - \texttt{gapply}}
+
+To apply a function on a subset of a dataset, all named columns are used to create a grid for which each unique combination is used to extract the rows in the \texttt{data.frame}. Multicore support is implemented by \texttt{mclapply}. The grid can be extracted by the function \texttt{levels} and a row binding of elements that can be coerced to data.frames is implemented in the method \texttt{as.data.frame}. If a \texttt{data.table} is preferred, the method \texttt{as.data.table} is implemented and works only if the package is installed.
+
+<<>>==
+f <- function (x) c(conc.diff = diff(range(x$conc)), uptake.sum=sum(x$uptake))
+d <- gapply(CO2, c('Type', 'Treatment'), f)
+levels(d)
+head(as.data.frame(d))
+@
 
 \subsection{Transform to squared matrix - \texttt{squarematrix}}
 
@@ -92,8 +92,6 @@ M
 enpaire(M)
 @
 
-\section{Data Exporting}
-
 \subsection{Create a latex document containing a table - \texttt{textable}}
 
 This function enhances the functionality of the \texttt{xtable} function from the similar named package. The output of \texttt{xtable} is captured, processed and then written to a file. The file contains also latex header for an A4 portrait or landscape article. The function is called with the following syntax: \texttt{textable(d, file, caption, rownames, landscape, pt.size, margin, digits, align, label)}
@@ -104,7 +102,24 @@ This function enhances the functionality of the \texttt{xtable} function from th
 textable(head(trees,3), rownames=T, digits=4, align='c', caption='R dataset "trees".')
 @
 
-\section{Text String Manipulation}
+\subsection{List details from and remove all objects - \texttt{lsall},
+\texttt{rmall}}
+
+With \texttt{lsall(envir, ...)} all object names, their length, class, mode and size is returned in a data.frame from a specified environment. \texttt{rmall(...)} removes the complete list of objects at the global environment.
+
+<<>>=
+lsall()
+rmall()
+lsall()
+@
+
+\subsection{Load objects from R data files into a list - \texttt{lload}}
+
+\texttt{lload} provides a way to load R objects from multiple R data files and stores all objects in a list. Thereby, the list names are respective to the R data files. Each entry consists of a sublist with as many entries as objects were loaded from the according R data file. The sublist names are the same as the object names that are stored. If \texttt{simplify=TRUE} is given, all object (sublist) names are checked for duplicates, and if none are found, the list is reduced in one level, dropping the file level.
+
+\newpage
+
+\section{Strings and Patterns}
 
 \subsection{Prepend zeroes to unify number lengths - \texttt{leading0}}
 
@@ -155,8 +170,6 @@ msub("A", "X", s)
 mgsub("A", "X", s)
 @
 
-\section{Pattern Matching}
-
 \subsection{Get index of expression - \texttt{gregexprind}}
 
 <<>>=
@@ -176,32 +189,30 @@ mgrepl(c("a","b"), s, any)
 mgrepl(c("a","b"), s, all)
 @
 
-\section{Graphical Tools}
+\newpage
+
+\section{Graphics}
 
 \subsection{Create a color palette - \texttt{gghcl}}
 
 \texttt{gghcl()} creates color palettes. It enhances the \texttt{hcl} function. See some examples:
 
-<<label=fig1, echo=FALSE, fig.width=3, fig.height=4, fig.align='center'>>=
-par(mfrow = c(3,1), mai = c(.1,.1,.5,.1))
-pts <- matrix(1:10, 10)
-image(pts, col = gghcl(5), axes = F, main ="gghcl(5)")
-image(pts, col = gghcl(10), axes = F, main = "gghcl(10)")
-image(pts, col = gghcl(10, 1:5), axes = F, main ="gghcl(10, 1:5)")
-rm(pts)
+<<label=fig_gghcl, echo=FALSE, fig.width=6, fig.height=3, fig.align='center'>>=
+par(mfrow = c(1,3), mai = c(.1,.5,.5,.1))
+image(matrix(1:5, 1), col = gghcl(5), axes = F, main ="gghcl(5)")
+image(matrix(1:10, 1), col = gghcl(10), axes = F, main = "gghcl(10)")
+image(matrix(1:5, 1), col = gghcl(10, 1:5), axes = F, main ="gghcl(10, 1:5)")
 @
 
-\section{System Tools}
+\subsection{Arrange a list of ggplots in a grid - \texttt{ggplotlist}}
 
-\subsection{List details from and remove all objects - \texttt{lsall},
-\texttt{rmall}}
+Currently there is no example available in the vignette due to CRAN error check and \texttt{ggplot2} library incompatibilites. You can try this code to see the results:
 
-With \texttt{lsall(envir, ...)} all object names, their length, class, mode and size is returned in a data.frame from a specified environment. \texttt{rmall(...)} removes the complete list of objects at the global environment.
-
-<<>>=
-lsall()
-rmall()
-lsall()
+<<label=fig_ggplotlist, eval=FALSE, fig.width=6, fig.height=3, fig.align='center'>>=
+library(ggplot2)
+gg1 <- ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,col=b)) + geom_line()
+gg2 <- ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,shape=factor(b))) + geom_point()
+ggplotlist(list(gg1, "abc", gg2), 2)
 @
 
 \end{document}
