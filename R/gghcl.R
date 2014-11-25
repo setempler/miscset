@@ -33,7 +33,7 @@
 #' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export gghcl
-gghcl <- function(n, sub = 1:n, h = c(0, 360) +15, c = 100, l = 65, ...) {
+gghcl <- function(n, sub = 1:n, h = c(0, 360) + 15, c = 100, l = 65, ...) {
   h <- seq(h[1], h[2], length = n+1)
   hcl(h, c, l, ...)[sub]  
 }
