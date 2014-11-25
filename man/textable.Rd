@@ -45,9 +45,10 @@ Returns a character vector invisible. If \code{file} is set, then the
 content is written to a file. Else it is printed to the console.
 }
 \description{
-This function enhances \code{xtable}. It can writes the latex code of the
+This function enhances \code{xtable}: It can write the latex code of the
 table directly to a file and optionally adds a header/footer for the
-document structure.
+document structure. Also a system command can be given to convert the
+tex file to a pdf document, for example.
 }
 \details{
 Example for a system call:\cr
