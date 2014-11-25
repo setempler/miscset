@@ -75,7 +75,7 @@ textable <- function (
 	if (missing(file))
 		file <- ""
 	cat(tex, file=file, sep='\n')
-  if (as.document && !is.null(cmd) && nchar(cmd)>0)
-    system(paste(cmd, file))
+  if (as.document && !missing(file) && nchar(file)>0 && !is.null(cmd) && nchar(cmd)>0)
+    system(paste(cmd, file), wait = FALSE)
 	invisible(tex)
 }
