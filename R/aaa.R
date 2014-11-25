@@ -21,7 +21,7 @@ NULL
 
 .onAttach <- function(libname, pkgname) {
   if (interactive()) { packageStartupMessage(
-    'Package miscset version ',
+    'miscset version ',
     as.character(packageVersion("miscset")),
-    '\nFor help and features: vignette("miscset")')
+    '| help and features: vignette("miscset")')
   } }
