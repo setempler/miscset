@@ -42,12 +42,12 @@ textable <- function (d, file, caption = NULL, rownames = FALSE, landscape = FAL
 		stop('pt.size must be 10, 11 or 12.')
 	if (!is.null(align) && length(align) == 1)
 		align <- rep(align, ncol(d)+1)
-  x <- capture.output(print(xtable(
-    d, digits=digits, align=align, label=label, caption=caption),
-    include.rownames = rownames))
-  orientation <- ''
-  if (landscape)
-    orientation <- 'landscape,'
+	x <- capture.output(print(xtable(
+    	d, digits=digits, align=align, label=label, caption=caption),
+    	include.rownames = rownames))
+	orientation <- ''
+	if (landscape)
+		orientation <- 'landscape,'
 	out <- paste0(
 		'\\documentclass[a4paper,', pt.size,
 		'pt]{article}\n\\usepackage[a4paper,',
@@ -55,9 +55,9 @@ textable <- function (d, file, caption = NULL, rownames = FALSE, landscape = FAL
 		'margin=',
 		margin,
 		'cm]{geometry}\n\\begin{document}\n') #\\small\n
-  out <- c(out, x, '\n\\end{document}\n')
-  if (missing(file))
-    file <- ""
-  cat(out, file=file, sep='\n')
+	out <- c(out, x, '\n\\end{document}\n')
+	if (missing(file))
+		file <- ""
+	cat(out, file=file, sep='\n')
 	invisible(NULL)
 }
