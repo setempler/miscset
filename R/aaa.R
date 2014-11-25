@@ -23,5 +23,5 @@ NULL
   if (interactive()) { packageStartupMessage(
     'miscset version ',
     as.character(packageVersion("miscset")),
-    '| help and features: vignette("miscset")')
+    ' | help and features: vignette("miscset")')
   } }
