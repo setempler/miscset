@@ -3,7 +3,7 @@
 #' Given a package name or string, start the package help index page
 #' in a browser.
 #' 
-#' @param pkg A character string or variable name of a package.
+#' @param pkg A character string or expression with the name of a package.
 #' @param browser A character string for a browser command to
 #' replace the option 'browser' with. Use the string "rstudio"
 #' for calling the internal browser in RStudio.
