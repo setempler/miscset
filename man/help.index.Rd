@@ -6,7 +6,7 @@
 help.index(pkg, browser = NA, encodeIfNeeded = FALSE)
 }
 \arguments{
-\item{pkg}{A character string or variable name of a package.}
+\item{pkg}{A character string or expression with the name of a package.}
 
 \item{browser}{A character string for a browser command to
 replace the option 'browser' with. Use the string "rstudio"
