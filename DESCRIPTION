@@ -17,6 +17,7 @@ Imports:
 LinkingTo: Rcpp
 Suggests:
     knitr,
-		ggplot2
+    ggplot2
 VignetteBuilder: knitr
 URL: https://github.com/setempler/miscset
+BugReports: https://github.com/setempler/miscset/issues
