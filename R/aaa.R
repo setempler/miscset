@@ -18,6 +18,7 @@ NULL
 #' @importFrom xtable xtable
 #' @importFrom data.table as.data.table setkeyv
 #' @importFrom gridExtra grid.arrange
+#' @importFrom tools startDynamicHelp
 
 .onAttach <- function(libname, pkgname) {
   if (interactive()) { packageStartupMessage(
