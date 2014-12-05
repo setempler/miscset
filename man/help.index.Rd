@@ -3,7 +3,7 @@
 \alias{help.index}
 \title{Open The Package Help Index Page in a Browser}
 \usage{
-help.index(pkg, browser = NA, encodeIfNeeded = FALSE, verbose = TRUE)
+help.index(pkg, browser = NA, encodeIfNeeded = FALSE)
 }
 \arguments{
 \item{pkg}{A character string or variable name of a package.}
@@ -14,9 +14,6 @@ for calling the internal browser in RStudio.}
 
 \item{encodeIfNeeded}{Logical value. \code{TRUE} to encode
 the url. Mostly not necessary. Read More at \link{browseURL}.}
-
-\item{verbose}{Logical value. \code{TRUE} to print a message with the
-package name and url.}
 }
 \description{
 Given a package name or string, start the package help index page
