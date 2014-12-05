@@ -8,4 +8,3 @@ src/*.dll
 vignettes/*
 !vignettes/*.Rnw
 !vignettes/*.pdf
-dev/*
