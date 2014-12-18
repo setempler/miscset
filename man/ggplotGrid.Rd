@@ -5,17 +5,15 @@
 \alias{ggplotlist}
 \title{Arrange a List of ggplots}
 \usage{
-ggplotlist(x, ncol = 1, path, width = 11, height = 8)
-
 ggplotGrid(l, path, ncol = 1, nrow = 1, width = 8, height = 11,
   res = 300, pdf.cairo = TRUE, onefile = TRUE, ...)
 
 ggplotGridA4(l, path, ncol = 2, nrow = 1, wide = TRUE)
+
+ggplotlist(x, ncol = 1, path, width = 11, height = 8)
 }
 \arguments{
-\item{x}{A list containing at least one ggplot object of class \code{gg}.}
-
-\item{ncol}{Number of columns.}
+\item{l}{List with ggplot objects.}
 
 \item{path}{Plot to file of type pdf or png. Determine type by
 path ending (.pdf or .png).\cr
@@ -23,13 +21,13 @@ Optional in \code{ggplotlist}: A character string that gives the path to export
 the plot to a file, ending with 'pdf' or 'png' (case insensitive). If
 missing, then the grid is returned to the current graphic device.}
 
+\item{ncol}{Number of columns.}
+
+\item{nrow}{Number of rows per page, only for pdfs.}
+
 \item{width}{For pdfs/pngs the width in inches, else ignored.}
 
 \item{height}{For pdfs/pngs the height in inches, else ignored.}
-
-\item{l}{List with ggplot objects.}
-
-\item{nrow}{Number of rows per page, only for pdfs.}
 
 \item{res}{Resolution in dpi for pngs.}
 
@@ -40,6 +38,8 @@ missing, then the grid is returned to the current graphic device.}
 \item{...}{Forwarded to cairo_pdf}
 
 \item{wide}{Wide format (11x8 in) pdf pages.}
+
+\item{x}{A list containing at least one ggplot object of class \code{gg}.}
 }
 \description{
 Arrange a list of ggplots with \link[gridExtra]{grid.arrange} and
