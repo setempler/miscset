@@ -5,7 +5,7 @@
 \alias{msub}
 \title{Multiple Pattern Matching and Replacement}
 \usage{
-mgrepl(patterns, text, log.fun = any, cores = 1, ...)
+mgrepl(patterns, text, log.fun = any, use.which = FALSE, cores = 1, ...)
 
 msub(patterns, replacement, text, ...)
 
@@ -20,6 +20,9 @@ mgsub(patterns, replacement, text, ...)
 \item{log.fun}{For \code{mgrepl}. Logical function (\code{any} or
 \code{all}) to evaluate occurence of each pattern in \code{patterns} in each
 value of \code{text}. Can also be custom. See examples.}
+
+\item{use.which}{Logical, \code{TRUE} to return an integer like \link{which}
+instead a logical vector.}
 
 \item{cores}{Numeric value for how many cores to use for computation using
 \code{mclapply}.}
@@ -49,6 +52,7 @@ vector by the order of
 # Compare different "log.fun" parameters:
 mgrepl(c("a","b"), c("ab","ac","bc"), any)
 mgrepl(c("a","b"), c("ab","ac","bc"), all)
+mgrepl(c("a","b"), c("ab","ac","bc"), all, use.which = TRUE)
 mgrepl(letters[1:3], c("ax","xab","xbc"), function (x) sum(x)>1)
 
 # Replace several patterns (gplobally):
