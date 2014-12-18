@@ -4,41 +4,34 @@
 #' in a browser.
 #' 
 #' @param pkg A character string or expression with the name of a package.
-#' @param browser A character string for a browser command to
-#' replace the option 'browser' with. Use the string "rstudio"
-#' for calling the internal browser in RStudio.
-#' @param encodeIfNeeded Logical value. \code{TRUE} to encode
-#' the url. Mostly not necessary. Read More at \link{browseURL}.
+#' @param browser The browser to display. \code{text} and \code{pdf} don't
+#' use a browser, but builtin text/pdf (help_type). Otherwise a character
+#' string for the browser program binary to call or function.
 #' @name help.index
 #' @keywords help index browser
 #' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export help.index
-help.index <- function (pkg, browser = NA, encodeIfNeeded = FALSE) {
+help.index <- function (pkg, browser = NULL) {
   
   pkg <- as.character(substitute(pkg))
-  hport <- tools:::httpdPort
-
-  if (!pkg %in% rownames(installed.packages()))
-    stop(paste("Package", pkg, "not found."))
+  ht <- getOption("help_type")
   
-  if (hport == 0) {
-    cat("Starting dynamic help.\n")
-    t <- try(startDynamicHelp(), silent = TRUE)
-    if (class(t) == "try-error")
-      stop("Could not start dynamic help.")
-    hport <- tools:::httpdPort
-  }
-
-  if (!is.na(browser)) {
-    if (tolower(browser) == "rstudio")
-        options(browser = function (x) .Call("rs_browseURL", url))
-      else
-        options(browser = browser)
+  if (!is.null(browser)) {
+    if (is.function(browser)) {
+      ht <- "html"
+      options(browser=browser)
+    } else if (is.character(browser)) {
+      ht <- switch(browser, text=, pdf=browser, "html")
+      browser <- switch(
+        browser,
+        html = getOption("browser"), 
+        rstudio = function (x) .Call("rs_browseURL", url), 
+        browser)
+      options(browser=browser)
+    }
   }
   
-  url <- paste0("http://127.0.0.1:", hport, "/library/", pkg, "/html/00Index.html")
-  browseURL(url, encodeIfNeeded = encodeIfNeeded)
-  invisible(NULL)
+  help(package = (pkg), help_type = ht)
   
 }
