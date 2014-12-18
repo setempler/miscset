@@ -1,6 +1,17 @@
 NEWS
 
-++ miscset v 0.4 ++ 
+++ miscset v 0.5 ++ 2014/12/19
+
+function added: help.index
+function added: scaler
+function added: plotn
+function added: ggplotGrid (will replace ggplotlist in future releases) with additional eps support
+function improved: mgrepl now optionally returns integer index instead of logical vector
+function improved: textable now can call system for pdf generation and optionally includes tex file header
+vignette: added new functions
+bugfix: suggesting and importing from ggplot2 for vignette/ggplotGrid
+
+++ miscset v 0.4 ++ 2014/09/03
 
 function added: ggplotlist
 function added: lload
@@ -8,22 +19,22 @@ vignette added: ggplotlist and lload
 vignette improved: merged chapters
 file dropped: INDEX
 
-++ miscset v 0.3.1 ++ 
+++ miscset v 0.3.1 ++ 2014/07/11
 
 vignette bugfix
 vignette added: as.data.table.gapply
 
-++ miscset v 0.3 ++ 
+++ miscset v 0.3 ++ 2014/07/11
 
 function added: as.data.table.gapply
 
-++ miscset v 0.2.2 ++ 
+++ miscset v 0.2.2 ++ 2014/07/11
 
 file added: INDEX
 function fixed: gapply dropped dimensions
 vignette added: install via github
 
-++ miscset v 0.2.1 ++ 
+++ miscset v 0.2.1 ++ 2014/06/12
 
 function fixed: lsall error for objects with multiple class inheritance
 
