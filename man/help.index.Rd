@@ -10,7 +10,7 @@ help.index(pkg, browser = NULL)
 
 \item{browser}{The browser to display. \code{text} and \code{pdf} don't
 use a browser, but builtin text/pdf (help_type). Otherwise a character
-or function for the browser.}
+string for the browser program binary to call or function.}
 }
 \description{
 Given a package name or string, start the package help index page
