@@ -36,36 +36,6 @@
 #' @name ggplotGrid
 #' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
-
-#' @rdname ggplotGrid
-#' @export ggplotlist
-ggplotlist <- function (x, ncol = 1, path, width = 11, height = 8) {
-  
-  warning("ggplotlist is deprecated. Use 'ggplotGrid' or 'ggplotGridA4'. See the help page.")
-  # check the classes
-  keep <- sapply(x, function(i) inherits(i, "gg"))
-  x <- x[keep]
-  if (!any(keep))
-    stop("Provide list with at least one ggplot.")
-  else if (!all(keep))
-    warning("Non-ggplot objects found and dropped.")
-  
-  # return
-  if (!missing(path)) {
-    type <- tolower(substr(path, nchar(path)-2, nchar(path)))
-    if (type == 'pdf')
-      pdf(path, width = width, height = height)
-    else if (type == 'png')
-      png(path, width = width, height = height, units = 'in', res = 300)
-    else
-      stop(paste0(type, ' is an invalid ending (use: pdf, png).'))
-  }
-  do.call(grid.arrange, c(x, ncol=ncol))
-  if (!missing(path)) dev.off()
-  invisible(NULL)
-  
-}
-
 #' @rdname ggplotGrid
 #' @export
 ggplotGrid <- function (l, path, ncol = 1, nrow = 1,
@@ -168,6 +138,35 @@ ggplotGridA4 <- function (l, path, ncol = 2, nrow = 1, wide = TRUE) {
     if (length(l) < 1) avail <- FALSE
   }
   dev.off()
+  invisible(NULL)
+  
+}
+
+#' @rdname ggplotGrid
+#' @export ggplotlist
+ggplotlist <- function (x, ncol = 1, path, width = 11, height = 8) {
+  
+  warning("ggplotlist is deprecated. Use 'ggplotGrid' or 'ggplotGridA4'. See the help page.")
+  # check the classes
+  keep <- sapply(x, function(i) inherits(i, "gg"))
+  x <- x[keep]
+  if (!any(keep))
+    stop("Provide list with at least one ggplot.")
+  else if (!all(keep))
+    warning("Non-ggplot objects found and dropped.")
+  
+  # return
+  if (!missing(path)) {
+    type <- tolower(substr(path, nchar(path)-2, nchar(path)))
+    if (type == 'pdf')
+      pdf(path, width = width, height = height)
+    else if (type == 'png')
+      png(path, width = width, height = height, units = 'in', res = 300)
+    else
+      stop(paste0(type, ' is an invalid ending (use: pdf, png).'))
+  }
+  do.call(grid.arrange, c(x, ncol=ncol))
+  if (!missing(path)) dev.off()
   invisible(NULL)
   
 }
