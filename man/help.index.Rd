@@ -3,17 +3,14 @@
 \alias{help.index}
 \title{Open The Package Help Index Page in a Browser}
 \usage{
-help.index(pkg, browser = NA, encodeIfNeeded = FALSE)
+help.index(pkg, browser = NULL)
 }
 \arguments{
 \item{pkg}{A character string or expression with the name of a package.}
 
-\item{browser}{A character string for a browser command to
-replace the option 'browser' with. Use the string "rstudio"
-for calling the internal browser in RStudio.}
-
-\item{encodeIfNeeded}{Logical value. \code{TRUE} to encode
-the url. Mostly not necessary. Read More at \link{browseURL}.}
+\item{browser}{The browser to display. \code{text} and \code{pdf} don't
+use a browser, but builtin text/pdf (help_type). Otherwise a character
+or function for the browser.}
 }
 \description{
 Given a package name or string, start the package help index page
