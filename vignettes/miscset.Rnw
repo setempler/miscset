@@ -19,7 +19,7 @@ opts_chunk$set(concordance=TRUE)
 
 \maketitle
 \tableofcontents
-\newpage
+
 
 \part{Preface}
 
@@ -47,17 +47,21 @@ The function generates a series of triangular numbers of length \texttt{n} accor
 ntri(12)
 @
 
-\subsection{Scale numeric vectors - \texttt{scale0}}
+\subsection{Scale numeric vectors - \texttt{scale0, scaler}}
 
-The function scales all values in a numeric vector from 0 to 1.
+The function \texttt{scale0} scales all values in a numeric vector from 0 to 1 according to their minimum and maximum values. \texttt{scaler} provides an argument (\texttt{r}) which lets you set the range to scale a vector to. Additionally, the minimum and maximum border can be specified with the argument \texttt{b}, so that vectors with different ranges can be compared on the same scale.
 
 <<>>=
-scale0(0:10)
-scale0(-1:3)
-scale0(2:3)
+do.call(rbind, list(
+  scale0 = scale0(0:5),
+  scale0_shift = scale0(-2:3),
+  scaler = scaler(0:5),
+  scaler_newrange = scaler(0:5, r = 1:2),
+  scaler_newbord = scaler(0:5, b = c(0, 10))))
 @
 
-\newpage
+
+
 
 \section{Data and System}
 
@@ -94,13 +98,16 @@ enpaire(M)
 
 \subsection{Create a latex document containing a table - \texttt{textable}}
 
-This function enhances the functionality of the \texttt{xtable} function from the similar named package. The output of \texttt{xtable} is captured, processed and then written to a file. The file contains also latex header for an A4 portrait or landscape article. The function is called with the following syntax: \texttt{textable(d, file, caption, rownames, landscape, pt.size, margin, digits, align, label)}
+This function enhances the functionality of the \texttt{xtable} function from the similar named package. The output of \texttt{xtable} is captured, processed and then written to a file. The file contains also latex header for an A4 portrait or landscape article. The function is called with the following syntax: \texttt{textable(d, file, caption, rownames, landscape, pt.size, margin, digits, align, label, cmd)}
 
-\texttt{file} is a character string with the name to the file of the function output. \texttt{caption} is a character string with the table's title. \texttt{rownames} is logical and allows to switch printing of row names on and off. \texttt{landscape} is logical for the orientation of the page, \texttt{pt.size} uses an integer value to define the size of the characters. \texttt{margin} sets a margin between page and table borders in cm. \texttt{digits} defines the number of digits to print for numeric values. With \texttt{align} the column alignements can be set. Either a single value or a value for the row names column plus each column in \texttt{d}. The possible values are \texttt{'r', 'c', 'l'} for alignemt to the right, center or left.
+\texttt{file} is a character string with the name to the file of the function output. \texttt{caption} is a character string with the table's title. \texttt{rownames} is logical and allows to switch printing of row names on and off. \texttt{landscape} is logical for the orientation of the page, \texttt{pt.size} uses an integer value to define the size of the characters. \texttt{margin} sets a margin between page and table borders in cm. \texttt{digits} defines the number of digits to print for numeric values. With \texttt{align} the column alignements can be set. Either a single value or a value for the row names column plus each column in \texttt{d}. The possible values are \texttt{'r', 'c', 'l'} for alignemt to the right, center or left. \texttt{label} allows to supply a latex label for reference in form of a vector of length one.
 
 <<>>==
-textable(head(trees,3), rownames=T, digits=4, align='c', caption='R dataset "trees".')
+textable(head(trees,3), rownames=T, digits=4, align='c', 
+         label='tab:trees', caption='R dataset "trees".')
 @
+
+In addition, a system command can be provided as a character string with \texttt{cmd} to create a pdf for example. An example therefore is \texttt{cmd = "pdflatex"}.
 
 \subsection{List details from and remove all objects - \texttt{lsall},
 \texttt{rmall}}
@@ -117,7 +124,7 @@ lsall()
 
 \texttt{lload} provides a way to load R objects from multiple R data files and stores all objects in a list. Thereby, the list names are respective to the R data files. Each entry consists of a sublist with as many entries as objects were loaded from the according R data file. The sublist names are the same as the object names that are stored. If \texttt{simplify=TRUE} is given, all object (sublist) names are checked for duplicates, and if none are found, the list is reduced in one level, dropping the file level.
 
-\newpage
+
 
 \section{Strings and Patterns}
 
@@ -181,15 +188,16 @@ gregexprind("a", s, "last")
 
 \subsection{Multiple pattern search - \texttt{mgrepl}}
 
-With \texttt{mgrepl(patterns, text, ...)} you can search for more than one regular expression, and use a logical function to combine the results for each single expression.
+With \texttt{mgrepl(patterns, text, ...)} you can search for more than one regular expression, and use a logical function to combine the results for each single expression. It returns a logical vector, or when \texttt{use.which = TRUE} an integer vector with the indices as in the base function \texttt{which}.
 
 <<>>=
 s
 mgrepl(c("a","b"), s, any)
 mgrepl(c("a","b"), s, all)
+mgrepl(c("a","b"), s, all, use.which = TRUE)
 @
 
-\newpage
+
 
 \section{Graphics}
 
@@ -204,15 +212,31 @@ image(matrix(1:10, 1), col = gghcl(10), axes = F, main = "gghcl(10)")
 image(matrix(1:5, 1), col = gghcl(10, 1:5), axes = F, main ="gghcl(10, 1:5)")
 @
 
+\subsection{Arrange a list of ggplots in a grid - \texttt{ggplotGrid, ggplotGridA4}}
+
+\texttt{ggplotGrid} arranges your \texttt{ggplot} objects in a grid and optionally sends them to a graphics device such as \texttt{pdf/ps/svg/png/eps} for export to a file.
+
+<<label=fig_ggplotgrid, eval=TRUE, fig.width=6, fig.height=3, fig.align='center'>>=
+library(ggplot2)
+d <- data.frame(a=1:5, b=1:5)
+gg1 <- ggplot(d, aes(x=a, y=b)) + geom_line()
+gg2 <- ggplot(d, aes(x=a, y=b)) + geom_point()
+ggplotGrid(list(gg1, gg2), ncol = 2)
+@
+
+\subsection{Create an empty plot - \texttt{plotn}}
+
+To produce nothing but a plot, use \texttt{plotn}:
+
+<<label=fig_plotn, eval=TRUE, fig.width=3, fig.height=3, fig.align='center'>>=
+plotn(1)
+abline(0,1)
+@
+
+\section{Deprecated}
+
 \subsection{Arrange a list of ggplots in a grid - \texttt{ggplotlist}}
 
-Currently there is no example available in the vignette due to CRAN error check and \texttt{ggplot2} library incompatibilites. You can try this code to see the results:
-
-<<label=fig_ggplotlist, eval=TRUE, fig.width=6, fig.height=3, fig.align='center'>>=
-library(ggplot2)
-gg1 <- ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,col=b)) + geom_line()
-gg2 <- ggplot(data.frame(a=1:5,b=1:5), aes(x=a,y=b,shape=factor(b))) + geom_point()
-ggplotlist(list(gg1, "abc", gg2), 2)
-@
+The function \texttt{ggplotlist} is deprecated and will be dropped in future releases. Please use \texttt{ggplotGrid} as replacement.
 
 \end{document}
