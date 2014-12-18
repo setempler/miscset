@@ -101,8 +101,11 @@ ggplotGrid <- function (l, path, ncol = 1, nrow = 1,
       pdf(path, width = width, height = height)
     else if (type == 'png')
       png(path, width = width, height = height, units = 'in', res = res)
-    else
-      stop(paste0('.', type, ' is an invalid ending, use: .pdf or .png.'))
+    else if (type == "eps") {
+      setEPS()
+      postscript(file = path, width = width, height = height, ...)
+    } else
+      stop(paste0('.', type, ' is an invalid ending, use: .pdf .png .eps .svg or .ps.'))
   }
   
   if (type == 'pdf') {
