@@ -13,11 +13,11 @@ Imports:
     data.table,
     gridExtra,
     Rcpp (>= 0.11.1),
-    xtable
+    xtable,
+    ggplot2
 LinkingTo: Rcpp
 Suggests:
-    knitr,
-    ggplot2
+    knitr
 VignetteBuilder: knitr
 URL: https://github.com/setempler/miscset
 BugReports: https://github.com/setempler/miscset/issues
