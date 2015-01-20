@@ -5,26 +5,7 @@ Version: 0.5.1
 Date: 2014-12-19
 Author: Sven E. Templer
 Maintainer: Sven E. Templer <sven.templer@gmail.com>
-Description: The package provides miscellaneous functions to transform
-    numerical or character data, to support graphics and system tasks and to
-    ease data type modifications. Numeric functions include the generation of
-    triangular numbers and scaling of values to a defined range. Character
-    strings can be modified to e.g. prepend zeroes to numbers, extract
-    substrings by pattern or field or to reverse strings. Searching and
-    replacing text for multiple patterns is provided including multicore usage
-    supplied by the 'parallel' package. Plotting tools include a simplified
-    version to obtain a colour palette from a chromatic circle. A quick way to
-    create an empty plot is implemented as well as the support for plotting a
-    grid of ggplot objects and export it to different graphic devices / file
-    formats. Data type transformation functions provide ways to apply functions
-    to a subset / grid of data.frames with multicore support. Matrices can be
-    extended by their dimension names to squared matrices. Lower and upper
-    triangles can be transformed to a data.frame containing also dimension
-    labels. System tasks include the listing of all workspace objects with
-    their properties as a data.frame and the removal of all objects in a
-    workspace. To load several R data files, a function is implemented that
-    imports multiple files situated in (sub)folders by pattern matching into a
-    list object.
+Description: The package provides miscellaneous functions to simplify R workspace and data life. For example, one can scale numbers by a range, or use enhanced functions with regular expression and string operations. Latex tables, just empty plots or arrangements of ggplots can be exported. Reshaping of matrices or applying functions by grids on data.tables is supported. In addition, workspace objects can be listed or removed more user friendly and multiple RData objects can be loaded into a list at once. For faster computation, some functions import multicore support from the parallel package. Also C++ is used for performance included by the package Rcpp.
 License: GPL-3
 Imports:
     parallel,
