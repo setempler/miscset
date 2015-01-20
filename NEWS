@@ -1,6 +1,6 @@
 NEWS
 
-++ miscset v 0.5.2 ++ 2014/12/19
+++ miscset v 0.5.1 ++ 2014/12/19
 
 more verbose description of package added as suggested by CRAN/Uwe Ligges
 function improved: textable, with caption before table (optional)
