@@ -86,6 +86,8 @@ textable <- function (
   if (topcapt) {
     tex <- precapt(tex)
   }
+  tex <- c(paste("% output by function 'textable' from package miscset", 
+                 as.character(packageVersion("miscset"))), tex)
   if (as.document) {
     if (!pt.size %in% 10:12)
       stop('pt.size must be 10, 11 or 12.')
