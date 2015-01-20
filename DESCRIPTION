@@ -2,7 +2,7 @@ Package: miscset
 Type: Package
 Title: Miscellaneous Tools Set
 Version: 0.5.1
-Date: 2014-12-19
+Date: 2015-01-21
 Author: Sven E. Templer
 Maintainer: Sven E. Templer <sven.templer@gmail.com>
 Description: The package provides miscellaneous functions to simplify R workspace and data life. For example, one can scale numbers by a range, or use enhanced functions with regular expression and string operations. Latex tables, just empty plots or arrangements of ggplots can be exported. Reshaping of matrices or applying functions by grids on data.tables is supported. In addition, workspace objects can be listed or removed more user friendly and multiple RData objects can be loaded into a list at once. For faster computation, some functions import multicore support from the parallel package. Also C++ is used for performance included by the package Rcpp.
