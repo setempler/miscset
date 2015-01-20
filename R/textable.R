@@ -32,7 +32,7 @@
 #' Only with \code{as.document=TRUE}.
 #' @param cmd A character vector with the system command to apply
 #' on the output file. Only if \code{file} is given and \code{as.document}
-#' is \code{TRUE}. \code{NULL} or an empty string does not call \link{system}.
+#' is \code{TRUE}. \code{NULL} or an empty string \link{system} is not called.
 #' @return
 #' Returns a character vector invisible. If \code{file} is set, then the
 #' content is written to a file. Else it is printed to the console.
