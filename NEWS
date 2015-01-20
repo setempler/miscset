@@ -1,5 +1,10 @@
 NEWS
 
+++ miscset v 0.5.2 ++ 2014/12/19
+
+more verbose description of package added as suggested by CRAN/Uwe Ligges
+function improved: textable, with caption before table (optional)
+
 ++ miscset v 0.5 ++ 2014/12/19
 
 function added: help.index
