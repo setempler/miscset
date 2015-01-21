@@ -19,9 +19,7 @@ opts_chunk$set(concordance=TRUE)
 
 \maketitle
 \tableofcontents
-
-
-\part{Preface}
+\newpage
 
 \section{Introduction}
 
@@ -34,8 +32,6 @@ To install the package call the command \texttt{install.packages("miscset")} wit
 <<>>=
 require(miscset)
 @
-
-\part{Functions}
 
 \section{Numeric Functions}
 
@@ -60,8 +56,13 @@ do.call(rbind, list(
   scaler_newbord = scaler(0:5, b = c(0, 10))))
 @
 
+\subsection{p values to *** converting - \texttt{p2star}}
 
+With this function, one can quickly convert a vector with p values to symbols reflecting ranges of significance. \texttt{symbols} and \texttt{breaks} can be modified. See the example:
 
+<<>>==
+p2star(c(1e-5,.1,.7))
+@
 
 \section{Data and System}
 
@@ -104,8 +105,8 @@ This function enhances the functionality of the \texttt{xtable} function from th
 \texttt{file} is a character string with the name to the file of the function output. \texttt{caption} is a character string with the table's title. It is aligned to the top of the table, when \texttt{topcapt} is \texttt{TRUE}, otherwise to the table bottom. \texttt{rownames} is logical and allows to switch printing of row names on and off. when \texttt{as.document} is \texttt{TRUE}, a document header is added. Then, \texttt{landscape} defines the orientation of the page, \texttt{pt.size} the size of the characters and \texttt{margin} the table borders in cm. \texttt{digits} sets the number of digits to print for numeric values. With \texttt{align} the column alignements can be set. It is either one of \texttt{'r', 'c', 'l'}, or a vector of those elements for alignemt to the right, center or left, repsectively (use \texttt{rep()} or \texttt{strplit()} as support). \texttt{label} allows to supply a latex label for reference in form of a vector of length one.
 
 <<>>==
-textable(head(trees,3), rownames=T, digits=4, align=strsplit("llrr","")[[1]], 
-         label='tab:trees', caption='R dataset "trees".')
+textable(head(trees,3), rownames = TRUE, digits=4, align=strsplit("llrr","")[[1]], 
+         as.document = TRUE, label='tab:trees', caption='R dataset "trees".')
 @
 
 In addition, a system command can be provided as a character string with \texttt{cmd} to create a pdf for example. An example therefore might be \texttt{cmd = "pdflatex"}.
