@@ -4,6 +4,8 @@ NEWS
 
 more verbose description of package added as suggested by CRAN/Uwe Ligges
 function improved: textable, with caption before table (optional)
+function added: p2star
+vignette: added new function and improved layout
 
 ++ miscset v 0.5 ++ 2014/12/19
 
