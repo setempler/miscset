@@ -23,15 +23,33 @@ opts_chunk$set(concordance=TRUE)
 
 \section{Introduction}
 
-The package \textbf{miscset} provides several R tools to read, create, modify and write different types of data. In the following examples, all available functions will be presented including explanations of their usage. Find the source code online at \href{http://github.com/setempler/miscset}{github}.
+The package \textbf{miscset} provides miscellaneous functions to simplify R workspace and data life. For example, one can scale numbers by a range, or use enhanced functions with regular expression and string operations. Latex tables, just empty plots or arrangements of ggplots can be exported. Reshaping of matrices or applying functions by grids on data.tables is supported. In addition, workspace objects can be listed or removed more user friendly and multiple RData objects can be loaded into a list at once. For faster computation, some functions import multicore support from the parallel package. Also C++ is used for performance included by the package Rcpp.
+In the following examples, all available functions will be presented including explanations of their usage. Find the source code online at \href{http://github.com/setempler/miscset}{github}.
 
 \section{Installation}
 
-To install the package call the command \texttt{install.packages("miscset")} within the R console or run \texttt{R CMD INSTALL miscset} from a terminal. To use it the \texttt{library} or \texttt{require} function load the package. For the most recent version use: \texttt{install\_github(repo='setempler/miscset')} from the package \texttt{devtools}.
+To install the package call the command 
 
-<<>>=
-require(miscset)
+<<eval=FALSE>>=
+install.packages("miscset")
 @
+
+within the R console or run \texttt{R CMD INSTALL /path/to/miscset} from a terminal in Linux/OSX. To use the most recent version install with:
+
+<<eval=FALSE>>=
+if (!require(devtools))
+  install.packages("devtools")
+library(devtools)
+install_github(repo='setempler/miscset')
+@
+
+To use it, the \texttt{library} or \texttt{require} function load the package. 
+
+<<message=TRUE, warning=TRUE>>=
+library(miscset)
+@
+
+\part{Usage}
 
 \section{Numeric Functions}
 
