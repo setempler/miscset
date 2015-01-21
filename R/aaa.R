@@ -23,7 +23,7 @@ NULL
 #' scale_y_discrete
 
 .onAttach <- function(libname, pkgname) {
-  if (interactive()) { packageStartupMessage(
+  if (TRUE) { packageStartupMessage( # interactive()
     'miscset version ',
     as.character(packageVersion("miscset")),
     ' | help and features: vignette("miscset")')
