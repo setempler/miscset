@@ -98,16 +98,17 @@ enpaire(M)
 
 \subsection{Create a latex document containing a table - \texttt{textable}}
 
-This function enhances the functionality of the \texttt{xtable} function from the similar named package. The output of \texttt{xtable} is captured, processed and then written to a file. The file contains also latex header for an A4 portrait or landscape article. The function is called with the following syntax: \texttt{textable(d, file, caption, rownames, landscape, pt.size, margin, digits, align, label, cmd)}
+This function enhances the functionality of the \texttt{xtable} function from the similar named package. The output of \texttt{xtable} is captured, processed and then written to a file. The file may contain also latex header for an A4 portrait or landscape article. The function is called with the following syntax: \texttt{textable(d, file, caption = NULL, label = NULL, align = NULL, rownames = FALSE, topcapt = TRUE, digits = NULL, as.document = FALSE, landscape = FALSE, margin = 2, pt.size = 10, cmd = NULL)
+}
 
-\texttt{file} is a character string with the name to the file of the function output. \texttt{caption} is a character string with the table's title. \texttt{rownames} is logical and allows to switch printing of row names on and off. \texttt{landscape} is logical for the orientation of the page, \texttt{pt.size} uses an integer value to define the size of the characters. \texttt{margin} sets a margin between page and table borders in cm. \texttt{digits} defines the number of digits to print for numeric values. With \texttt{align} the column alignements can be set. Either a single value or a value for the row names column plus each column in \texttt{d}. The possible values are \texttt{'r', 'c', 'l'} for alignemt to the right, center or left. \texttt{label} allows to supply a latex label for reference in form of a vector of length one.
+\texttt{file} is a character string with the name to the file of the function output. \texttt{caption} is a character string with the table's title. It is aligned to the top of the table, when \texttt{topcapt} is \texttt{TRUE}, otherwise to the table bottom. \texttt{rownames} is logical and allows to switch printing of row names on and off. when \texttt{as.document} is \texttt{TRUE}, a document header is added. Then, \texttt{landscape} defines the orientation of the page, \texttt{pt.size} the size of the characters and \texttt{margin} the table borders in cm. \texttt{digits} sets the number of digits to print for numeric values. With \texttt{align} the column alignements can be set. It is either one of \texttt{'r', 'c', 'l'}, or a vector of those elements for alignemt to the right, center or left, repsectively (use \texttt{rep()} or \texttt{strplit()} as support). \texttt{label} allows to supply a latex label for reference in form of a vector of length one.
 
 <<>>==
-textable(head(trees,3), rownames=T, digits=4, align='c', 
+textable(head(trees,3), rownames=T, digits=4, align=strsplit("llrr","")[[1]], 
          label='tab:trees', caption='R dataset "trees".')
 @
 
-In addition, a system command can be provided as a character string with \texttt{cmd} to create a pdf for example. An example therefore is \texttt{cmd = "pdflatex"}.
+In addition, a system command can be provided as a character string with \texttt{cmd} to create a pdf for example. An example therefore might be \texttt{cmd = "pdflatex"}.
 
 \subsection{List details from and remove all objects - \texttt{lsall},
 \texttt{rmall}}
