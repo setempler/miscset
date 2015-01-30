@@ -1,4 +1,4 @@
-#' Scale to Range 0 to 1
+#' Scale Numeric Values to Ranges
 #' 
 #' Scale numeric values to a range from 0 to 1 with the function
 #' \code{scale0} or to a chosen range with \code{scaler}.
@@ -23,6 +23,7 @@
 #' #
 #' @name scale0
 #' @keywords scale
+#' @aliases scaler
 #' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
 #' @rdname scale0
@@ -45,7 +46,7 @@ scaler <- function (x, r = c(0, 1), b = range(x, na.rm = TRUE)) {
   if (bl > min(x, na.rm = TRUE))
     stop("Lower border in b is greater than minimum of x.")
   if (bu < max(x, na.rm = TRUE))
-    stop("Upper border in b is greater than maximum of x.")
+    stop("Upper border in b is less than maximum of x.")
   (ru - rl) * (x - bl) / (bu - bl) + rl
 }
 
