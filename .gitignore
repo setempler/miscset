@@ -8,3 +8,6 @@ src/*.dll
 vignettes/*
 !vignettes/*.Rnw
 !vignettes/*.pdf
+TODO
+TEST*
+*.swp
