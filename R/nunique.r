@@ -8,8 +8,12 @@
 #' 
 #' @examples
 #' #
-#' v <- c("a","b","a")
+#' 
+#' v <- c("a","b","a", NA)
 #' nunique(v)
+#' nunique(v, FALSE)
+#' uniquei(v)
+#' uniquei(v, FALSE)
 #' 
 #' #
 #' @name nunique
