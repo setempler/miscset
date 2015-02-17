@@ -1,6 +1,6 @@
-#' Number of Unique Values
+#' Amount and Index of Unique Values
 #' 
-#' Return the number of unique values in a vector.
+#' Return the index or amount of unique values in a vector.
 #' 
 #' @param x Numeric vector to transform.
 #' @param na Logical, \code{TRUE} to include/count \code{NA}.
@@ -31,5 +31,14 @@ nunique <- function (x, na = TRUE, ...) {
     else
       length(unique(x[!is.na(x)], ...))
   }
+  
+}
+
+#' @rdname nunique
+#' @export
+uniquei <- function (x, na = TRUE, ...) {
+  
+  xu <- if (na) unique(x, ...) else unique(x[!is.na(x)], ...)
+  match(xu, x)
   
 }
