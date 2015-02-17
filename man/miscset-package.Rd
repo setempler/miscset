@@ -6,7 +6,7 @@
 \alias{miscset-package}
 \title{Miscellaneous R Tools}
 \description{
-Set of miscellaneous R tools to simplify the work with several data types and formats.
+Miscellaneous functions to simplify R workspace and data handling. This includes numeric value scaling, string manipulation by regular expressions, plotting 'ggplot' arrays or empty plots, reshaping matrices and applying functions by a grid on data.frames. Furthermore it contains functions to maintain workspaces by enhanced object listing or removing and multiple RData file loading. For performance, multi-core support and C++ functions are implemented.
 }
 \details{
 The package vignette provides a comprehensive overview and examples for the usage

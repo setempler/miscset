@@ -6,7 +6,7 @@
 \usage{
 textable(d, file, caption = NULL, label = NULL, align = NULL,
   rownames = FALSE, topcapt = TRUE, digits = NULL, as.document = FALSE,
-  landscape = FALSE, margin = 2, pt.size = 10, cmd = NULL)
+  landscape = FALSE, margin = 2, pt.size = 10, cmd = NULL, ...)
 }
 \arguments{
 \item{d}{Object (will be coerced to data.frame) to transform to a latex table.}
@@ -45,6 +45,8 @@ Only with \code{as.document=TRUE}.}
 \item{cmd}{A character vector with the system command to apply
 on the output file. Only if \code{file} is given and \code{as.document}
 is \code{TRUE}. \code{NULL} or an empty string \link{system} is not called.}
+
+\item{...}{Forwarded arguments to \link[xtable]{print.xtable}.}
 }
 \value{
 Returns a character vector invisible. If \code{file} is set, then the
@@ -63,7 +65,11 @@ Example for a system call:\cr
 \examples{
 #
 
-textable(head(trees), rownames=TRUE, digits=4, caption='R "trees" dataset.')
+d <- head(trees)
+dc <- 'R "trees" dataset.'
+textable(d, rownames=TRUE, digits=4, caption=dc)
+textable(d, '/tmp/trees.tex', caption=dc, as.document=TRUE,
+  cmd='pdflatex --output-directory /tmp')
 
 #
 }

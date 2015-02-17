@@ -3,7 +3,7 @@
 \name{scale0}
 \alias{scale0}
 \alias{scaler}
-\title{Scale to Range 0 to 1}
+\title{Scale Numeric Values to Ranges}
 \usage{
 scale0(x)
 
