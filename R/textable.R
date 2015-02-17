@@ -42,7 +42,11 @@
 #' @examples
 #' #
 #' 
-#' textable(head(trees), rownames=TRUE, digits=4, caption='R "trees" dataset.')
+#' d <- head(trees)
+#' dc <- 'R "trees" dataset.'
+#' textable(d, rownames=TRUE, digits=4, caption=dc)
+#' textable(d, '/tmp/trees.tex', caption=dc, as.document=TRUE, 
+#'   cmd='pdflatex --output-directory /tmp')
 #' 
 #' #
 #' @name textable
