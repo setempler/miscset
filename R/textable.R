@@ -33,6 +33,7 @@
 #' @param cmd A character vector with the system command to apply
 #' on the output file. Only if \code{file} is given and \code{as.document}
 #' is \code{TRUE}. \code{NULL} or an empty string \link{system} is not called.
+#' @param ... Forwarded arguments to \link[xtable]{print.xtable}.
 #' @return
 #' Returns a character vector invisible. If \code{file} is set, then the
 #' content is written to a file. Else it is printed to the console.
@@ -47,66 +48,81 @@
 #' @name textable
 #' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
-NULL
-
-precapt <- function (x) {
-  icapt <- which(grepl("\\caption", x, fixed = T))
-  ocapt <- if (length(icapt)) {
-    icapt - 1 + which(grepl("}", x[icapt:length(x)],fixed = T))[1]
-  } else {
-    integer()
-  }
-  ilab <- which(grepl("\\label", x, fixed = T))
-  olab <- if (length(ilab)){
-    ilab -1 + which(grepl("}", x[ilab:length(x)],fixed = T))[1] 
-  } else {
-    integer()
-  }
-  io <- c(if (length(icapt)) icapt:ocapt, if (length(ilab)) ilab:olab)
-  itab <- which(grepl("begin.tabular", x))
-  if (!length(itab))
-    stop("begin of tabular not found")
-  io <- c(1:(itab-1), io, setdiff(itab:length(x), io))
-  x <- x[io]
-  return(x)
-}
-
 #' @rdname textable
 #' @export textable
 textable <- function (
   d, file, caption = NULL, label = NULL, align = NULL, rownames = FALSE, topcapt = TRUE,
-  digits = NULL, as.document = FALSE, landscape = FALSE, margin = 2, pt.size = 10, cmd = NULL)
+  digits = NULL, as.document = FALSE, landscape = FALSE, margin = 2, pt.size = 10, cmd = NULL,
+  ...)
 {
   
+  # replicate align
 	if (!is.null(align) && length(align) == 1)
 		align <- rep(align, ncol(d)+1)
-	tex <- capture.output(print(xtable(
+  
+  # get the table
+	tex.tab <- capture.output(print(xtable(
     	d, digits=digits, align=align, label=label, caption=caption),
-    	include.rownames = rownames))
+    	include.rownames = rownames, ...))
+  
+  # store/drop comments
+	tex.cmt <- paste(
+	  "% output by function 'textable' from package miscset", 
+	  as.character(packageVersion("miscset")))
+	i.cmt <- grepl("^%", tex.tab)
+  tex.cmt <- c(tex.cmt, tex.tab[i.cmt])
+  tex.tab <- tex.tab[!i.cmt]
+  
+  # switch capture position
+  tex.cpt <- character()
   if (topcapt) {
-    tex <- precapt(tex)
+    i.cpt <- which(grepl("\\caption", tex.tab))
+    if (length(i.cpt)) {
+      i.cptn <- which(grepl("}$", tex.tab[-seq(i.cpt)]))[1]
+      i.cpt <- seq(i.cpt, length.out = i.cptn)
+      tex.cpt <- tex.tab[i.cpt]
+      tex.tab <- tex.tab[-i.cpt]
+    }
   }
+  
+  # tex document header
+  tex.dochead <- tex.doctail <- character()
   if (as.document) {
     if (!pt.size %in% 10:12)
       stop('pt.size must be 10, 11 or 12.')
-    orientation <- ''
-    if (landscape)
-      orientation <- 'landscape,'
-    tex.head <- paste0(
+    orientation <- if (landscape) 'landscape,' else ''
+    tex.dochead <- paste0(
       '\\documentclass[a4paper,', pt.size,
       'pt]{article}\n\\usepackage[a4paper,',
       orientation,
       'margin=',
       margin,
-      'cm]{geometry}\n\\begin{document}\n') #\\small\n
-    tex <- c(tex.head, tex, '\n\\end{document}\n')
+      'cm]{geometry}\n\\begin{document}\n')
+    #\\small\n
+    tex.doctail <- '\n\\end{document}\n'
   }
-	tex <- c(paste("% output by function 'textable' from package miscset", 
-	               as.character(packageVersion("miscset"))), tex)
+  
+  # merge
+  tex <- c(
+    tex.cmt, 
+    '',
+    tex.dochead,
+    tex.tab[1:2],
+    if (topcapt) tex.cpt,
+    tex.tab[-(1:2)],
+    tex.doctail)
+  
+  # print
 	if (missing(file))
 		file <- ""
 	cat(tex, file=file, sep='\n')
+  
+  # tex to pdf
   if (as.document && !missing(file) && nchar(file)>0 && !is.null(cmd) && nchar(cmd)>0)
     system(paste(cmd, file), wait = FALSE)
+  
+  # return
 	invisible(tex)
+  
 }
+
