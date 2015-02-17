@@ -90,6 +90,10 @@ textable <- function (
   }
   
   # tex document header
+  if (!is.null(cmd) && !as.document) {
+    as.document <- TRUE
+    message("Set 'as.document' to TRUE because 'cmd' was provided.")
+  }
   tex.dochead <- tex.doctail <- character()
   if (as.document) {
     if (!pt.size %in% 10:12)
