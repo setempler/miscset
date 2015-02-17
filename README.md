@@ -1,6 +1,8 @@
 # miscset
 
-The R package `miscset` provides miscellaneous functions to simplify R workspace and data life. For example, one can scale numbers by a range, or use enhanced functions with regular expression and string operations. Latex tables, just empty plots or arrangements of ggplots can be exported. Reshaping of matrices or applying functions by grids on data.tables is supported. In addition, workspace objects can be listed or removed more user friendly and multiple RData objects can be loaded into a list at once. For faster computation, some functions import multicore support from the parallel package. Also C++ is used for performance included by the package Rcpp.
+[R](http://r-project.org) package `miscset`.
+
+Miscellaneous functions to simplify R workspace and data handling. Scale numbers by a range, or use enhanced functions with regular expression and string operations. Latex tables, just empty plots or arrangements of ggplots can be exported. Reshaping of matrices or applying functions by grids on data.tables is supported. Functions for maintaining the workspace allow to list properties of objects, remove objects, or load objects from multiple RData files at once. For faster computation, some functions import multicore support from the parallel package. Also, C++ is used for performance included by the package Rcpp.
 
 > Copyright (C) 2014 Sven E. Templer [sven.templer at gmail dot com]
 > 
