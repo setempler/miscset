@@ -1,14 +1,6 @@
 #' Miscellaneous R Tools
 #' 
-#' The package provides miscellaneous functions to simplify R workspace and
-#' data life. For example, one can scale numbers by a range, or use enhanced 
-#' functions with regular expression and string operations. Latex tables, just
-#' empty plots or arrangements of ggplots can be exported. Reshaping of 
-#' matrices or applying functions by grids on data.tables is supported. In 
-#' addition, workspace objects can be listed or removed more user friendly and 
-#' multiple RData objects can be loaded into a list at once. For faster 
-#' computation, some functions import multicore support from the parallel 
-#' package. Also C++ is used for performance included by the package Rcpp.
+#' Miscellaneous functions to simplify R workspace and data handling. This includes numeric value scaling, string manipulation by regular expressions, plotting 'ggplot' arrays or empty plots, reshaping matrices and applying functions by a grid on data.frames. Furthermore it contains functions to maintain workspaces by enhanced object listing or removing and multiple RData file loading. For performance, multi-core support and C++ functions are implemented.
 #' 
 #' The package vignette provides a comprehensive overview and examples for the usage
 #' of all available functions in the package. Open with \code{vignette("miscset")}.
@@ -23,7 +15,7 @@
 NULL
 
 #' @importFrom parallel mclapply
-#' @importFrom xtable xtable
+#' @importFrom xtable xtable print.xtable
 #' @importFrom data.table as.data.table setkeyv
 #' @importFrom gridExtra grid.arrange
 #' @importFrom tools startDynamicHelp
