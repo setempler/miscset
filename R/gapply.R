@@ -103,3 +103,11 @@ as.data.table.gapply <- function (x, keyv = NULL, ...) {
     setkeyv(ret, keyv)
   return(ret)
 }
+
+#' @export print.gapply
+#' @method print gapply
+print.gapply <- function (x, ...) {
+  cat("gapply list/object\n  Levels:\n")
+  print(levels(x))
+  invisible(x)
+}
