@@ -1,23 +1,17 @@
+[![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=master)](https://travis-ci.org/setempler/miscset)
+
 # miscset
 
-[R](http://r-project.org) package `miscset`.
-
-[![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=master)](https://travis-ci.org/setempler/miscset)
+A [GNU R](http://r-project.org) package.
 
 Miscellaneous functions to simplify R workspace and data handling. This includes numeric value scaling, string manipulation by regular expressions, plotting 'ggplot' arrays or empty plots, reshaping matrices and applying functions by a grid on data.frames. Furthermore it contains functions to maintain workspaces by enhanced object listing or removing and multiple RData file loading. For performance, multi-core support and C++ functions are implemented.
 
 ## Installation
 
-Install the package from the official `CRAN` repositories from within an R session:
+Install the package from the official [CRAN](http://cran.r-project.org/web/packages/miscset/index.html) repositories from within an R session:
 
 ```
 install.packages("miscset")
-```
-
-or use the command line tool:
-
-```
-R CMD INSTALL miscset
 ```
 
 For the most up-to-date version install the package `devtools` and use the function `install_github`:
@@ -36,13 +30,7 @@ library(miscset)
 
 ## Documentation
 
-For documentation use the `vignette` function within an R session:
-
-```
-vignette("miscset")
-```
-
-or read the vignette/manual from the web source at [CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.pdf) or [github](https://raw.githubusercontent.com/setempler/miscset/master/vignettes/miscset.pdf) for the respective version.
+For documentation read the vignette/manual from the version at [CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.pdf) or [github](https://raw.githubusercontent.com/setempler/miscset/master/vignettes/miscset.pdf). Also you can run the command `vignette("miscset")` within R.
 
 ## License
 
