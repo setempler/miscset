@@ -5,6 +5,7 @@
 \alias{as.data.table.gapply}
 \alias{gapply}
 \alias{levels.gapply}
+\alias{print.gapply}
 \title{Apply a Function by a Grid on a List}
 \usage{
 gapply(d, by, fun, ..., drop = TRUE, cores = 1)
@@ -14,6 +15,8 @@ gapply(d, by, fun, ..., drop = TRUE, cores = 1)
 \method{as.data.frame}{gapply}(x, ...)
 
 \method{as.data.table}{gapply}(x, keyv = NULL, ...)
+
+\method{print}{gapply}(x, ...)
 }
 \arguments{
 \item{d}{A data.frame or data.table object.}
@@ -37,7 +40,9 @@ gapply(d, by, fun, ..., drop = TRUE, cores = 1)
  entries as grid. Support of multicore processing via \code{mclapply}.\cr
 \code{levels} is a method to retrieve the grid of a \code{gapply} object.\cr
 \code{as.data.frame} is a simplified rbind version which adds the grid
-to the output.
+to the output.\cr
+\code{print.gapply} is the \code{print} method for \code{gapply} objects. It
+prints the levels.
 }
 \details{
 The output of \code{gapply} is a list inheriting from the S3 class gapply which stores
