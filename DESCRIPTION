@@ -1,19 +1,19 @@
 Package: miscset
 Type: Package
 Title: Miscellaneous Tools Set
-Version: 0.5.1
+Version: 0.5.2
 Date: 2015-01-21
 Author: Sven E. Templer
 Maintainer: Sven E. Templer <sven.templer@gmail.com>
 Description: Miscellaneous functions to simplify R workspace and data handling. This includes numeric value scaling, string manipulation by regular expressions, plotting 'ggplot' arrays or empty plots, reshaping matrices and applying functions by a grid on data.frames. Furthermore it contains functions to maintain workspaces by enhanced object listing or removing and multiple RData file loading. For performance, multi-core support and C++ functions are implemented.
 License: GPL-3
 Imports:
-    parallel,
     data.table,
+    ggplot2,
     gridExtra,
+    parallel,
     Rcpp (>= 0.11.1),
-    xtable,
-    ggplot2
+    xtable
 LinkingTo: Rcpp
 Suggests:
     knitr
