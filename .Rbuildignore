@@ -5,4 +5,4 @@ vignettes/.*\.toc
 vignettes/.*\.log
 ^TODO
 ^TEST*
-*.swp
+^\.*\.swp
