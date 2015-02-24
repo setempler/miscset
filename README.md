@@ -34,13 +34,15 @@ And to use the package load it with:
 library(miscset)
 ```
 
+## Documentation
+
 For documentation use the `vignette` function within an R session:
 
 ```
 vignette("miscset")
 ```
 
-or from the web source at [CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.pdf) or [github](https://github.com/setempler/miscset/blob/master/vignettes/miscset.pdf) for the respective version.
+or read the vignette/manual from the web source at [CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.pdf) or [github](https://raw.githubusercontent.com/setempler/miscset/master/vignettes/miscset.pdf) for the respective version.
 
 ## License
 
