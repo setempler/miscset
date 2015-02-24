@@ -10,4 +10,3 @@ vignettes/*
 !vignettes/*.pdf
 TODO
 TEST*
-*.swp
