@@ -1,5 +1,19 @@
 NEWS
 
+++ miscset v 0.5.2 ++ 2015/02/
+
+function added: factorNA
+function added: nunique
+function added: uniquei
+function added: do.rbind
+function added: duplicated
+function added: duplicatei
+function added: print.gapply
+function added: sort.data.frame
+improved package description
+bugfix textable: caption movement working
+bugfix scaler: correct error message
+
 ++ miscset v 0.5.1 ++ 2015/01/21
 
 more verbose description of package added as suggested by CRAN/Uwe Ligges
