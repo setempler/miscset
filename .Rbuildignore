@@ -6,3 +6,4 @@ vignettes/.*\.log
 ^TODO
 ^TEST*
 ^\.*\.swp
+^\.travis\.yml$
