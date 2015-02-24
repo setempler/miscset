@@ -5,7 +5,7 @@ before_install:
   - sed -i 's/--no-build-vignettes\ --no-manual\ *//' ./travis-tool.sh
   - chmod 755 ./travis-tool.sh
   - ./travis-tool.sh bootstrap
-  - sudo apt-get install texinfo texlive-latex-base texlive-fonts-extra texlive-fonts-recommended
+  - sudo apt-get install texinfo texlive-latex-base texlive-fonts-extra texlive-fonts-recommended texlive-latex-recommended
 
 install:
   - ./travis-tool.sh install_deps
