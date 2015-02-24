@@ -19,8 +19,8 @@ NULL
 #' @importFrom data.table as.data.table setkeyv
 #' @importFrom gridExtra grid.arrange
 #' @importFrom tools startDynamicHelp
-#' @importFrom ggplot2 ggplot geom_point theme_bw theme element_rect scale_x_discrete
-#' scale_y_discrete
+#' @importFrom ggplot2 ggplot geom_point theme_bw theme element_rect 
+#' scale_x_discrete scale_y_discrete
 
 .onAttach <- function(libname, pkgname) {
   if (interactive()) { packageStartupMessage( # interactive()
