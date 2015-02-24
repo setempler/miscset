@@ -4,7 +4,9 @@
 #'  entries as grid. Support of multicore processing via \code{mclapply}.\cr
 #' \code{levels} is a method to retrieve the grid of a \code{gapply} object.\cr
 #' \code{as.data.frame} is a simplified rbind version which adds the grid
-#' to the output.
+#' to the output.\cr
+#' \code{print.gapply} is the \code{print} method for \code{gapply} objects. It
+#' prints the levels.
 #' 
 #' The output of \code{gapply} is a list inheriting from the S3 class gapply which stores
 #' the grid of the original data. Support for subsetting grid entries is not yet
@@ -65,15 +67,15 @@ gapply <- function (d, by, fun, ..., drop = TRUE, cores = 1) {
 }
 
 #' @rdname gapply
-#' @export levels.gapply
 #' @method levels gapply
+#' @export levels.gapply
 levels.gapply <- function (x) {
   attr(x, 'grid')
 }
 
 #' @rdname gapply
-#' @export as.data.frame.gapply
 #' @method as.data.frame gapply
+#' @export as.data.frame.gapply
 as.data.frame.gapply <- function (x, ...) {
   g <- levels(x)
   use <- sapply(x, function(y) {
@@ -95,8 +97,8 @@ as.data.frame.gapply <- function (x, ...) {
 }
 
 #' @rdname gapply
-#' @export as.data.table.gapply
 #' @method as.data.table gapply
+#' @export as.data.table.gapply
 as.data.table.gapply <- function (x, keyv = NULL, ...) {
   ret <- as.data.table(as.data.frame(x, ...))
   if (!is.null(keyv))
@@ -104,8 +106,9 @@ as.data.table.gapply <- function (x, keyv = NULL, ...) {
   return(ret)
 }
 
-#' @export print.gapply
+#' @rdname gapply
 #' @method print gapply
+#' @export print.gapply
 print.gapply <- function (x, ...) {
   cat("gapply list/object\n  Levels:\n")
   print(levels(x))
