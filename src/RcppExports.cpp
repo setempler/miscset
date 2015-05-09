@@ -9,14 +9,10 @@ using namespace Rcpp;
 NumericVector ntri(int n);
 RcppExport SEXP miscset_ntri(SEXP nSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< int >::type n(nSEXP );
-        NumericVector __result = ntri(n);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    __result = Rcpp::wrap(ntri(n));
+    return __result;
 END_RCPP
 }
