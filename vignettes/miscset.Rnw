@@ -23,66 +23,119 @@ opts_chunk$set(concordance=TRUE)
 
 \section{Introduction}
 
-The package \textbf{miscset} provides miscellaneous functions to simplify R workspace and data life. For example, one can scale numbers by a range, or use enhanced functions with regular expression and string operations. Latex tables, just empty plots or arrangements of ggplots can be exported. Reshaping of matrices or applying functions by grids on data.tables is supported. In addition, workspace objects can be listed or removed more user friendly and multiple RData objects can be loaded into a list at once. For faster computation, some functions import multicore support from the parallel package. Also C++ is used for performance included by the package Rcpp.
-In the following examples, all available functions will be presented including explanations of their usage. Find the source code online at \href{http://github.com/setempler/miscset}{github}.
+\textbf{miscset}\\
 
-\section{Installation}
+A \href{http://r-project.org}{GNU R} package with miscellaneous tools.\\
 
-To install the package call the command 
+The package contains methods to simplify workspace handling, sort, reshape and apply functions on grids of data.frames, scale numeric values, extract unique and duplicate values, perform regular expression based string operations and ease plotting. Many methods are implemented with multi-core support from the parallel package or written in C++ interfaced with the Rcpp library.\\
+
+\section{Installation \& Development}
+
+You can install the package to use it in any \texttt{R} session. The stable versions are published on the comprehensive R archive network (CRAN) servers. The web description of this and previous versions can be found on the page \href{http://http://cran.r-project.org/web/packages/miscset/}{cran.r-project.org/web/packages/miscset}. The installation takes place in an \texttt{R} session or script. Run the code:
 
 <<eval=FALSE>>=
 install.packages("miscset")
 @
 
-within the R console or run \texttt{R CMD INSTALL /path/to/miscset} from a terminal in Linux/OSX. To use the most recent version install with:
+A more administrative way is to use the command line in a shell environment and install the package from a downloaded \texttt{.tar.gz} archive. Invoking \texttt{R} from the shell provides the syntax \texttt{R CMD INSTALL /path/to/package.tar.gz} therefore.\\
+
+The most recent version can be found on \href{http://github.com/setempler/miscset}{github.com/setempler/miscset}. With the \texttt{devtools} package, it is easy to install it:
 
 <<eval=FALSE>>=
-if (!require(devtools))
-  install.packages("devtools")
+install.packages("devtools")
 library(devtools)
 install_github(repo='setempler/miscset')
 @
 
-To use it, the \texttt{library} or \texttt{require} function load the package. 
+Once installed, you need to load the package into the current session to access the functions and help pages. With the functions \texttt{library} or \texttt{require} you perform this step:
 
 <<message=TRUE, warning=TRUE>>=
 library(miscset)
 @
 
-\part{Usage}
+In the following sections the usage of the functions is shown with example data and the output. Each function is accomanied by a help page, which is typically invoked on the \texttt{R} shell with \texttt{?} in front of the function's name.
 
 \section{Numeric Functions}
 
 \subsection{Generate triangular numbers - \texttt{ntri}}
 
-The function generates a series of triangular numbers of length \texttt{n} according to \href{https://oeis.org/A000217}{oeis.org}.
+The function generates a series of triangular numbers of length \texttt{n} according to \href{https://oeis.org/A000217}{oeis.org/A000217}. The series for 12 rows of a triangle, for example, can be returned as in the following example:
 
 <<>>=
 ntri(12)
 @
 
+The function takes one argument \texttt{n} as in the syntax \texttt{ntri(n)}, which can be a positive integer value for the length of the sequence.
+
 \subsection{Scale numeric vectors - \texttt{scale0, scaler}}
 
-The function \texttt{scale0} scales all values in a numeric vector from 0 to 1 according to their minimum and maximum values. \texttt{scaler} provides an argument (\texttt{r}) which lets you set the range to scale a vector to. Additionally, the minimum and maximum border can be specified with the argument \texttt{b}, so that vectors with different ranges can be compared on the same scale.
+The function \texttt{scale0} scales all values in a numeric vector from 0 to 1 according to their minimum and maximum values. It allows numeric vector input for the argument \texttt{x} as in it's usage:\\ 
+
+\texttt{scale0(x)}\\
+
+By it's default argument, \texttt{scaler} behaves the same as \texttt{scale0}. It offers two more arguments to modify the range (\texttt{r}) of the output and borders (\texttt{b}) of the input as in:\\
+
+\texttt{scaler(x, r = c(0, 1), b = range(x, na.rm = TRUE))}\\
+
+See the following examples for the effect:
 
 <<>>=
-do.call(rbind, list(
-  scale0 = scale0(0:5),
-  scale0_shift = scale0(-2:3),
-  scaler = scaler(0:5),
-  scaler_newrange = scaler(0:5, r = 1:2),
-  scaler_newbord = scaler(0:5, b = c(0, 10))))
+scale0(0:5)
+scale0(-2:3)
+scaler(0:5)
+scaler(0:5, r = c(1, 9.9))
+scaler(0:5, b = c(0, 10))
 @
 
-\subsection{p values to *** converting - \texttt{p2star}}
+\subsection{p values to symbol (***) converting - \texttt{p2star}}
 
-With this function, one can quickly convert a vector with p values to symbols reflecting ranges of significance. \texttt{symbols} and \texttt{breaks} can be modified. See the example:
+The function \texttt{p2star} converts numeric values to character symbol representing the range in which the value resides. This feature is provided in \texttt{R} by the function \texttt{symnum}. The default settings in \texttt{p2star} are setting breaks for the ranges useful to convert p-values from statistical tests to significance indicators:\\
+
+\texttt{p2star(p, breaks = c(0, 0.001, 0.01, 0.05, 0.1, 1), symbols = c("***", "**", "*", ".", "n.s."))}\\
+
+The argument \texttt{symbols} can be modified to change the output symbols. The two lowest values in \texttt{breaks} define the range for the first value in \texttt{symbol}. See the following example:
 
 <<>>==
-p2star(c(1e-5,.1,.7))
+p2star(c(1e-5,.1,.9))
 @
 
-\section{Data and System}
+\section{Data Manipulation}
+
+\subsection{Sort a data frame - \texttt{sort}}
+
+The base function \texttt{sort} provides a way to sort data vectors in increasing or decreasing order. Despite being implemented as S3 generic, it does not contain a lot of methods specific for special data types. Therefore, to sort data arranged in a \texttt{data.frame} class object, one needs to use the \texttt{order} function, and create complex function calls, for example:
+
+<<>>==
+d <- data.frame(a=c(1,1,1,2,NA),b=c(2,1,3,1,1),c=5:1)
+d
+# classical ordering of data.frame objects
+d[order(d$b, d$c),]
+@
+
+In the package \texttt{miscset} the method for this class is implemented (as \texttt{sort.data.frame}) and can be called with the generic name on \texttt{data.frame} objects. The order and set of the columns to sort by can be provided as character vector or expression with the \texttt{by} or \texttt{bye} arguments. Increasing or decreasing order can be chosen with the \texttt{decreasing} argument (right now only one direction is possible for all chosen columns.)
+
+<<>>==
+# sort by every column, decreasing, dropping missing value rows
+sort(d, decreasing = TRUE)
+# ... by column 'c'
+sort(d, by="c")
+# ... by columns 'a' and then 'c'
+sort(d, bye=.(a,c))
+@
+
+Rows with missing values, if present in one of the columns to sort by, will be dropped with the default setting of the argument \texttt{na.last = NA}. To keep rows with missing values on top or bottom of the \texttt{data.frame}, use \texttt{FALSE} or \texttt{TRUE} as value for the argument, respectively.
+
+\subsection{Row-bind data.frames - \texttt{do.rbind}}
+
+Attaching \texttt{data.frame} objects row wise, the \texttt{rbind} function can be combined with \texttt{do.call} on a list of tables: \texttt{do.call(list(d, d))}.
+
+\subsection{Duplicates and unique values - \texttt{duplicates, duplicatei, uniquei, nunique}}
+
+...
+
+\subsection{Create a factor containing missing values as level - \texttt{factorNA}}
+
+...
 
 \subsection{Apply a function on a data.frame by a grid - \texttt{gapply}}
 
@@ -129,8 +182,9 @@ textable(head(trees,3), rownames = TRUE, digits=4, align=strsplit("llrr","")[[1]
 
 In addition, a system command can be provided as a character string with \texttt{cmd} to create a pdf for example. An example therefore might be \texttt{cmd = "pdflatex"}.
 
-\subsection{List details from and remove all objects - \texttt{lsall},
-\texttt{rmall}}
+\section{Workspace and System}
+
+\subsection{List details from and remove all objects - \texttt{lsall, rmall}}
 
 With \texttt{lsall(envir, ...)} all object names, their length, class, mode and size is returned in a data.frame from a specified environment. \texttt{rmall(...)} removes the complete list of objects at the global environment.
 
@@ -144,7 +198,9 @@ lsall()
 
 \texttt{lload} provides a way to load R objects from multiple R data files and stores all objects in a list. Thereby, the list names are respective to the R data files. Each entry consists of a sublist with as many entries as objects were loaded from the according R data file. The sublist names are the same as the object names that are stored. If \texttt{simplify=TRUE} is given, all object (sublist) names are checked for duplicates, and if none are found, the list is reduced in one level, dropping the file level.
 
+\subsection{Quickly view package (help) index - \texttt{help.index}}
 
+...
 
 \section{Strings and Patterns}
 
@@ -182,12 +238,10 @@ strpart(s, " ", 2)
 With \texttt{strrev} you can create the reversed version of strings.
 
 <<>>=
-strrev('!dlroW olleH')
-s
-strrev(s)
+strrev(c("olleH", "!dlroW"))
 @
 
-\subsection{Multiple pattern replacement - \texttt{msub}, \texttt{mgsub}}
+\subsection{Multiple pattern replacement - \texttt{msub, mgsub}}
 
 \texttt{msub} and \texttt{mgsub} behave like \texttt{sub} and \texttt{gsub} but they replace multiple patterns. Replacement is done in order of the pattern input, and multicore support is enabled by \texttt{mclapply} from the parallel package.
 
