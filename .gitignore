@@ -10,3 +10,4 @@ vignettes/*
 !vignettes/*.pdf
 TODO
 TEST*
+dev/
