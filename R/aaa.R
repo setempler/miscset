@@ -1,9 +1,14 @@
 #' Miscellaneous R Tools
 #' 
-#' Miscellaneous functions to simplify R workspace and data handling. This includes numeric value scaling, string manipulation by regular expressions, plotting 'ggplot' arrays or empty plots, reshaping matrices and applying functions by a grid on data.frames. Furthermore it contains functions to maintain workspaces by enhanced object listing or removing and multiple RData file loading. For performance, multi-core support and C++ functions are implemented.
+#' The package contains methods to simplify workspace handling, sort,
+#' reshape and apply functions on grids of data.frames, scale numeric values,
+#' extract unique and duplicate values, perform regular expression based 
+#' string operations and ease plotting. Many methods are implemented with 
+#' multi-core support from the parallel package or written in C++.
 #' 
-#' The package vignette provides a comprehensive overview and examples for the usage
-#' of all available functions in the package. Open with \code{vignette("miscset")}.
+#' The package vignette provides a comprehensive overview and examples for the
+#' usage of all available functions in the package. View with 
+#' \code{vignette("miscset")}.
 #' 
 #' @name miscset-package
 #' @docType package
@@ -23,7 +28,7 @@ NULL
 #' scale_x_discrete scale_y_discrete
 
 .onAttach <- function(libname, pkgname) {
-  if (interactive()) { packageStartupMessage( # interactive()
+  if (interactive()) { packageStartupMessage(
     'miscset version ',
     as.character(packageVersion("miscset")),
     ' | help and features: vignette("miscset")')

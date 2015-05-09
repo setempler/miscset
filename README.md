@@ -2,11 +2,11 @@
 
 # miscset
 
-A [GNU R](http://r-project.org) package.
+A **[GNU R](http://r-project.org)** package with miscellaneous tools.
 
-Miscellaneous functions to simplify R workspace and data handling. This includes numeric value scaling, string manipulation by regular expressions, plotting 'ggplot' arrays or empty plots, reshaping matrices and applying functions by a grid on data.frames. Furthermore it contains functions to maintain workspaces by enhanced object listing or removing and multiple RData file loading. For performance, multi-core support and C++ functions are implemented.
+The package contains methods to simplify workspace handling, sort, reshape and apply functions on grids of data.frames, scale numeric values, extract unique and duplicate values, perform regular expression based string operations and ease plotting. Many methods are implemented with multi-core support from the parallel package or written in C++ interfaced with the Rcpp library.
 
-## Installation
+### Installation
 
 Install the package from the official [CRAN](http://cran.r-project.org/web/packages/miscset/index.html) repositories from within an R session:
 
@@ -22,17 +22,19 @@ library(devtools)
 install_github("setempler/miscset")
 ```
 
-And to use the package load it with:
+### Usage
+
+To use the package load it with:
 
 ```
 library(miscset)
 ```
 
-## Documentation
+### Documentation
 
 For documentation read the vignette/manual from the version at [CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.pdf) or [github](https://raw.githubusercontent.com/setempler/miscset/master/vignettes/miscset.pdf). Also you can run the command `vignette("miscset")` within R.
 
-## License
+### License
 
 > Copyright (C) 2014 Sven E. Templer [sven.templer at gmail dot com]
 > 

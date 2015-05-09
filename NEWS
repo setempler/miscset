@@ -1,5 +1,11 @@
 NEWS
 
+++ miscset v 0.6 ++ 2015/05/09
+
+improved package vignette
+added some fixes
+base for new development git-branching
+
 ++ miscset v 0.5.2 ++ 2015/02/
 
 function added: factorNA
