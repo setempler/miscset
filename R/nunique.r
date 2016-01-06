@@ -2,7 +2,7 @@
 #' @keywords unique
 #' @author Sven E. Templer
 #' @title Amount and Index of Unique Values
-#' @details
+#' @description
 #' Return the index or amount of unique values in a vector.
 #' @param x Numeric vector to transform.
 #' @param na Logical, \code{TRUE} to include/count \code{NA}.
