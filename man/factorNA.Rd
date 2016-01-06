@@ -16,6 +16,6 @@ Create a \link{factor} with \code{NA} values included
 and positioned as last level.
 }
 \author{
-Sven E. Templer \email{sven.templer@gmail.com}
+Sven E. Templer
 }
 

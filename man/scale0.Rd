@@ -36,7 +36,7 @@ scaler(0:10, 1:2, c(0, 20))
 #
 }
 \author{
-Sven E. Templer \email{sven.templer@gmail.com}
+Sven E. Templer
 }
 \keyword{scale}
 

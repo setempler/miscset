@@ -1,14 +1,16 @@
-#' Scale Numeric Values to Ranges
-#' 
+#' @name scale0
+#' @keywords scale
+#' @aliases scaler
+#' @author Sven E. Templer
+#' @title Scale Numeric Values to Ranges
+#' @description 
 #' Scale numeric values to a range from 0 to 1 with the function
 #' \code{scale0} or to a chosen range with \code{scaler}.
-#' 
 #' @param x Numeric vector to transform.
 #' @param r Numeric vector of length 2 for range to scale values of 
 #' \code{x} to.
 #' @param b Numeric vector of length 2 to define the border of \code{x}
 #' to use as scaling minimum and maximum.
-#' 
 #' @examples
 #' #
 #' 
@@ -21,10 +23,6 @@
 #' scaler(0:10, 1:2, c(0, 20))
 #' 
 #' #
-#' @name scale0
-#' @keywords scale
-#' @aliases scaler
-#' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
 #' @rdname scale0
 #' @export scale0

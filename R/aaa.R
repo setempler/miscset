@@ -1,21 +1,20 @@
-#' Miscellaneous R Tools
-#' 
-#' The package contains methods to simplify workspace handling, sort,
-#' reshape and apply functions on grids of data.frames, scale numeric values,
-#' extract unique and duplicate values, perform regular expression based 
-#' string operations and ease plotting. Many methods are implemented with 
-#' multi-core support from the parallel package or written in C++.
-#' 
-#' The package vignette provides a comprehensive overview and examples for the
-#' usage of all available functions in the package. View with 
-#' \code{vignette("miscset")}.
-#' 
 #' @name miscset-package
 #' @docType package
 #' @useDynLib miscset
 #' @aliases miscset
 #' @keywords misc miscellaneous tools
-#' @author Sven E. Templer \email{sven.templer@@gmail.com}
+#' @author Sven E. Templer
+#' @title Miscellaneous R Tools
+#' @description 
+#' The package contains methods to simplify workspace handling, sort,
+#' reshape and apply functions on grids of data.frames, scale numeric values,
+#' extract unique and duplicate values, perform regular expression based 
+#' string operations and ease plotting. Many methods are implemented with 
+#' multi-core support from the parallel package or written in C++.
+#' @details 
+#' The package vignette provides a comprehensive overview and examples for the
+#' usage of all available functions in the package. View with 
+#' \code{vignette("miscset")}.
 
 NULL
 

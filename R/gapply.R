@@ -1,5 +1,7 @@
-#' Apply a Function by a Grid on a List
-#' 
+#' @name gapply
+#' @author Sven E. Templer
+#' @title Apply a Function by a Grid on a List (deprecated)
+#' @description 
 #' \code{gapply} applies a function on a \code{data.frame} by using named list
 #'  entries as grid. Support of multicore processing via \code{mclapply}.\cr
 #' \code{levels} is a method to retrieve the grid of a \code{gapply} object.\cr
@@ -7,12 +9,12 @@
 #' to the output.\cr
 #' \code{print.gapply} is the \code{print} method for \code{gapply} objects. It
 #' prints the levels.
-#' 
+#' @details 
 #' The output of \code{gapply} is a list inheriting from the S3 class gapply which stores
 #' the grid of the original data. Support for subsetting grid entries is not yet
 #' supported. The function \code{fun} receives the subset of the data frame as
-#' first argument.
-#' 
+#' first argument.\cr
+#' This function will be deprecated. Recommended is the use of plyr::ddply
 #' @param d A data.frame or data.table object.
 #' @param by A character vector with colnames for the grid to subset.
 #' @param fun A function to apply on \code{d}.
@@ -21,7 +23,6 @@
 #' @param cores Number of multicores as \code{mc.cores} in \code{mclapply}.
 #' @param x Object of class \code{gapply}.
 #' @param keyv Character vector for \code{data.table} keys.
-#' 
 #' @seealso
 #' \link{mclapply}, \link[data.table]{setkeyv}
 #' @examples
@@ -34,8 +35,6 @@
 #' as.data.frame(d)
 #' 
 #' #
-#' @name gapply
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export gapply
 gapply <- function (d, by, fun, ..., drop = TRUE, cores = 1) {

@@ -1,19 +1,19 @@
-#' Sort data.frame Objects
-#' 
+#' @name sort
+#' @author Sven E. Templer
+#' @title Sort data.frame Objects
+#' @description 
 #' Sort a data.frame by any column(s).
-#' 
 #' @param x A data.frame.
-#' @param decreasing Logical, sort in decreasing order. See also \link[base]{sort}.
 #' @param by Index (integer) or names of columns in \code{x} to sort by in that
 #' order.
 #' If both \code{by} and \code{bye} are missing, all columns are used to sort 
 #' in their order.
 #' @param bye Unquoted column name or \code{list()} or \code{.()} with unquoted
 #' column names to sort \code{x} by. Not evaluated if \code{by} is supplied.
+#' @param decreasing Logical, sort in decreasing order. See also \link[base]{sort}.
 #' @param na.last \code{TRUE} to put missing values last, \code{FALSE} to put 
 #' first or \code{NA} to remove.
 #' @param ... Ignored for the data.frame method.
-#' 
 #' @examples
 #' #
 #' 
@@ -24,13 +24,11 @@
 #' sort(d, bye=.(a,c)) # increasing by columns 'a' and then 'c'
 #' 
 #' #
-#' @name sort
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @method sort data.frame
 #' @export sort.data.frame
 sort.data.frame <- function (
-	x, decreasing = FALSE, by = NULL, bye = NULL, na.last = NA, ...) 
+	x, by = NULL, bye = NULL, decreasing = FALSE, na.last = NA, ...) 
 {
   
   # get expression

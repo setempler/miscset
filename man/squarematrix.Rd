@@ -26,7 +26,7 @@ squarematrix(m)
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \keyword{matrix}
 \keyword{square}

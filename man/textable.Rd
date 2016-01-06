@@ -74,7 +74,7 @@ textable(d, '/tmp/trees.tex', caption=dc, as.document=TRUE,
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \seealso{
 \link{xtable}

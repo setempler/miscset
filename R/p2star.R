@@ -1,20 +1,18 @@
-#' P Value Significance Level Indicator
-#' 
+#' @name p2star
+#' @author Sven E. Templer
+#' @title P Value Significance Level Indicator
+#' @description 
 #' Transform p-values to character (e.g. stars) indicators
 #' by significance levels with the function \link{symnum}.
-#' 
 #' @param p Vector with p values
 #' @param breaks The breaks from min (0) to max (1).
 #' @param symbols Symbols to use for values between breaks from min to max.
-#' 
 #' @examples
 #' #
 #' 
 #' p2star(c(1e-5,.1,.9))
 #' 
 #' #
-#' @name p2star
-#' @author Sven E. Templer
 
 #' @rdname p2star
 #' @export p2star

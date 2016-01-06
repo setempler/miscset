@@ -40,7 +40,7 @@ strextr(s, "^[C][[:digit:]]$")
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \keyword{extract}
 \keyword{string}

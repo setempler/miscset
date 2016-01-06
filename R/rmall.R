@@ -1,7 +1,9 @@
-#' Remove All Objects from Global Environment
-#' 
+#' @name rmall
+#' @keywords remove all
+#' @author Sven E. Templer
+#' @title Remove All Objects from Global Environment
+#' @description 
 #' Remove all objects from the global environment.
-#' 
 #' @param ... Arguments forwarded to \code{ls} to get all objects.
 #' @seealso
 #' \link{rm}, \link{ls}
@@ -14,9 +16,6 @@
 #' ls()
 #' 
 #' #
-#' @name rmall
-#' @keywords remove all
-#' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
 #' @export rmall
 rmall <- function (...) {

@@ -1,7 +1,9 @@
-#' Numeric to Character with Leading Zero(s)
-#' 
+#' @name leading0
+#' @keywords zero
+#' @author Sven E. Templer \email{sven.templer@@gmail.com}
+#' @title Numeric to Character with Leading Zero(s)
+#' @description 
 #' Transform numeric values to character string prepending leading zero(s).
-#' 
 #' @param num Numeric vector (character also possible) to transform.
 #' @param digits Numeric value of minimum length of output strings.
 #' @return
@@ -15,9 +17,6 @@
 #' paste0("observation", leading0(1:10, 3))
 #' 
 #' #
-#' @name leading0
-#' @keywords zero
-#' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
 #' @export leading0
 leading0 <- function (num, digits = 2) {

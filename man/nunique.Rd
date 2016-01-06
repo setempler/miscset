@@ -16,7 +16,7 @@ uniquei(x, na = TRUE, ...)
 
 \item{...}{Arguments forwarded to \link{unique}.}
 }
-\description{
+\details{
 Return the index or amount of unique values in a vector.
 }
 \examples{
@@ -31,7 +31,7 @@ uniquei(v, FALSE)
 #
 }
 \author{
-Sven E. Templer \email{sven.templer@gmail.com}
+Sven E. Templer
 }
 \keyword{unique}
 

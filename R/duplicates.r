@@ -1,8 +1,10 @@
-#' Determine Duplicates
-#' 
+#' @name duplicates
+#' @aliases duplicatei
+#' @author Sven E. Templer
+#' @title Determine Duplicates
+#' @description 
 #' Determine duplicates. \code{duplicates} returns a logical vector,
 #' \code{duplicatei} an integer vector.
-#' 
 #' @param x A vector or data.frame to search for duplicates.
 #' @param first Logical, \code{TRUE} to return the index also for the first
 #' occurrence of values. Otherwise, a \code{0} is the index for the first
@@ -24,9 +26,6 @@
 #'   duplicatei0 = duplicatei(x, FALSE))
 #' 
 #' #
-#' @name duplicates
-#' @aliases duplicatei
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @rdname duplicates
 #' @export

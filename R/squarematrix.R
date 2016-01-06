@@ -1,8 +1,10 @@
-#' Create a Square Matrix
-#' 
+#' @name squarematrix
+#' @keywords square matrix
+#' @author Sven E. Templer
+#' @title Create a Square Matrix
+#' @description 
 #' Transform any m x n matrix to a square matrix by column/row names.
 #' Stops if no or duplicated dimnames are provided in x.
-#' 
 #' @param x Object of class \code{matrix}.
 #' @return
 #' Returns a \code{matrix}.
@@ -14,9 +16,6 @@
 #' squarematrix(m)
 #' 
 #' #
-#' @name squarematrix
-#' @keywords square matrix
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export squarematrix
 squarematrix <- function (x) {

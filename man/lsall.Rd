@@ -30,7 +30,7 @@ lsall()
 #
 }
 \author{
-Sven E. Templer \email{sven.templer@gmail.com}
+Sven E. Templer
 }
 \seealso{
 \link{ls}

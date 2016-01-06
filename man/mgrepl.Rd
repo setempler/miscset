@@ -63,7 +63,7 @@ mgsub(letters[1:2], "<replaced>", c("ab","ba","acb",NA))
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \seealso{
 \link{grep}, \link{mclapply}

@@ -28,11 +28,8 @@ m objects in total loaded.
 \description{
 Load multiple .RData files and return a (simplified) list.
 }
-\examples{
-#
-}
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \seealso{
 \link{load}

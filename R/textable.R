@@ -1,14 +1,14 @@
-#' Table to Latex
-#' 
+#' @name textable
+#' @author Sven E. Templer
+#' @title Table to Latex
+#' @description 
 #' This function enhances \code{xtable}: It can write the latex code of the
 #' table directly to a file and optionally adds a header/footer for the
 #' document structure. Also a system command can be given to convert the
 #' tex file to a pdf document, for example.
-#' 
 #' @details
 #' Example for a system call:\cr
 #' \code{cmd = "pdflatex -output-directory /path/to/files/"}
-#' 
 #' @param d Object (will be coerced to data.frame) to transform to a latex table.
 #' @param file Character string with output file name. If missing or \code{""},
 #' the output is printed to the screen.
@@ -49,8 +49,6 @@
 #'   cmd='pdflatex --output-directory /tmp')
 #' 
 #' #
-#' @name textable
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @rdname textable
 #' @export textable

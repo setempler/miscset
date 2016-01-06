@@ -1,7 +1,9 @@
-#' Extract a Substring
-#' 
+#' @name strextr
+#' @keywords extract string
+#' @author Sven E. Templer
+#' @title Extract a Substring
+#' @description 
 #' This function extracts substring(s) which match a given pattern.
-#' 
 #' @param x Character vector.
 #' @param pattern Regular expression.
 #' @param sep Character string which separates the fields. 
@@ -23,9 +25,6 @@
 #' strextr(s, "^[C][[:digit:]]$")
 #' 
 #' #
-#' @name strextr
-#' @keywords extract string
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export strextr
 strextr <- function (x, pattern, sep = " ", mult = F, unlist = F, cores = 1) {  

@@ -6,7 +6,7 @@
 \alias{gapply}
 \alias{levels.gapply}
 \alias{print.gapply}
-\title{Apply a Function by a Grid on a List}
+\title{Apply a Function by a Grid on a List (deprecated)}
 \usage{
 gapply(d, by, fun, ..., drop = TRUE, cores = 1)
 
@@ -48,7 +48,8 @@ prints the levels.
 The output of \code{gapply} is a list inheriting from the S3 class gapply which stores
 the grid of the original data. Support for subsetting grid entries is not yet
 supported. The function \code{fun} receives the subset of the data frame as
-first argument.
+first argument.\cr
+This function will be deprecated. Recommended is the use of plyr::ddply
 }
 \examples{
 #
@@ -62,7 +63,7 @@ as.data.frame(d)
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \seealso{
 \link{mclapply}, \link[data.table]{setkeyv}

@@ -18,7 +18,7 @@ Given a package name or string, start the package help index page
 in a browser.
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \keyword{browser}
 \keyword{help}

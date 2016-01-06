@@ -1,7 +1,9 @@
-#' Reverse Text Strings
-#' 
+#' @name strrev
+#' @keywords inverse reverse
+#' @author Sven E. Templer
+#' @title Reverse Text Strings
+#' @description 
 #' Create a reverse version of strings.
-#' 
 #' @param x vector with strings. Is coerced to character.
 #' @return
 #' Returns a character vector with reversed strings.
@@ -13,9 +15,6 @@
 #' strrev(c("abc","asdf"))
 #' 
 #' #
-#' @name strrev
-#' @keywords inverse reverse
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export strrev
 strrev <- function (x) {

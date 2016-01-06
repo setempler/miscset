@@ -1,12 +1,12 @@
-#' Plot Nothing (but a Plot)
-#' 
+#' @name plotn
+#' @author Sven E. Templer
+#' @title Plot Nothing (but a Plot)
+#' @description 
 #' Create a plot, with empty elements by presetting default parameters.
-#' 
 #' @details
 #' For details about the function see \link{plot}, which is called from
 #' \code{plotn}. More detailed information in \link{plot.default} and
 #' \link{par}.
-#' 
 #' @param x Coordinates of the points.
 #' @param y Coordinates of the y-axis.
 #' @param type Plot type.
@@ -14,9 +14,6 @@
 #' @param xaxt,yaxt Axis types.
 #' @param frame.plot Plot the frame.
 #' @param ... Forwarded arguments to \code{plot}.
-#' 
-#' @name plotn
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export
 plotn <- function(x, y = NULL, type = "n", xlab = "", ylab = "", xaxt = "n", yaxt = "n", frame.plot=F, ...) {

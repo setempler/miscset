@@ -1,10 +1,11 @@
-#' Arrange a List of ggplots
-#' 
+#' @name ggplotGrid
+#' @author Sven E. Templer
+#' @title Arrange a List of ggplots
+#' @description 
 #' Arrange a list of ggplots with \link[gridExtra]{grid.arrange} and
 #' output on local graphic device or as pdf/png when a path is supplied.
 #' \code{ggplotGridA4} writes the plots to a DIN A4 (8 x 11 inches) pdf file
 #' directly.
-#' 
 #' @param l List with ggplot objects.
 #' @param path Plot to file of type pdf or png. Determine type by
 #' path ending (.pdf or .png).\cr
@@ -16,7 +17,7 @@
 #' @param width For pdfs/pngs the width in inches, else ignored.
 #' @param height For pdfs/pngs the height in inches, else ignored.
 #' @param res Resolution in dpi for pngs.
-#' @param wide Wide format (11x8 in) pdf pages.
+#' @param wide Wide format pdf pages (11x8 inches).
 #' @param pdf.cairo Use \link{cairo_pdf} (or cairo_ps, svg) instead of \link{pdf}
 #' @param onefile Create one file, see \link{cairo_pdf}.
 #' @param ... Forwarded to cairo_pdf
@@ -33,8 +34,6 @@
 #' ggplotlist(x, 2)}
 #' 
 #' #
-#' @name ggplotGrid
-#' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
 #' @rdname ggplotGrid
 #' @export

@@ -32,7 +32,7 @@ strpart(c("abc","abcb","abc"), "", 4, roll=TRUE)
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \seealso{
 \link{strsplit}

@@ -22,10 +22,6 @@ Numeric vector of length \code{length(text)}.
 \description{
 Function to extract a certain index from \code{gregexpr()}.
 }
-\details{
-See \code{?gregexpr} for further information on arguments.
-See \code{?"regular expression"} for the use of regular expressions.
-}
 \examples{
 #
 
@@ -36,10 +32,11 @@ gregexprind(c("a"),c("abab","ab","xyz",NA), "last")
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \seealso{
-\link{gregexpr}, regular expression (\link{regex})
+See \link{gregexpr} for further information on arguments.\cr
+See \link{regex} for the use of regular expressions.
 }
 \keyword{expression}
 \keyword{gregexpr}

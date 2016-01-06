@@ -44,7 +44,7 @@ image(p, col = gghcl(10, 1:5), axes = FALSE, main ="gghcl(10, 1:5)")
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 \seealso{
 \link{hcl}

@@ -40,6 +40,6 @@ data.frame(
 #
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 

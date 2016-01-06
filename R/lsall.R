@@ -1,7 +1,9 @@
-#' List Object Details
-#' 
+#' @name lsall
+#' @keywords list all
+#' @author Sven E. Templer
+#' @title List Object Details
+#' @description 
 #' Return a data.frame with a list of all objects of a specified environmet.
-#' 
 #' @param envir An environment where to look for objects.
 #' @param ... Arguments forwarded to \code{ls}.
 #' @return
@@ -19,9 +21,6 @@
 #' lsall()
 #' 
 #' #
-#' @name lsall
-#' @keywords list all
-#' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
 #' @export lsall
 lsall <- function (envir=.GlobalEnv, ...) {

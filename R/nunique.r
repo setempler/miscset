@@ -1,11 +1,12 @@
-#' Amount and Index of Unique Values
-#' 
+#' @name nunique
+#' @keywords unique
+#' @author Sven E. Templer
+#' @title Amount and Index of Unique Values
+#' @details
 #' Return the index or amount of unique values in a vector.
-#' 
 #' @param x Numeric vector to transform.
 #' @param na Logical, \code{TRUE} to include/count \code{NA}.
 #' @param ... Arguments forwarded to \link{unique}.
-#' 
 #' @examples
 #' #
 #' 
@@ -16,9 +17,6 @@
 #' uniquei(v, FALSE)
 #' 
 #' #
-#' @name nunique
-#' @keywords unique
-#' @author Sven E. Templer \email{sven.templer@@gmail.com}
 
 #' @rdname nunique
 #' @export

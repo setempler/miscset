@@ -38,7 +38,7 @@ missing, then the grid is returned to the current graphic device.}
 
 \item{...}{Forwarded to cairo_pdf}
 
-\item{wide}{Wide format (11x8 in) pdf pages.}
+\item{wide}{Wide format pdf pages (11x8 inches).}
 
 \item{x}{A list containing at least one ggplot object of class \code{gg}.}
 }
@@ -62,6 +62,6 @@ ggplotlist(x, 2)}
 #
 }
 \author{
-Sven E. Templer \email{sven.templer@gmail.com}
+Sven E. Templer
 }
 

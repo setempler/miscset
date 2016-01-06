@@ -1,7 +1,8 @@
-#' Load RData Objects to a List
-#' 
+#' @name lload
+#' @author Sven E. Templer
+#' @title Load RData Objects to a List
+#' @description
 #' Load multiple .RData files and return a (simplified) list.
-#' 
 #' @param path Character string with the path, as used in \link{list.files}.
 #' @param pattern A regular expression for file name patterns, as used in
 #' \link{list.files}.
@@ -15,10 +16,6 @@
 #' m objects in total loaded.
 #' @seealso
 #' \link{load}
-#' @examples 
-#' #
-#' @name lload
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export lload
 lload <- function (path = ".", pattern = ".RData", recursive = FALSE, simplify = TRUE, verbose = TRUE) {

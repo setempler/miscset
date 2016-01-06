@@ -31,6 +31,6 @@ For details about the function see \link{plot}, which is called from
 \link{par}.
 }
 \author{
-Sven E. Templer (\email{sven.templer@gmail.com})
+Sven E. Templer
 }
 

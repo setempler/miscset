@@ -1,7 +1,9 @@
-#' Create a Pairwise List from a Matrix
-#' 
+#' @name enpaire
+#' @keywords pairwise matrix
+#' @title Create a Pairwise List from a Matrix
+#' @author Sven E. Templer
+#' @description
 #' Transform a \code{matrix} or \code{dist} object to a pairwise list.
-#' 
 #' @param x Object of class \code{matrix}.
 #' @param upper Logical, return values from upper triangle.
 #' @param lower Logical, return values from lower triangle.
@@ -20,9 +22,6 @@
 #' enpaire(m, lower = FALSE)
 #' 
 #' #
-#' @name enpaire
-#' @keywords pairwise matrix
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @rdname enpaire
 #' @export enpaire

@@ -1,10 +1,9 @@
-#' Pattern Matching and Extraction
-#' 
+#' @name gregexprind
+#' @keywords gregexpr index regular expression
+#' @author Sven E. Templer
+#' @title Pattern Matching and Extraction
+#' @description 
 #' Function to extract a certain index from \code{gregexpr()}.
-#' 
-#' See \code{?gregexpr} for further information on arguments.
-#' See \code{?"regular expression"} for the use of regular expressions.
-#' 
 #' @param pattern Character string containing a regular expression to be searched in \code{text}.
 #' @param text Character vector where the search is performed.
 #' @param n Numeric value or character string \code{"last"} to 
@@ -13,7 +12,8 @@
 #' @return
 #' Numeric vector of length \code{length(text)}.
 #' @seealso
-#' \link{gregexpr}, regular expression (\link{regex})
+#' See \link{gregexpr} for further information on arguments.\cr
+#' See \link{regex} for the use of regular expressions.
 #' @examples
 #' #
 #' 
@@ -22,9 +22,6 @@
 #' gregexprind(c("a"),c("abab","ab","xyz",NA), "last")
 #' 
 #' #
-#' @name gregexprind
-#' @keywords gregexpr index regular expression
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export gregexprind
 gregexprind <- function(pattern, text, n, ...) {

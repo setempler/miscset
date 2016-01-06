@@ -1,15 +1,14 @@
-#' Open The Package Help Index Page in a Browser
-#' 
+#' @name help.index
+#' @keywords help index browser
+#' @author Sven E. Templer
+#' @title Open The Package Help Index Page in a Browser
+#' @description 
 #' Given a package name or string, start the package help index page
 #' in a browser.
-#' 
 #' @param pkg A character string or expression with the name of a package.
 #' @param browser The browser to display. \code{text} and \code{pdf} don't
 #' use a browser, but builtin text/pdf (help_type). Otherwise a character
 #' string for the browser program binary to call or function.
-#' @name help.index
-#' @keywords help index browser
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export help.index
 help.index <- function (pkg, browser = NULL) {

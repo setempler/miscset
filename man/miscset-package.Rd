@@ -18,7 +18,7 @@ usage of all available functions in the package. View with
 \code{vignette("miscset")}.
 }
 \author{
-Sven E. Templer \email{sven.templer@gmail.com}
+Sven E. Templer
 }
 \keyword{misc}
 \keyword{miscellaneous}

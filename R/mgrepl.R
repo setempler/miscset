@@ -1,11 +1,13 @@
-#' Multiple Pattern Matching and Replacement
-#' 
+#' @name mgrepl
+#' @keywords multiple grep sub gsub
+#' @author Sven E. Templer
+#' @title Multiple Pattern Matching and Replacement
+#' @description 
 #' \code{mgrepl} searches for any or all patterns and returns logical values.
 #' Combination of the results is done via the logic functions \code{any} or
 #' \code{all}. Multicore feature is made available by \code{parallel:::mclapply}.
 #' \code{msub} and \code{mgsub} replace multiple patterns in a 
 #' vector by the order of 
-#' 
 #' @param patterns A character vector containing a regular expression
 #' (\link{regex}) to be searched in \code{text}.
 #' @param text Character vector where the search and replace is performed.
@@ -27,7 +29,6 @@
 #' depending on \code{log.fun}.
 #' @seealso
 #' \link{grep}, \link{mclapply}
-#'  
 #' @examples
 #' #
 #' 
@@ -42,9 +43,6 @@
 #' mgsub(letters[1:2], "<replaced>", c("ab","ba","acb",NA))
 #' 
 #' #
-#' @name mgrepl
-#' @keywords multiple grep sub gsub
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export mgrepl
 mgrepl <- function(patterns, text, log.fun = any, use.which = FALSE, cores = 1, ...) {

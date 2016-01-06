@@ -1,7 +1,9 @@
-#' Split String and Return Part
-#' 
+#' @name strpart
+#' @keywords extract part string
+#' @author Sven E. Templer
+#' @title Split String and Return Part
+#' @description 
 #' Return the nth part of a splitted string.
-#' 
 #' @param x Character vector.
 #' @param split Regular expression splitting strings.
 #' @param n Number of part to extract.
@@ -18,9 +20,6 @@
 #' strpart(c("abc","abcb","abc"), "", 4, roll=TRUE)
 #' 
 #' #
-#' @name strpart
-#' @keywords extract part string
-#' @author Sven E. Templer (\email{sven.templer@@gmail.com})
 
 #' @export strpart
 strpart <- function (x, split, n, ..., roll = F) {
