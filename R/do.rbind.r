@@ -1,11 +1,10 @@
-#' Bind data.frames in a List by Rows
-#' 
-#' Same as do.call(rbind, x), but adding a column with the
+#' @name do.rbind
+#' @title Bind data.frames in a List by Rows
+#' @description 
+#' Same as \code{do.call(rbind, x)}, but adding a column with the
 #' name of each table. Missing names are replaced by integers.
-#' 
 #' @param x List with data.frames. Non data.frame objects are dropped.
 #' @param idcol Name for column with ids in output.
-#' @name do.rbind
 #' @return
 #' Returns a data.frame
 #' @author Sven E. Templer

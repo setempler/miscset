@@ -15,7 +15,7 @@ do.rbind(x, idcol = "Name")
 Returns a data.frame
 }
 \description{
-Same as do.call(rbind, x), but adding a column with the
+Same as \code{do.call(rbind, x)}, but adding a column with the
 name of each table. Missing names are replaced by integers.
 }
 \author{
