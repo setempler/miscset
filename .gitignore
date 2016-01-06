@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 *.Rproj
+*.Rcheck
 src/*.o
 src/*.so
 src/*.dll
