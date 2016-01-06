@@ -7,8 +7,8 @@ Author: Sven E. Templer
 Maintainer: Sven E. Templer <sven.templer@gmail.com>
 Description: The package contains methods to simplify workspace handling, sort,
     reshape and apply functions on grids of data.frames, scale numeric values,
-    extract unique and duplicate values, perform regular expression based 
-    string operations and ease plotting. Many methods are implemented with 
+    extract unique and duplicate values, perform regular expression based
+    string operations and ease plotting. Many methods are implemented with
     multi-core support from the parallel package or written in C++.
 License: GPL-3
 Imports:
@@ -24,3 +24,4 @@ Suggests:
 VignetteBuilder: knitr
 URL: https://github.com/setempler/miscset
 BugReports: https://github.com/setempler/miscset/issues
+RoxygenNote: 5.0.1
