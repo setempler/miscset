@@ -30,14 +30,12 @@ enpaire <- function (x, ...) {
 }
 
 #' @rdname enpaire
-#' @method enpaire default
 enpaire.default <- function (x, ...) {
-  stop("x must be of class matrix or dist.")
+  stop("method not defined")
 }
 
 #' @rdname enpaire
 #' @export enpaire.dist
-#' @method enpaire dist
 enpaire.dist <- function (x, upper = T, lower = T, ...) {
   x <- as.matrix(x)
   NextMethod("enpaire")
@@ -45,7 +43,6 @@ enpaire.dist <- function (x, upper = T, lower = T, ...) {
 
 #' @rdname enpaire
 #' @export enpaire.matrix
-#' @method enpaire matrix
 enpaire.matrix <- function (x, upper = T, lower = T, ...) {
   if (!upper & !lower)
     stop("Nothing to return, set at least one of upper/lower TRUE.")

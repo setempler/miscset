@@ -25,8 +25,8 @@
 #' 
 #' #
 
-#' @method sort data.frame
-#' @export sort.data.frame
+#' @rdname sort
+#' @export
 sort.data.frame <- function (
 	x, decreasing = FALSE, by = NULL, bye = NULL, na.last = NA, ...) 
 {
