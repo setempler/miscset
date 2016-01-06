@@ -7,8 +7,8 @@
 \usage{
 ciplot(x, ...)
 
-\method{ciplot}{default}(x, height.fun = mean, range.fun = ci, ...,
-  arrows.args = list())
+\method{ciplot}{default}(x, height.fun = mean, range.fun = confint, ylim,
+  ..., arrows.args = list())
 }
 \arguments{
 \item{x}{List of numeric values}
@@ -25,9 +25,13 @@ according to the confidence interval, standard deviation,
 interquartile range, etc.
 }
 \details{
+Use standard deviation to calculate range:\cr
 sd_range <- function (x) { m <- mean(x); s <- sd(x); c(m-s,m+s)}
 }
 \author{
 Sven E. Templer
 }
+\keyword{barplot}
+\keyword{bars}
+\keyword{error}
 
