@@ -1,8 +1,8 @@
 Package: miscset
 Type: Package
 Title: Miscellaneous Tools Set
-Version: 0.6
-Date: 2015-01-21
+Version: 1.0
+Date: 2016-01-6
 Author: Sven E. Templer
 Maintainer: Sven E. Templer <sven.templer@gmail.com>
 Description: The package contains methods to simplify workspace handling, sort,
@@ -12,7 +12,6 @@ Description: The package contains methods to simplify workspace handling, sort,
     multi-core support from the parallel package or written in C++.
 License: GPL-3
 Imports:
-    data.table,
     ggplot2,
     gridExtra,
     parallel,
