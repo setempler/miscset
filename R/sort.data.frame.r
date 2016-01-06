@@ -28,7 +28,7 @@
 #' @method sort data.frame
 #' @export sort.data.frame
 sort.data.frame <- function (
-	x, by = NULL, bye = NULL, decreasing = FALSE, na.last = NA, ...) 
+	x, decreasing = FALSE, by = NULL, bye = NULL, na.last = NA, ...) 
 {
   
   # get expression

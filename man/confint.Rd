@@ -5,15 +5,16 @@
 \alias{confint.numeric}
 \title{Confidence intervals for numeric vectors}
 \usage{
-\method{confint}{numeric}(x, level = 0.95, q.fun = qnorm, ret.attr = TRUE)
+\method{confint}{numeric}(object, parm = qnorm, level = 0.95, ...,
+  ret.attr = TRUE)
 }
 \arguments{
-\item{x}{A numeric vector}
+\item{object}{A numeric vector.}
+
+\item{parm}{Function for quantile calculation.
+e.g. \code{qnorm}, \code{qt}}
 
 \item{level}{Size of confidence (0 < size < 1).}
-
-\item{q.fun}{Function for quantile calculation.
-e.g. \code{qnorm}, \code{qt}}
 
 \item{ret.attr}{Logical, to include the mean value and function arguments
 as attributes of the returned object.}

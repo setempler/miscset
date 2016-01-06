@@ -5,11 +5,13 @@
 \alias{sort.data.frame}
 \title{Sort data.frame Objects}
 \usage{
-\method{sort}{data.frame}(x, by = NULL, bye = NULL, decreasing = FALSE,
+\method{sort}{data.frame}(x, decreasing = FALSE, by = NULL, bye = NULL,
   na.last = NA, ...)
 }
 \arguments{
 \item{x}{A data.frame.}
+
+\item{decreasing}{Logical, sort in decreasing order. See also \link[base]{sort}.}
 
 \item{by}{Index (integer) or names of columns in \code{x} to sort by in that
 order.
@@ -18,8 +20,6 @@ in their order.}
 
 \item{bye}{Unquoted column name or \code{list()} or \code{.()} with unquoted
 column names to sort \code{x} by. Not evaluated if \code{by} is supplied.}
-
-\item{decreasing}{Logical, sort in decreasing order. See also \link[base]{sort}.}
 
 \item{na.last}{\code{TRUE} to put missing values last, \code{FALSE} to put 
 first or \code{NA} to remove.}
