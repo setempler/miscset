@@ -17,9 +17,9 @@
 #' @examples
 #' #
 #' 
-#' gregexprind(c("a"),c("abab","ab","xyz",NA), 1)
-#' gregexprind(c("a"),c("abab","ab","xyz",NA), 2)
-#' gregexprind(c("a"),c("abab","ab","xyz",NA), "last")
+#' gregexprind(c("a"),c("ababa","ab","xyz",NA), 1)
+#' gregexprind(c("a"),c("ababa","ab","xyz",NA), 2)
+#' gregexprind(c("a"),c("ababa","ab","xyz",NA), "last")
 #' 
 #' #
 
