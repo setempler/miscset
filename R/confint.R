@@ -7,6 +7,8 @@
 #' @param parm Function for quantile calculation.
 #' e.g. \code{qnorm}, \code{qt}
 #' @param level Size of confidence (0 < size < 1).
+#' @param ... Unused.
+#' @param na.rm Logical, remove missing values for \code{sd} and \code{mean}.
 #' @param ret.attr Logical, to include the mean value and function arguments
 #' as attributes of the returned object.
 #' @return 
@@ -22,16 +24,18 @@
 
 #' @rdname confint
 #' @export
-confint.numeric <- function (object, parm = qnorm, level = .95, ..., ret.attr = TRUE) {
+confint.numeric <- function (object, parm = qnorm, level = .95, ..., 
+                             na.rm = TRUE, ret.attr = TRUE) {
   if (any(level >= 1, level <= 0)) stop("level out of range")
   level <- 1 - (1 - level)/2
   n <- length(object)
-  s <- sd(object)
-  i <- parm(level) * s / sqrt(n)
-  m <- mean(object, na.rm = TRUE)
-  r <- c(m - i, m + i)
+  s <- sd(object, na.rm = na.rm)
+  r <- parm(level) * s / sqrt(n)
   if (ret.attr) {
+    m <- mean(object, na.rm = na.rm)
+    mr <- c(m - r, m + r)
     attr(r, "mean") <- m
+    attr(r, "range") <- mr
     attr(r, "level") <- level
     attr(r, "quantile") <- parm
   }
