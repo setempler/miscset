@@ -16,6 +16,6 @@
 #' @param ... Forwarded arguments to \code{plot}.
 
 #' @export
-plotn <- function(x, y = NULL, type = "n", xlab = "", ylab = "", xaxt = "n", yaxt = "n", frame.plot=F, ...) {
+plotn <- function(x = 0:1, y = NULL, type = "n", xlab = "", ylab = "", xaxt = "n", yaxt = "n", frame.plot=F, ...) {
   plot(x,y,type=type,xlab=xlab,ylab=ylab,xaxt=xaxt,yaxt=yaxt,frame.plot=frame.plot,...)
 }
