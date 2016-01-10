@@ -15,3 +15,4 @@ vignettes/*
 TODO
 TEST*
 inst/doc
+*.swp
