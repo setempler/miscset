@@ -24,7 +24,7 @@
 #' #
 
 #' @rdname enpaire
-#' @export enpaire
+#' @export 
 enpaire <- function (x, ...) {
   UseMethod("enpaire")
 }
@@ -35,14 +35,14 @@ enpaire.default <- function (x, ...) {
 }
 
 #' @rdname enpaire
-#' @export enpaire.dist
+#' @export 
 enpaire.dist <- function (x, upper = T, lower = T, ...) {
   x <- as.matrix(x)
   NextMethod("enpaire")
 }
 
 #' @rdname enpaire
-#' @export enpaire.matrix
+#' @export 
 enpaire.matrix <- function (x, upper = T, lower = T, ...) {
   if (!upper & !lower)
     stop("Nothing to return, set at least one of upper/lower TRUE.")
@@ -56,9 +56,9 @@ enpaire.matrix <- function (x, upper = T, lower = T, ...) {
   colnames(pairs) <- c("row", "col")
   u <- l <- NA
   if (upper)
-    l <- t(x)[upper.tri(x)]
-  if (lower)
     u <- t(x)[lower.tri(x)]
+  if (lower)
+    l <- t(x)[upper.tri(x)]
   ret <- data.frame(pairs, lower = l, upper = u, stringsAsFactors = F)
   return(ret)
 }
