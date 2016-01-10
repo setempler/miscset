@@ -3,19 +3,23 @@
 #' @author Sven E. Templer
 #' @title Barplot with confindence intervals
 #' @description 
-#' Create barplots of a list of numeric values and arrows
+#' Create barplots of a list of numeric values and error bars
 #' according to the confidence interval, standard deviation,
 #' interquartile range, etc.
 #' @param x List of numeric values
-#' @param heigth.fun Function to apply on each list object
+#' @param ... Arguments forwarded to barplot in default method.
+#' @param ylim A range for the y-axis limits.
+#' @param height.fun Function to apply on each list object 
 #' to calculate the height of the bars from.
-#' @param range.fun Function to calculate the range of the
-#' arrows (e.g. a confidence interval). See details.
+#' @param height.args Arguments forwarded to height.fun, as a named list.
+#' @param error.fun Function to calculate the error size. See also details.
+#' @param error.args Arguments forwarded to error.fun, as a named list.
+#' @param arrows.args Arguments forwarded to arrows, as a named list.
+#' @param na.rm Logical, remove missing values.
 #' @details 
-#' Use standard deviation to calculate range:\cr
-#' sd_range <- function (x) { m <- mean(x); s <- sd(x); c(m-s,m+s)}
-
-
+#' Example for quantiles:\cr
+#' \code{interquartile <- function(x) \{quartile(x,.75)-mean(x)\}}\cr
+#' \code{quantileQ <- function(x, q) \{abs(quartile(x,q[1])-mean(x))\}}
 
 #' @rdname ciplot
 #' @export
@@ -23,25 +27,29 @@ ciplot <- function (x, ...) { UseMethod("ciplot") }
 
 #' @rdname ciplot
 #' @export
-ciplot.default <- function (x, height.fun = mean, range.fun = confint, ylim,
-                            ..., arrows.args = list()) {
+ciplot.default <- function (x, ..., ylim,
+                            height.fun = mean, height.args = list(), 
+                            error.fun = confint, error.args = list(),
+                            arrows.args = list(code = 3, angle = 90), 
+                            na.rm = TRUE) {
   
-  heights <- sapply(x, height.fun)
-  arrows.r <- lapply(x, range.fun)
-  arrows.left <- sapply(arrows.r, min)
-  arrows.right <- sapply(arrows.r, max)
+  if (na.rm)
+    x <- lapply(x, function (y) y[!is.na(y)])
+  h <- sapply(x, function(y) do.call(height.fun, c(list(y), height.args)))
+  e <- sapply(x, function(y) do.call(error.fun, c(list(y), error.args)))
+  e.min <- h - e
+  e.max <- h + e
   if (missing(ylim)) {
-    al <- min(0, arrows.left)
-    al <- ifelse(al < 0, al * 1.1, al * 0.9)
-    ar <- max(0, arrows.right * 1.1)
+    al <- min(-1e-8, e.min * 1.1)
+    ar <- max(1e-8, e.max * 1.1)
     ylim <- c(al, ar)
   }
     
-  bars <- barplot(heights, ylim = ylim, ...)
-  arrows.x <- sapply(bars, as.vector)
-  arrows.args <- c(list(x0 = arrows.x, x1 = arrows.x, y0 = arrows.left, y1 = arrows.right, 
-                        code = 3, angle = 90), arrows.args)
-  do.call(arrows, arrows.args)
-  invisible(list(heights, arrows.r))
+  b <- barplot(h, ylim = ylim, ...)
+  b <- sapply(b, as.vector)
+  arrows.args <- c(list(x0 = b, x1 = b, y0 = e.min, y1 = e.max), 
+                   arrows.args)
+  null <- do.call(arrows, arrows.args)
+  invisible(list(height=h, error=e))
 }
 
