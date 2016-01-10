@@ -6,11 +6,12 @@
 #' name of each table. Missing names are replaced by integers.
 #' @param x List with data.frames. Non data.frame objects are dropped.
 #' @param idcol Name for column with ids in output.
+#' @param keep.rownames Logical, keep rownames.
 #' @return
 #' Returns a data.frame
 
 #' @export
-do.rbind <- function (x, idcol = "Name") {
+do.rbind <- function (x, idcol = "Name", keep.rownames = FALSE) {
   
   # check for data.frames
   u <- sapply(x, inherits, "data.frame")
@@ -29,7 +30,10 @@ do.rbind <- function (x, idcol = "Name") {
   
   # bind
   x <- do.call(rbind, x)
-  x[[idcol]] <- i
+  x <- data.frame(IDS = i, x, stringsAsFactors = FALSE)
+  names(x)[1] <- idcol
+  #x[[idcol]] <- i
+  if (!keep.rownames) rownames(x) <- NULL
   
   # return
   return(x)
