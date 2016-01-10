@@ -4,12 +4,14 @@
 \alias{do.rbind}
 \title{Bind data.frames in a List by Rows}
 \usage{
-do.rbind(x, idcol = "Name")
+do.rbind(x, idcol = "Name", keep.rownames = FALSE)
 }
 \arguments{
 \item{x}{List with data.frames. Non data.frame objects are dropped.}
 
 \item{idcol}{Name for column with ids in output.}
+
+\item{keep.rownames}{Logical, keep rownames.}
 }
 \value{
 Returns a data.frame

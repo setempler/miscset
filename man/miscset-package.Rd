@@ -6,11 +6,11 @@
 \alias{miscset-package}
 \title{Miscellaneous R Tools}
 \description{
-The package contains methods to simplify workspace handling, sort,
-reshape and apply functions on grids of data.frames, scale numeric values,
-extract unique and duplicate values, perform regular expression based 
-string operations and ease plotting. Many methods are implemented with 
-multi-core support from the parallel package or written in C++.
+Miscellaneous methods that simplify tasks from multiple areas. 
+This comprises plotting, data.frame and matrix transformations, environment functions, 
+regular expression methods, string and logical operations and numerical 
+and statistical tools. Most of the methods are simple but useful wrappers 
+of common base R functions by extending S3 generics or setting default parameters.
 }
 \details{
 The package vignette provides a comprehensive overview and examples for the

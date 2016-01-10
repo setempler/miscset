@@ -7,26 +7,39 @@
 \usage{
 ciplot(x, ...)
 
-\method{ciplot}{default}(x, height.fun = mean, range.fun = confint, ylim,
-  ..., arrows.args = list())
+\method{ciplot}{default}(x, ..., ylim, height.fun = mean,
+  height.args = list(), error.fun = confint, error.args = list(),
+  arrows.args = list(code = 3, angle = 90), na.rm = TRUE)
 }
 \arguments{
 \item{x}{List of numeric values}
 
-\item{range.fun}{Function to calculate the range of the
-arrows (e.g. a confidence interval). See details.}
+\item{...}{Arguments forwarded to barplot in default method.}
 
-\item{heigth.fun}{Function to apply on each list object
+\item{ylim}{A range for the y-axis limits.}
+
+\item{height.fun}{Function to apply on each list object 
 to calculate the height of the bars from.}
+
+\item{height.args}{Arguments forwarded to height.fun, as a named list.}
+
+\item{error.fun}{Function to calculate the error size. See also details.}
+
+\item{error.args}{Arguments forwarded to error.fun, as a named list.}
+
+\item{arrows.args}{Arguments forwarded to arrows, as a named list.}
+
+\item{na.rm}{Logical, remove missing values.}
 }
 \description{
-Create barplots of a list of numeric values and arrows
+Create barplots of a list of numeric values and error bars
 according to the confidence interval, standard deviation,
 interquartile range, etc.
 }
 \details{
-Use standard deviation to calculate range:\cr
-sd_range <- function (x) { m <- mean(x); s <- sd(x); c(m-s,m+s)}
+Example for quantiles:\cr
+\code{interquartile <- function(x) \{quartile(x,.75)-mean(x)\}}\cr
+\code{quantileQ <- function(x, q) \{abs(quartile(x,q[1])-mean(x))\}}
 }
 \author{
 Sven E. Templer

@@ -2,15 +2,9 @@
 % Please edit documentation in R/mgrepl.R
 \name{mgrepl}
 \alias{mgrepl}
-\alias{mgsub}
-\alias{msub}
 \title{Multiple Pattern Matching and Replacement}
 \usage{
 mgrepl(patterns, text, log.fun = any, use.which = FALSE, cores = 1, ...)
-
-msub(patterns, replacement, text, ...)
-
-mgsub(patterns, replacement, text, ...)
 }
 \arguments{
 \item{patterns}{A character vector containing a regular expression
@@ -18,8 +12,8 @@ mgsub(patterns, replacement, text, ...)
 
 \item{text}{Character vector where the search and replace is performed.}
 
-\item{log.fun}{For \code{mgrepl}. Logical function (\code{any} or 
-\code{all}) to evaluate occurence of each pattern in \code{patterns} in each
+\item{log.fun}{Logical function (\code{any} or \code{all}) 
+to evaluate occurence of each pattern in \code{patterns} in each
 value of \code{text}. Can also be custom. See examples.}
 
 \item{use.which}{Logical, \code{TRUE} to return an integer like \link{which}
@@ -28,24 +22,19 @@ instead a logical vector.}
 \item{cores}{Numeric value for how many cores to use for computation using 
 \code{mclapply}.}
 
-\item{replacement}{Character vector with the replacement pattern.}
-
 \item{\dots}{Further arguments passed to functions \code{grepl()}, \code{sub()} and \code{gsub()}.}
 }
 \value{
-\code{msub} and \code{mgsub}:\cr
-Same as \code{text} but with all \code{patterns} replaced.\cr
-\code{mgrepl}:\cr
 Logical vector of sam length as \code{text} where \code{TRUE} means either
 any or all patterns in \code{patternlist} are matched in \code{text}
 depending on \code{log.fun}.
+Using \code{identity} as logical returns a matrix with results of patterns per row.
 }
 \description{
 \code{mgrepl} searches for any or all patterns and returns logical values.
-Combination of the results is done via the logic functions \code{any} or
-\code{all}. Multicore feature is made available by \code{parallel:::mclapply}.
-\code{msub} and \code{mgsub} replace multiple patterns in a 
-vector by the order of
+Combination of the results is done via the logic functions \code{any},
+\code{all} or \code{identity}, for example. 
+Multicore feature is made available by \code{parallel::mclapply}.
 }
 \examples{
 #
@@ -54,11 +43,8 @@ vector by the order of
 mgrepl(c("a","b"), c("ab","ac","bc"), any)
 mgrepl(c("a","b"), c("ab","ac","bc"), all)
 mgrepl(c("a","b"), c("ab","ac","bc"), all, use.which = TRUE)
+mgrepl(c("a","b"), c("ab","ac","bc"), identity)
 mgrepl(letters[1:3], c("ax","xab","xbc"), function (x) sum(x)>1)
-
-# Replace several patterns (gplobally):
-msub(letters[1:3], "<replaced>", letters[1:5])
-mgsub(letters[1:2], "<replaced>", c("ab","ba","acb",NA))
 
 #
 }

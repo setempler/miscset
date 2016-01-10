@@ -6,7 +6,7 @@
 \title{Confidence intervals for numeric vectors}
 \usage{
 \method{confint}{numeric}(object, parm = qnorm, level = 0.95, ...,
-  ret.attr = TRUE)
+  na.rm = TRUE, ret.attr = TRUE)
 }
 \arguments{
 \item{object}{A numeric vector.}
@@ -15,6 +15,10 @@
 e.g. \code{qnorm}, \code{qt}}
 
 \item{level}{Size of confidence (0 < size < 1).}
+
+\item{...}{Unused.}
+
+\item{na.rm}{Logical, remove missing values for \code{sd} and \code{mean}.}
 
 \item{ret.attr}{Logical, to include the mean value and function arguments
 as attributes of the returned object.}

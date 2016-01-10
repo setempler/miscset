@@ -4,8 +4,8 @@
 \alias{plotn}
 \title{Plot Nothing (but a Plot)}
 \usage{
-plotn(x, y = NULL, type = "n", xlab = "", ylab = "", xaxt = "n",
-  yaxt = "n", frame.plot = F, ...)
+plotn(x = 0:1, y = NULL, type = "n", xlab = "", ylab = "",
+  xaxt = "n", yaxt = "n", frame.plot = F, ...)
 }
 \arguments{
 \item{x}{Coordinates of the points.}
