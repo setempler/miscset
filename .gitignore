@@ -10,6 +10,8 @@ src/*.rds
 vignettes/*
 !vignettes/*.Rnw
 !vignettes/*.pdf
+!vignettes/*.Rmd
+!vignettes/*.html
 TODO
 TEST*
-dev/
+inst/doc
