@@ -23,7 +23,7 @@ install.packages("miscset")
 From github (latest version):
 
 ```r
-devtools::install_github("setempler/miscset")
+devtools::install_github("setempler/miscset", build_vignettes = TRUE)
 ```
 
 ### Documentation
@@ -31,7 +31,6 @@ devtools::install_github("setempler/miscset")
 For an introduction see the package vignette.
 
 ```r
-library(miscset)
 vignette("miscset")
 ```
 

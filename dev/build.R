@@ -13,5 +13,6 @@ build(manual = T)
 # check
 
 install.packages("../miscset_1.0.tar.gz", repos = NULL)
-#devtools::install_github("setempler/miscset")
+devtools::install_github("setempler/miscset", build_vignettes = TRUE)
+
 vignette("miscset")
