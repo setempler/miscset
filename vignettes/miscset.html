@@ -86,7 +86,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># from CRAN</span>
 <span class="kw">install.packages</span>(<span class="st">&quot;miscset&quot;</span>)
 <span class="co"># from github - latest version</span>
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;setempler/miscset&quot;</span>)</code></pre></div>
+devtools::<span class="kw">install_github</span>(<span class="st">&quot;setempler/miscset&quot;</span>, <span class="dt">build_vignettes =</span> <span class="ot">TRUE</span>)</code></pre></div>
 </div>
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
@@ -203,7 +203,7 @@ m &lt;-<span class="st"> </span><span class="kw">matrix</span>(letters[<span cla
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">textable</span>(d, <span class="dt">caption =</span> <span class="st">'miscset vignette example data.frame'</span>, <span class="dt">as.document =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>% output by function 'textable' from package miscset 1.0
 % latex table generated in R 3.2.3 by xtable 1.8-0 package
-% Mon Jan 11 01:01:17 2016
+% Mon Jan 11 01:11:36 2016
 
 \documentclass[a4paper,10pt]{article}
 \usepackage[a4paper,margin=2cm]{geometry}
