@@ -1,6 +1,3 @@
-[![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=master)](https://travis-ci.org/setempler/miscset)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/miscset)](http://cran.r-project.org/package=miscset)
-
 # miscset
 
 A **[GNU R](http://r-project.org)** package.
@@ -38,6 +35,12 @@ vignette("miscset")
 Also on
 [CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.pdf) or
 [github](http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html).
+
+### Versions
+
+[![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=develop)](https://travis-ci.org/setempler/miscset) github   [develop](https://github.com/setempler/miscset/tree/develop)  
+[![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=master)](https://travis-ci.org/setempler/miscset) github [latest stable](https://github.com/setempler/miscset/releases)  
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/miscset)](http://cran.r-project.org/package=miscset)  stable  
 
 ### License
 
