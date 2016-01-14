@@ -1,6 +1,6 @@
 NEWS
 
-++ miscset v 0.9.0 ++ 2015/01/14
+++ miscset v 0.9.0 ++ 2015/01/15
 
 package NAMESPACE:
 function added: confint.numeric (calculate confidence intervals)
