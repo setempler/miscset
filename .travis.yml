@@ -1,5 +1,14 @@
 language: r
+
 sudo: required
+
 branches:
   only:
     - master
+
+r_binary_packages:
+  - Rcpp
+  - knitr
+
+r_github_packages:
+  - rstudio/rmarkdown
