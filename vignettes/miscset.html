@@ -94,8 +94,9 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;setemple
 <p>A more detailed help for each function can be viewed on the <code>R</code> help pages. To view them, call the function’s name with a <code>?</code> prepended, e.g.:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?duplicates</code></pre></div>
 <p>The following chapters will describe the functions from the <code>miscset</code> package. The prerequisites to run all vignette examples are to load the following packages, and generate the sample data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(miscset)
-<span class="kw">library</span>(ggplot2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(miscset)</code></pre></div>
+<pre><code>## miscset version 0.9.0 | help and features: vignette(&quot;miscset&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 d &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="ot">NA</span>,<span class="dv">1</span>), <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">6</span>, <span class="dt">c=</span><span class="dv">5</span>:<span class="dv">1</span>)
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(letters[<span class="dv">1</span>:<span class="dv">9</span>], <span class="dv">3</span>, <span class="dv">3</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">3</span>))</code></pre></div>
 </div>
@@ -202,7 +203,7 @@ m &lt;-<span class="st"> </span><span class="kw">matrix</span>(letters[<span cla
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">textable</span>(d, <span class="dt">caption =</span> <span class="st">'miscset vignette example data.frame'</span>, <span class="dt">as.document =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>% output by function 'textable' from package miscset 0.9.0
 % latex table generated in R 3.2.3 by xtable 1.8-0 package
-% Fri Jan 15 00:00:42 2016
+% Fri Jan 15 00:28:28 2016
 
 \documentclass[a4paper,10pt]{article}
 \usepackage[a4paper,margin=2cm]{geometry}
