@@ -1,9 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-vignettes/.*\.tex
+^\.travis\.yml$
 vignettes/.*\.toc
 vignettes/.*\.log
-^TODO
-^TEST*
-^\.travis\.yml$
-^dev
+vignettes/.*\.tex
