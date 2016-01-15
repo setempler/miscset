@@ -1,7 +1,7 @@
 # miscset
 
 A **[GNU R](http://r-project.org)** package.
-[![Downloads](http://cranlogs.r-pkg.org/badges/RQuantLib?color=brightgreen)](http://www.r-pkg.org/pkg/RQuantLib)
+[![Downloads](http://cranlogs.r-pkg.org/badges/miscset?color=brightgreen)](http://www.r-pkg.org/pkg/miscset)
 
 ### About
 
