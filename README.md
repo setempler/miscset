@@ -1,6 +1,7 @@
 # miscset
 
 A **[GNU R](http://r-project.org)** package.
+[![Downloads](http://cranlogs.r-pkg.org/badges/RQuantLib?color=brightgreen)](http://www.r-pkg.org/pkg/RQuantLib)
 
 ### About
 
@@ -43,6 +44,7 @@ Also on
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/miscset)](http://cran.r-project.org/package=miscset)  stable  
 
 ### License
+[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html)
 
 > Copyright (C) 2016 Sven E. Templer [sven.templer at gmail dot com]
 > 
