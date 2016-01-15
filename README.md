@@ -38,11 +38,19 @@ Also on
 
 ### Versions
 
-* github / [develop](https://github.com/setempler/miscset/tree/develop) - [![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=develop)](https://travis-ci.org/setempler/miscset)  
-* github / [latest stable](https://github.com/setempler/miscset/releases) - [![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=master)](https://travis-ci.org/setempler/miscset)   
-* CRAN / stable - [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/miscset)](http://cran.r-project.org/package=miscset) [![Downloads](http://cranlogs.r-pkg.org/badges/miscset?color=brightgreen)](http://www.r-pkg.org/pkg/miscset)
+* github [develop](https://github.com/setempler/miscset/tree/develop)  
+    [![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=develop)](https://travis-ci.org/setempler/miscset)
 
-### License [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html)
+* github [latest stable](https://github.com/setempler/miscset/releases)  
+    [![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=master)](https://travis-ci.org/setempler/miscset)
+
+* CRAN stable  
+    [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/miscset)](http://cran.r-project.org/package=miscset)  
+    [![Downloads](http://cranlogs.r-pkg.org/badges/miscset?color=brightgreen)](http://www.r-pkg.org/pkg/miscset)
+
+### License 
+
+[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html)
 
 > Copyright (C) 2016 Sven E. Templer [sven.templer at gmail dot com]
 > 
