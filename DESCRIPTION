@@ -1,8 +1,8 @@
 Package: miscset
 Type: Package
 Title: Miscellaneous Tools Set
-Version: 0.9.0
-Date: 2016-01-6
+Version: 1.0.0
+Date: 2016-01-19
 Author: Sven E. Templer
 Maintainer: Sven E. Templer <sven.templer@gmail.com>
 Description: Miscellaneous methods that simplify tasks from multiple areas. 
