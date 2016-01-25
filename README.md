@@ -4,11 +4,12 @@ A **[GNU R](http://r-project.org)** package.
 
 ### About
 
-Miscellaneous methods that simplify tasks from multiple areas. 
-This comprises plotting, data.frame and matrix transformations, environment functions, 
-regular expression methods, string and logical operations and numerical and 
-statistical tools. Most of the methods are simple but useful wrappers 
-of common base R functions by extending S3 generics or setting default parameters.
+A collection of miscellaneous methods to simplify various tasks,
+including plotting, data.frame and matrix transformations, environment
+functions, regular expression methods, and string and logical operations, as
+well as numerical and statistical tools. Most of the methods are simple but
+useful wrappers of common base R functions, which extend S3 generics or
+provide default values for important parameters.
   
 ### Installation
 
