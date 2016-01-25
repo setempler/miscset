@@ -25,6 +25,12 @@ NULL
 #' @importFrom tools startDynamicHelp
 #' @importFrom ggplot2 ggplot geom_point theme_bw theme element_rect 
 #' scale_x_discrete scale_y_discrete
+#' @importFrom grDevices cairo_pdf cairo_ps dev.off hcl pdf png postscript 
+#' setEPS svg
+#' @importFrom graphics arrows barplot plot
+#' @importFrom stats confint qnorm sd symnum
+#' @importFrom utils capture.output combn help object.size packageVersion 
+#' tail
 
 .onAttach <- function(libname, pkgname) {
   if (interactive()) { packageStartupMessage(
