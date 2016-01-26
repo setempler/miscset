@@ -10,7 +10,7 @@
 
 <meta name="author" content="Sven E. Templer" />
 
-<meta name="date" content="2016-01-15" />
+<meta name="date" content="2016-01-25" />
 
 <title>Package miscset introduction</title>
 
@@ -72,13 +72,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Package miscset introduction</h1>
 <h4 class="author"><em>Sven E. Templer</em></h4>
-<h4 class="date"><em>2016-01-15</em></h4>
+<h4 class="date"><em>2016-01-25</em></h4>
 </div>
 
 
 <div id="about" class="section level1">
 <h1>About</h1>
-<p>Miscellaneous methods that simplify tasks from multiple areas. This comprises <a href="#plot-methods">plotting</a>, <a href="#data.frame-and-matrix-methods">data.frame and matrix</a> transformations, <a href="#environment-methods">environment</a> functions, <a href="#regular-expression-methods">regular expression</a> methods, <a href="#string-and-logical-methods">string and logical</a> operations and <a href="#numeric-methods">numerical and statistical</a> tools. Most of the methods are simple but useful wrappers of common base <code>R</code> functions by extending S3 generics or setting default parameters.</p>
+<p>A collection of miscellaneous methods to simplify various tasks, including <a href="#plot-methods">plotting</a>, <a href="#data.frame-and-matrix-methods">data.frame and matrix</a> transformations, <a href="#environment-methods">environment</a> functions, <a href="#regular-expression-methods">regular expression</a> methods, and <a href="#string-and-logical-methods">string and logical</a> operations, as well as <a href="#numeric-methods">numerical and statistical</a> tools. Most of the methods are simple but useful wrappers of common base <code>R</code> functions, which extend S3 generics or provide default values for important parameters.</p>
 </div>
 <div id="installation" class="section level1">
 <h1>Installation</h1>
@@ -94,8 +94,9 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;setemple
 <p>A more detailed help for each function can be viewed on the <code>R</code> help pages. To view them, call the function’s name with a <code>?</code> prepended, e.g.:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?duplicates</code></pre></div>
 <p>The following chapters will describe the functions from the <code>miscset</code> package. The prerequisites to run all vignette examples are to load the following packages, and generate the sample data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(miscset)
-<span class="kw">library</span>(ggplot2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(miscset)</code></pre></div>
+<pre><code>## miscset version 1.0.0 | help and features: vignette(&quot;miscset&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 d &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="ot">NA</span>,<span class="dv">1</span>), <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">6</span>, <span class="dt">c=</span><span class="dv">5</span>:<span class="dv">1</span>)
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(letters[<span class="dv">1</span>:<span class="dv">9</span>], <span class="dv">3</span>, <span class="dv">3</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">3</span>))</code></pre></div>
 </div>
@@ -200,9 +201,9 @@ m &lt;-<span class="st"> </span><span class="kw">matrix</span>(letters[<span cla
 <h2>textable</h2>
 <p>Print a <code>data.frame</code> as latex table. Extends <code>xtable</code> by optionally including a latex header, and if desired writing the output to a file directly and calling a system command to convert it to a <code>.pdf</code> file, for example.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">textable</span>(d, <span class="dt">caption =</span> <span class="st">'miscset vignette example data.frame'</span>, <span class="dt">as.document =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>% output by function 'textable' from package miscset 0.9.0
+<pre><code>% output by function 'textable' from package miscset 1.0.0
 % latex table generated in R 3.2.3 by xtable 1.8-0 package
-% Fri Jan 15 00:00:42 2016
+% Mon Jan 25 23:02:12 2016
 
 \documentclass[a4paper,10pt]{article}
 \usepackage[a4paper,margin=2cm]{geometry}

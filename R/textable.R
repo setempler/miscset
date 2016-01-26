@@ -42,11 +42,13 @@
 #' @examples
 #' #
 #' 
+#' \dontrun{
 #' d <- head(trees)
 #' dc <- 'R "trees" dataset.'
 #' textable(d, rownames=TRUE, digits=4, caption=dc)
 #' textable(d, '/tmp/trees.tex', caption=dc, as.document=TRUE, 
 #'   cmd='pdflatex --output-directory /tmp')
+#' }
 #' 
 #' #
 
