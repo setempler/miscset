@@ -34,7 +34,7 @@ vignette("miscset")
 ```
 
 Also on
-[CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.pdf) or
+[CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.html) or
 [github](http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html).
 
 ### License 
