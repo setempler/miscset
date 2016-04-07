@@ -9,7 +9,9 @@
 #' @param by Column names to split data frame by, before
 #' applying collapse on each remaining column within each piece.
 #' Using the default (all columns), then \code{unique(x)} is
-#' returned. Otherwise, by columns are sorted as 
+#' returned. Columns can be specified by names or integer
+#' with the column numbers. Using \code{0} or \code{NULL}
+#' collapses all columns.
 #' @param ... Forwarded to or from other methods.
 #' @param .unique Logical, return only unique values.
 #' @param .sort Logical, sort the values.
