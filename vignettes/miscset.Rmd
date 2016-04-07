@@ -221,6 +221,52 @@ gregexprind(c("a"), c("ababa","ab","xyz",NA), "last")
 
 ([back to top](#about))
 
+## collapse
+
+To collapse vectors, usually a call to `paste` or `paste0` setting the argument
+`collapse` is applied. The collapse function is a wrapper of this functionality
+applied to a single vector. It can be extended with the `.unique`, `.sort` and
+`.decreasing` arguments, to return only unique and sorted values.
+
+```{r comment=NA}
+paste(letters, collapse = ";")
+collapse(letters)
+```
+
+The `data.frame` method allows to collapse a data frame by identifier/grouping
+columns (specified with `by`). Each group piece has then all value columns
+collapsed with the default method.
+
+In addition, the value columns can be collapsed to vectors, when `sep = NULL`
+is selected, keeping a list of vectors for this column in the returned
+data frame. `.sortby` allows to choose if the result should be sorted by
+the grouping columns. `.unlist` provides a way to unlist value columns per
+group, which is useful if the input has list columns.
+
+```{r comment=NA}
+# create example data
+set.seed(12)
+s <- s2 <- sample(LETTERS[1:4], 9, replace = TRUE)
+s2[1:2] <- rev(s2[1:2])
+d2 <- data.frame(group = rep(letters[c(3,1,2)], each = 3), 
+                 value = s,
+                 level = factor(s2),
+                 stringsAsFactors = FALSE)
+
+# collapse by all columns
+collapse(d2)
+
+# by first column, unique and decreasingly sorted values, groups sorted
+collapse(d2, "/", 1, .unique = TRUE, .sort = TRUE, .decreasing = TRUE, .sortby = TRUE)
+
+# by first column, but keep values as vectors
+collapse(d2, NULL, 1)
+```
+
+The `data.frame` method also works on `data.table` objects, since it uses the methods
+from the package of the same name to split the input into group pieces. If the input
+inherits from `data.table`, the class is retained.
+
 ## leading0
 
 Prepend `0` characters to numbers to generate equally sized strings.

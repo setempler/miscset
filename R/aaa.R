@@ -31,6 +31,7 @@ NULL
 #' @importFrom stats confint qnorm sd symnum
 #' @importFrom utils capture.output combn help object.size packageVersion 
 #' tail
+#' @import data.table
 
 .onAttach <- function(libname, pkgname) {
   if (interactive()) { packageStartupMessage(

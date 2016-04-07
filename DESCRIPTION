@@ -13,6 +13,7 @@ Description: A collection of miscellaneous methods to simplify various tasks,
   provide default values for important parameters.
 License: GPL-3
 Imports: 
+    data.table,
     ggplot2,
     gridExtra,
     parallel,
