@@ -18,6 +18,7 @@ Imports:
     gridExtra,
     parallel,
     Rcpp (>= 0.11.1),
+    stats,
     xtable
 LinkingTo: Rcpp
 Suggests: 
