@@ -1,12 +1,15 @@
 NEWS
 
+++ develop ++
 
-++ miscset v 1.0.0 ++ 2016/01
+
+++ miscset v 1.0.0 ++ 2016/01/26
 
 updated description
+fixed check errors
 released to CRAN
 
-++ miscset v 0.9.0 ++ 2016/01/15
+++ miscset v 0.9.0 ++ 2016/01/14
 
 package NAMESPACE:
 function added: confint.numeric (calculate confidence intervals)
