@@ -11,7 +11,7 @@
 
 <meta name="author" content="Sven E. Templer" />
 
-<meta name="date" content="2016-04-07" />
+<meta name="date" content="2016-04-08" />
 
 <title>Package miscset introduction</title>
 
@@ -70,13 +70,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title">Package miscset introduction</h1>
 <h4 class="author"><em>Sven E. Templer</em></h4>
-<h4 class="date"><em>2016-04-07</em></h4>
+<h4 class="date"><em>2016-04-08</em></h4>
 
 </div>
 
 
 <div id="about" class="section level1">
 <h1>About</h1>
+<p>R package <strong>miscset</strong> version <code>1.0.1</code>.</p>
 <p>A collection of miscellaneous methods to simplify various tasks, including <a href="#plot-methods">plotting</a>, <a href="#data.frame-and-matrix-methods">data.frame and matrix</a> transformations, <a href="#environment-methods">environment</a> functions, <a href="#regular-expression-methods">regular expression</a> methods, and <a href="#string-and-logical-methods">string and logical</a> operations, as well as <a href="#numeric-methods">numerical and statistical</a> tools. Most of the methods are simple but useful wrappers of common base <code>R</code> functions, which extend S3 generics or provide default values for important parameters.</p>
 </div>
 <div id="installation" class="section level1">
@@ -93,8 +94,9 @@ devtools::<span class="kw">install_github</span>(<span class="st">&quot;setemple
 <p>A more detailed help for each function can be viewed on the <code>R</code> help pages. To view them, call the function’s name with a <code>?</code> prepended, e.g.:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?duplicates</code></pre></div>
 <p>The following chapters will describe the functions from the <code>miscset</code> package. The prerequisites to run all vignette examples are to load the following packages, and generate the sample data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(miscset)
-<span class="kw">library</span>(ggplot2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(miscset)</code></pre></div>
+<pre><code>## miscset version 1.0.1 | help and features: vignette(&quot;miscset&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 d &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="ot">NA</span>,<span class="dv">1</span>), <span class="dt">b=</span><span class="dv">2</span>:<span class="dv">6</span>, <span class="dt">c=</span><span class="dv">5</span>:<span class="dv">1</span>)
 m &lt;-<span class="st"> </span><span class="kw">matrix</span>(letters[<span class="dv">1</span>:<span class="dv">9</span>], <span class="dv">3</span>, <span class="dv">3</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="dv">1</span>:<span class="dv">3</span>,<span class="dv">1</span>:<span class="dv">3</span>))</code></pre></div>
 </div>
@@ -201,7 +203,7 @@ m &lt;-<span class="st"> </span><span class="kw">matrix</span>(letters[<span cla
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">textable</span>(d, <span class="dt">caption =</span> <span class="st">'miscset vignette example data.frame'</span>, <span class="dt">as.document =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>% output by function 'textable' from package miscset 1.0.1
 % latex table generated in R 3.2.4 by xtable 1.8-2 package
-% Thu Apr  7 17:34:39 2016
+% Fri Apr  8 08:39:46 2016
 
 \documentclass[a4paper,10pt]{article}
 \usepackage[a4paper,margin=2cm]{geometry}
@@ -246,15 +248,9 @@ a &amp; b &amp; c \\
 <pre><code>Environment: R_GlobalEnv 
 Objects:</code></pre>
 <pre><code>  Name Length      Class      Mode   Size Unit
-1 add1      1   function  function    4.3   Kb
-2  cby      1   function  function    4.6   Kb
-3    d      3 data.frame      list 1008.0 byte
-4   d2      3 data.frame      list    2.1   Kb
-5   dt      3 data.table      list    2.6   Kb
-6    m      9     matrix character    1.3   Kb
-7    n      1    integer   numeric   48.0 byte
-8    s      9  character character  360.0 byte
-9   s2      9  character character  360.0 byte</code></pre>
+1    d      3 data.frame      list 1008.0 byte
+2    m      9     matrix character    1.3   Kb
+3    n      1    integer   numeric   48.0 byte</code></pre>
 </div>
 <div id="rmall" class="section level2">
 <h2>rmall</h2>
