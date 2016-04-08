@@ -11,6 +11,8 @@ vignette: >
 
 # About
 
+R package **miscset** version ``r packageVersion("miscset")``.
+
 A collection of miscellaneous methods to simplify various tasks,
 including [plotting](#plot-methods), 
 [data.frame and matrix](#data.frame-and-matrix-methods) transformations, 
