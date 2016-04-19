@@ -1,20 +1,33 @@
+#!/usr/bin/env Rscript
+
 # build vignette R markdown > html
 
-# restart session before!
-rmarkdown::render('vignettes/miscset.Rmd')
-#rmarkdown::render('vignettes/miscset.Rmd', "pdf_document")
+argc <- alist(
+  html = 
+    rmarkdown::render('vignettes/miscset.Rmd'),
+  pdf =
+    rmarkdown::render('vignettes/miscset.Rmd', 'pdf_document'),
+  doc = 
+    devtools::document(),
+  tgz = 
+    devtools::build(manual = T),
+  install = 
+    devtools::install(".", build_vignettes = TRUE),
+  install_tgz = 
+    install.packages("../miscset_1.0.0.tar.gz", repos = NULL, type = "source"),
+  install_github = 
+    devtools::install_github("setempler/miscset", build_vignettes = TRUE),
+  all = {
+    rmarkdown::render('vignettes/miscset.Rmd'); 
+    devtools::document();
+    devtools::build(manual = T)
+  })
 
-# build documentation with roxygen
+a <- commandArgs(TRUE)[1]
 
-devtools::document()
-devtools::build(manual = T)
+if (a %in% names(argc)) {
+  eval(argc[[a]])
+} else {
+  warning(paste(c("use any of:", names(argc)), collapse = " "))
+}
 
-# check
-
-devtools::install(build_vignettes = TRUE)
-install.packages("../miscset_1.0.0.tar.gz", repos = NULL, type = "source")
-install.packages("../miscset_1.0.1.tar.gz", repos = NULL, type = "source")
-#devtools::install_github("setempler/miscset", build_vignettes = TRUE)
-
-#devtools::release()
-vignette("miscset")
