@@ -8,10 +8,10 @@
 \usage{
 collapse(x, sep, ...)
 
-\method{collapse}{default}(x, sep = ";", ..., .unique = FALSE,
+\method{collapse}{default}(x, sep = "", ..., .unique = FALSE,
   .sort = FALSE, .decreasing = FALSE)
 
-\method{collapse}{data.frame}(x, sep = ";", by = names(x), ...,
+\method{collapse}{data.frame}(x, sep = "", by = names(x), ...,
   .unique = FALSE, .sort = FALSE, .decreasing = FALSE, .unlist = FALSE,
   .sortby = FALSE)
 }
