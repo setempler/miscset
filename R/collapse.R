@@ -50,7 +50,7 @@ collapse <- function (x, sep, ...) { UseMethod("collapse") }
 
 #' @rdname collapse
 #' @export
-collapse.default <- function (x, sep = ";", ..., .unique = FALSE, .sort = FALSE, .decreasing = FALSE) {
+collapse.default <- function (x, sep = "", ..., .unique = FALSE, .sort = FALSE, .decreasing = FALSE) {
   if (.unique) 
     x <- unique(x)
   if (.sort)
@@ -73,7 +73,7 @@ collapse_frame <- function (x, sep, .unique, .sort, .decreasing, .unlist)
 
 #' @rdname collapse
 #' @export
-collapse.data.frame <- function (x, sep = ";", by = names(x), ..., .unique = FALSE, .sort = FALSE, .decreasing = FALSE, .unlist = FALSE, .sortby = FALSE)
+collapse.data.frame <- function (x, sep = "", by = names(x), ..., .unique = FALSE, .sort = FALSE, .decreasing = FALSE, .unlist = FALSE, .sortby = FALSE)
 {
   if (is.null(names(x)))
     names(x) <- seq_along(x)
