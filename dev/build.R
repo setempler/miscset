@@ -1,12 +1,13 @@
 #!/usr/bin/env Rscript
 
-# build vignette R markdown > html
+# TODO:
+# - check R version from DESCRIPTION to get tgz name
 
 argc <- alist(
   html = 
-    rmarkdown::render('vignettes/miscset.Rmd'),
+    rmarkdown::render("vignettes/miscset.Rmd"),
   pdf =
-    rmarkdown::render('vignettes/miscset.Rmd', 'pdf_document'),
+    rmarkdown::render("vignettes/miscset.Rmd", "pdf_document"),
   doc = 
     devtools::document(),
   tgz = 
@@ -18,9 +19,10 @@ argc <- alist(
   install_github = 
     devtools::install_github("setempler/miscset", build_vignettes = TRUE),
   all = {
-    rmarkdown::render('vignettes/miscset.Rmd'); 
+    rmarkdown::render("vignettes/miscset.Rmd"); 
     devtools::document();
-    devtools::build(manual = T)
+    devtools::install(".", build_vignettes = TRUE)
+    #devtools::build(manual = T)
   })
 
 a <- commandArgs(TRUE)[1]
