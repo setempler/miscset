@@ -19,25 +19,23 @@ info <- function(..., width = 120) {
   options(width = width)
   
   libs <- unique(normalizePath(.libPaths(), winslash = "/"))
-  nums <- sapply(libs, function (x) length(list.files(x)))
+  libs <- paste0(libs, " (", sapply(libs, function (x) length(list.files(x))), ")")
+  names(libs) <- rep("library", length(libs))
   rbin <- suppressMessages(system('which R', intern = TRUE))
+  names(rbin) <- "binary"
   repo <- getOption("repos")
-
-  dsys <- data.frame(setup = c("R binary"), value = rbin)
-  drep <- data.frame(repository = names(repo), url = repo)
-  dlib <- data.frame(library = libs, packages = nums, stringsAsFactors = FALSE)
-  # getOp
-
+  repo <- paste0(repo, " (", names(repo), ")")
+  names(repo) <- rep("repository", length(repo))
+  
+  sys <- c(rbin, repo, libs)
+  si <- session_info(...)
+  si$platform <- c(sys, si$platform)
+  class(si$platform) <- "platform_info"
+  
   cat("\n")
-  print(session_info(...))
+  print(si)
   cat("\n")
-  devtools:::rule("Directories")
-  print(dsys, right = FALSE, row.names = FALSE)
-  cat("\n")
-  print(drep, right = FALSE, row.names = FALSE)
-  cat("\n")
-  print(dlib, right = FALSE, row.names = FALSE)
-  cat("\n")
+  
   options(width = oldwidth)
   
 }
