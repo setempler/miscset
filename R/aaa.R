@@ -32,6 +32,7 @@ NULL
 #' @importFrom utils capture.output combn help object.size packageVersion 
 #' tail
 #' @import data.table
+#' @importFrom devtools session_info
 
 .onAttach <- function(libname, pkgname) {
   if (interactive()) { packageStartupMessage(

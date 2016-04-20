@@ -14,6 +14,7 @@ Description: A collection of miscellaneous methods to simplify various tasks,
 License: GPL-3
 Imports: 
     data.table,
+    devtools,
     ggplot2,
     gridExtra,
     parallel,
