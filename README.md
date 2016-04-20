@@ -19,12 +19,19 @@ From CRAN:
 install.packages("miscset")
 ```
 
-From github (latest version):
+From github (latest stable version):
 
 ```r
+install.packages("devtools")
 devtools::install_github("setempler/miscset", build_vignettes = TRUE)
 ```
 
+From github (development version):
+
+```r
+install.packages("devtools")
+devtools::install_github("setempler/miscset@develop", build_vignettes = TRUE)
+```
 ### Documentation
 
 For an introduction see the package vignette.

@@ -30,8 +30,14 @@ Install the package from `cran` or from `github` by using the following commands
 ```{r eval=FALSE}
 # from CRAN
 install.packages("miscset")
-# from github - latest version
+
+# from github - latest stable version
+install.packages("devtools")
 devtools::install_github("setempler/miscset", build_vignettes = TRUE)
+
+# from github - development version
+install.packages("devtools")
+devtools::install_github("setempler/miscset@develop", build_vignettes = TRUE)
 ```
 
 # Introduction
