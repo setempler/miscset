@@ -3,6 +3,9 @@ NEWS
 ++ develop ++
 
 function added: collapse
+function added: info
+
+created Makefile
 
 ++ miscset v 1.0.0 ++ 2016/01/26
 
