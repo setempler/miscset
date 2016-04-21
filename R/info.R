@@ -21,15 +21,16 @@ info <- function(..., width = 120) {
   libs <- unique(normalizePath(.libPaths(), winslash = "/"))
   libs <- paste0(libs, " (", sapply(libs, function (x) length(list.files(x))), ")")
   names(libs) <- rep("library", length(libs))
-  rbin <- suppressMessages(system('which R', intern = TRUE))
+  rpid <- Sys.getpid()
+  names(rpid) <- "pid"
+  rbin <- Sys.which("R")
   names(rbin) <- "binary"
   repo <- getOption("repos")
   repo <- paste0(repo, " (", names(repo), ")")
   names(repo) <- rep("repository", length(repo))
   
-  sys <- c(rbin, repo, libs)
   si <- session_info(...)
-  si$platform <- c(sys, si$platform)
+  si$platform <- c(rbin, rpid, si$platform, repo, libs)
   class(si$platform) <- "platform_info"
   
   cat("\n")
