@@ -5,3 +5,4 @@ vignettes/.*\.toc
 vignettes/.*\.log
 vignettes/.*\.tex
 ^dev/.*
+^Makefile$
