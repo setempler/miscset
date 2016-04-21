@@ -13,6 +13,9 @@ info:
 doc:
 	@${R} -e 'devtools::document()'
 
+check:
+	@${R} -e 'devtools::check(manual = TRUE)'
+
 install:
 	@${R} -e 'devtools::install(build_vignettes = TRUE)'
 
