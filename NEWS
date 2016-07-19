@@ -2,8 +2,9 @@ NEWS
 
 ++ develop ++
 
-function added: collapse
-function added: info
+function added: collapse (collapse vectors, frames and lists)
+function added: info (advanced session info)
+vignette enhanced (fixes, TOC)
 
 created Makefile
 
