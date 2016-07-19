@@ -1,8 +1,8 @@
-# miscset [![Travis-CI Build Status](https://travis-ci.org/setempler/miscset.png?branch=master)](https://travis-ci.org/setempler/miscset) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/miscset)](http://cran.r-project.org/package=miscset) [![Downloads](http://cranlogs.r-pkg.org/badges/miscset?color=brightgreen)](http://www.r-pkg.org/pkg/miscset) [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html)
+# miscset [![License][gpl_badge]][gpl3]
 
-A **[GNU R](http://r-project.org)** package.
+A **[GNU R][rproject]** package for miscellaneous tools.
 
-### About
+## About
 
 A collection of miscellaneous methods to simplify various tasks,
 including plotting, data.frame and matrix transformations, environment
@@ -11,40 +11,44 @@ well as numerical and statistical tools. Most of the methods are simple but
 useful wrappers of common base R functions, which extend S3 generics or
 provide default values for important parameters.
   
-### Installation
+## Installation
 
-From CRAN:
+#### From [CRAN][cran]
+
+[![CRAN_Status_Badge][cran_badge]][cran_pkg] [![Downloads][cran_log]][rpkg_org]
 
 ```r
 install.packages("miscset")
 ```
 
-From github (latest stable version):
+#### From github [latest release][github_master] version
+
+[![Travis-CI Build Status][travis_master]][travis]
 
 ```r
 install.packages("devtools")
 devtools::install_github("setempler/miscset", build_vignettes = TRUE)
 ```
 
-From github (development version):
+#### From github [development][github_dev] version
+
+[![Travis-CI Build Status][travis_develop]][travis]
 
 ```r
 install.packages("devtools")
 devtools::install_github("setempler/miscset@develop", build_vignettes = TRUE)
 ```
-### Documentation
 
-For an introduction see the package vignette.
+## Documentation
 
-```r
-vignette("miscset")
-```
+For an introduction see the package vignette:
 
-Also on
-[CRAN](http://cran.r-project.org/web/packages/miscset/vignettes/miscset.html) or
-[github](http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html).
+* online at [CRAN][cran_vignette]
+* online at [github@master][github_vignette]
+* online at [github@develop][github_vignette_dev]
+* local R session via `vignette("miscset")`
 
-### License 
+## License 
 
 > Copyright (C) 2016 Sven E. Templer [sven.templer at gmail dot com]
 > 
@@ -60,3 +64,20 @@ Also on
 >
 > You should have received a copy of the GNU General Public License
 > along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+[rproject]: http://r-project.org
+[travis_master]: https://travis-ci.org/setempler/miscset.png?branch=master
+[travis_develop]: https://travis-ci.org/setempler/miscset.png?branch=develop
+[travis]: https://travis-ci.org/setempler/miscset
+[cran_badge]: http://www.r-pkg.org/badges/version/miscset
+[cran_pkg]: http://cran.r-project.org/package=miscset
+[cran]: https://cran.r-project.org
+[cran_log]: http://cranlogs.r-pkg.org/badges/miscset?color=brightgreen
+[rpkg_org]: http://www.r-pkg.org/pkg/miscset
+[gpl_badge]: http://img.shields.io/badge/license-GPL%20%28%3E=%203%29-brightgreen.svg?style=flat
+[gpl3]: http://www.gnu.org/licenses/gpl-3.0.html
+[cran_vignette]: http://cran.r-project.org/web/packages/miscset/vignettes/miscset.html
+[github_vignette]: http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html
+[github_vignette_dev]: http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/develop/vignettes/miscset.html
+[github_dev]: https://github.com/setempler/miscset/tree/develop
+[github_master]: https://github.com/setempler/miscset/
