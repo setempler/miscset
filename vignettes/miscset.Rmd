@@ -13,17 +13,54 @@ vignette: >
 
 R package **miscset** version ``r packageVersion("miscset")``.
 
-A collection of miscellaneous methods to simplify various tasks,
-including [plotting](#plot-methods), 
-[data.frame and matrix](#data.frame-and-matrix-methods) transformations, 
+A collection of miscellaneous methods to simplify various tasks, including 
+[plotting](#plot-methods), 
+[data.frame and matrix](#data-frame-and-matrix-methods) transformations, 
 [environment](#environment-methods) functions, 
-[regular expression](#regular-expression-methods) methods, 
-and [string and logical](#string-and-logical-methods) operations, 
-as well as [numerical and statistical](#numeric-methods) tools. 
+[regular expression](#regular-expression-methods) methods, and 
+[string and logical](#string-and-logical-methods) operations, as well as 
+[numerical and statistical](#numeric-methods) tools. 
+
 Most of the methods are simple but useful wrappers of common base `R` functions, 
 which extend S3 generics or provide default values for important parameters.
 
-# Installation
+# Index
+
+* [Installation and Introduction](#installation-and-introduction)
+* [Plots](#plot-methods)
+    - [ciplot](#function-ciplot) - Barplot with Confindence Intervals
+    - [ggplotGrid](#function-ggplotgrid) - Arrange a List of ggplots
+    - [gghl](#function-gghcl) - HTML Colours Like ggplot2
+    - [plotn](#function-plotn) - Plot Nothing (but a Plot)
+* [Data Frame and Matrix](#data-frame-and-matrix-methods)
+    - [sort](#function-sort) - Sort data.frame Objects
+    - [do.rbind](#function-do.rbind) - Bind data.frames in a List by Rows
+    - [enpaire](#function-enpaire) - Create a Pairwise List from a Matrix
+    - [squarematrix](#function-squarematrix) - Create a Square Matrix
+    - [textable](#function-textable) - Table to Latex
+* [Environment](#environment-functions)
+    - [help.index](#function-help.index) - Open The Package Help Index Page
+    - [lload](#function-lload) - Load RData Objects to a List
+    - [lsall](#function-lsall) - List Object Details
+    - [rmall](#function-rmall) - Remove All Objects from Global Environment
+* [Regular Expression](#regular-expression-methods)
+    - [mgrepl](#function-mgrepl) - Multiple Pattern Matching and Replacement
+    - [gregexprind](#function-gregexprind) - Pattern Matching and Extraction
+* [String and Logical](#string-and-logical-methods)
+    - [collapse](#function-collapse) - Collapse objects
+    - [leading0](#function-leading0) - Numeric to Character with Leading Zero(s)
+    - [strextr](#function-strextr) - Extract a Substring
+    - [strpart](#function-strpart) - Split String and Return Part
+    - [strrev](#function-strrev) - Reverse Text Strings
+    - [duplicates and duplicatei](#function-duplicates-and-duplicatei) - Determine Duplicates
+* [Numerical and Statistical](#numeric-methods)
+    - [p2star](#function-p2star) - P Value Significance Level Indicator
+    - [confint.numeric](#function-confint.numeric) - Confidence Intervals for Numeric Vectors
+    - [ntri](#function-ntri) - Return Triangular Numbers
+    - [scale0 and scaler](#function-scale0-and-scaler) - Scale Numeric Values to Defined Ranges
+    - [nunique and uniquei](#function-nunique-and-uniquei) - Amount and Index of Unique Values
+
+# Installation and Introduction
 
 Install the package from `cran` or from `github` by using the following commands:
 
@@ -31,7 +68,7 @@ Install the package from `cran` or from `github` by using the following commands
 # from CRAN
 install.packages("miscset")
 
-# from github - latest stable version
+# from github - latest release version
 install.packages("devtools")
 devtools::install_github("setempler/miscset", build_vignettes = TRUE)
 
@@ -40,21 +77,26 @@ install.packages("devtools")
 devtools::install_github("setempler/miscset@develop", build_vignettes = TRUE)
 ```
 
-# Introduction
-
 Development of the package is traceable at [github](https://github.com/setempler/miscset).
 In case you find any bugs or have other issues concerning the package development,
 feel free to make use of the github [issues](https://github.com/setempler/miscset/issues).
 
 A more detailed help for each function can be viewed on the `R` help pages.
-To view them, call the function's name with a `?` prepended, e.g.:
+For a general index, after installation and loading of the package, display it with:
 
 ```r
-?duplicates
+help.index(miscset)
 ```
 
-The following chapters will describe the functions from the `miscset` package. The prerequisites to run all vignette examples are to load the following packages,
-and generate the sample data:
+This works as well for other packages. To view the single help pages, call the function's name with
+a `?` prepended, e.g.:
+
+```r
+?help.index
+```
+
+The following chapters will describe the functions from the `miscset` package. The prerequisites to
+run all vignette examples are to load the following packages, and generate the sample data:
 
 ```{r}
 library(miscset)
@@ -67,7 +109,7 @@ m <- matrix(letters[1:9], 3, 3, dimnames = list(1:3,1:3))
 
 ([back to top](#about))
 
-## ciplot
+### Function `ciplot`
 
 Plot a bargraph with error bars. Input data is a list with numeric vectors.
 Functions to calculate bar heights (e.g. `mean` by default) and error bar sizes 
@@ -77,20 +119,22 @@ Functions to calculate bar heights (e.g. `mean` by default) and error bar sizes
 ciplot(d)
 ```
 
-## ggplotGrid, ggplotGridA4
+### Function `ggplotGrid`
 
 Arrange ggplots on a grid (plot window or pdf file). Supply a list with `ggplot`
 objects and define number of rows and/or columns. If a `path` is supplied, the
 plot is written to that file instead of the internal graphics device.
 
 ```{r fig.height=2, fig.width=6, fig.align='center'}
-ggplotGrid(list(
-  ggplot(d, aes(x=b,y=-c,col=b)) + geom_line(),
-  ggplot(d, aes(x=b,y=-c,shape=factor(b))) + geom_point()),
-  ncol = 2)
+plots <- list(
+  ggplot(d, aes(x = b, y= -c, col = b)) + geom_line(),
+  ggplot(d, aes(x = b, y = -c, shape = factor(b))) + geom_point())
+ggplotGrid(plots, ncol = 2)
 ```
 
-## gghcl
+The function `ggplotGridA4` supports direct output to DIN A4 sized pdfs.
+
+### Function `gghcl`
 
 Generate a character vector with html values from a color hue as in `ggplot`.
 
@@ -100,7 +144,7 @@ gghcl(n)
 ciplot(d, col = gghcl(n))
 ```
 
-## plotn
+### Function `plotn`
 
 Create an empty plot. Useful to fill `layout`.
 
@@ -108,11 +152,11 @@ Create an empty plot. Useful to fill `layout`.
 plotn()
 ```
 
-# data.frame and matrix methods
+# Data Frame and Matrix Methods
 
 ([back to top](#about))
 
-## sort
+### Function `sort`
 
 Sort `data.frame` objects. This extends the functionality of the base R distributed generic `sort`. Define multiple columns by column names as character vector or expression.
 
@@ -121,7 +165,7 @@ d
 sort(d, by = c("a", "c"))
 ```
 
-## do.rbind
+### Function `do.rbind`
 
 A wrapper function to row-bind `data.frame` objects in a list with `do.call` and `rbind`.
 Object names from the list are inserted as additional column.
@@ -131,7 +175,7 @@ d[1:3,]
 do.rbind(list(first=d[1:2,], second=d[1:3,]))
 ```
 
-## enpaire
+### Function `enpaire`
 
 Generate a pairwise list (`data.frame`) of a matrix containing row and column id and upper and lower triangle values.
 
@@ -140,7 +184,7 @@ m
 enpaire(m)
 ```
 
-## squarematrix
+### Function `squarematrix`
 
 Generate a symmetric (square) matrix from an unsymmetric one using column and row names.
 Fills empty cells with `NA`.
@@ -150,7 +194,7 @@ m[-1,]
 squarematrix(m[-1,])
 ```
 
-## textable
+### Function `textable`
 
 Print a `data.frame` as latex table. Extends `xtable` by optionally including a latex header,
 and if desired writing the output to a file directly and calling a system command to convert
@@ -160,11 +204,11 @@ it to a `.pdf` file, for example.
 textable(d, caption = 'miscset vignette example data.frame', as.document = TRUE)
 ```
 
-# Environment functions
+# Environment Functions
 
 ([back to top](#about))
 
-## help.index
+### Function `help.index`
 
 Show the help index page of a package (with the list of all help pages of a package).
 
@@ -172,7 +216,7 @@ Show the help index page of a package (with the list of all help pages of a pack
 help.index(miscset)
 ```
 
-## lload
+### Function `lload`
 
 Load multiple R data objects into a list. List is of same length as number of files provided.
 Sublists contain all respective objects. Simplification is possible if all names are unique.
@@ -181,7 +225,7 @@ Sublists contain all respective objects. Simplification is possible if all names
 lload("folder/with/rdata/", "test*.RData")
 ```
 
-## lsall
+### Function `lsall`
 
 Return all current workspace (or any custom) object names, lengths, classes, modes and sizes in a `data.frame`.
 
@@ -189,7 +233,7 @@ Return all current workspace (or any custom) object names, lengths, classes, mod
 lsall()
 ```
 
-## rmall
+### Function `rmall`
 
 Remove all objects from the current or custom environment.
 
@@ -197,11 +241,11 @@ Remove all objects from the current or custom environment.
 rmall()
 ```
 
-# Regular expression methods
+# Regular Expression Methods
 
 ([back to top](#about))
 
-## mgrepl
+### Function `mgrepl`
 
 Search for multiple patterns in a character vector. Merge results by (custom) logical functions
 (e.g. `any`, `all`) and use mutlicore support from the `parallel` package.
@@ -215,7 +259,7 @@ mgrepl(c("a","b"), c("ab","ac","bc"), all, use.which = TRUE)
 mgrepl(c("a","b"), c("ab","ac","bc"), identity)
 ```
 
-## gregexprind
+### Function `gregexprind`
 
 Retreive the `n`th or `"last"` index of an expression found in a character string.
 
@@ -225,11 +269,11 @@ gregexprind(c("a"), c("ababa","ab","xyz",NA), 2)
 gregexprind(c("a"), c("ababa","ab","xyz",NA), "last")
 ```
 
-# String and logical methods
+# String and Logical Methods
 
 ([back to top](#about))
 
-## collapse
+### Function `collapse`
 
 To collapse vectors, usually a call to `paste` or `paste0` setting the argument
 `collapse` is applied. The collapse function is a wrapper of this functionality
@@ -296,7 +340,7 @@ The `data.frame` method also works on `data.table` objects, since it uses the me
 from the package of the same name to split the input into group pieces. If the input
 inherits from `data.table`, the class is retained.
 
-## leading0
+### Function `leading0`
 
 Prepend `0` characters to numbers to generate equally sized strings.
 
@@ -304,7 +348,7 @@ Prepend `0` characters to numbers to generate equally sized strings.
 leading0(c(9, 112, 5009))
 ```
 
-## strextr
+### Function `strextr`
 
 Split strings by a separator (`sep`) and extract all substrings matching a `pattern`.
 Optionally allow multiple matches, and use multicore support from the `parallel` package.
@@ -314,7 +358,7 @@ strextr("xa,xb,xn,ya,yb", "n$", ",")
 strextr("xa,xb,xn,ya,yb", "^x", ",", mult=T)
 ```
 
-## strpart
+### Function `strpart`
 
 Similar to `strextr`, but extracting substrings is done by setting an index value `n`.
 Optionally roll the last value to `n` if it's index is less.
@@ -323,7 +367,7 @@ Optionally roll the last value to `n` if it's index is less.
 strpart("xa,xb,xn,ya,yb", ",", 3)
 ```
 
-## strrev
+### Function `strrev`
 
 Create reverse version of strings of a `character` vector.
 
@@ -331,7 +375,7 @@ Create reverse version of strings of a `character` vector.
 strrev(c("olleH", "!dlroW"))
 ```
 
-## duplicates, duplicatei
+### Function `duplicates` and `duplicatei`
 
 Determine duplicates. Return either a logical vector (`duplicates`) or an integer index
 (`duplicatei`). Extends the base method `duplicated` by also returning `TRUE` for the
@@ -340,16 +384,16 @@ first occurence of a value.
 ```{r comment=NA}
 data.frame(
   duplicate = d$a,
-  ".d" = duplicated(d$a),
+  ".d" = duplicated(d$a), # standard R function
   ".s" = duplicates(d$a),
   ".i" = duplicatei(d$a))
 ```
 
-# Numeric methods
+# Numeric Methods
 
 ([back to top](#about))
 
-## p2star
+### Function `p2star`
 
 Asign range symbols to values, e.g. convert p-values to significance characters.
 
@@ -357,7 +401,7 @@ Asign range symbols to values, e.g. convert p-values to significance characters.
 p2star(c(0.003, 0.049, 0.092, 0.431))
 ```
 
-## confint.numeric
+### Function `confint.numeric`
 
 Calculate confidence intervals. Extends the base method `confint` to numeric vectors.
 
@@ -366,7 +410,7 @@ d$a
 confint(d$a, ret.attr = FALSE)
 ```
 
-## ntri
+### Function `ntri`
 
 Generate a series of triangular numbers of length `n` according to
 [OEIS#A000217](https://oeis.org/A000217). The series for 12 rows of a triangle, 
@@ -376,7 +420,7 @@ for example, can be returned as in the following example.
 ntri(12)
 ```
 
-## scale0, scaler
+### Function `scale0` and `scaler`
 
 Scale numeric vectors to a range of _0_ to _1_ with `scale0` or to a custom output range `r` and input range `b` with `scaler`.
 
@@ -386,7 +430,7 @@ scale0(d$c)
 scaler(d$c, c(2, 6), b = c(1, 10))
 ```
 
-## nunique
+### Function `nunique` and `uniquei`
 
 Return the amount (with `nunique`) or index (with `uniquei`) of unique values in a vector. Extends `plyr::nunique` by allowing `NA` values to be counted as a 'level'.
 
@@ -400,6 +444,6 @@ uniquei(d$a, FALSE)
 
 # Legal
 
-([back to top](#about))
-
 > Copyright (c) 2016 - Sven E. Templer
+
+([back to top](#about))
