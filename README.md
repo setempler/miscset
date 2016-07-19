@@ -1,4 +1,4 @@
-# miscset [![License][gpl_badge]][gpl3]
+# miscset 
 
 A **[GNU R][rproject]** package for miscellaneous tools.
 
@@ -49,6 +49,8 @@ For an introduction see the package vignette:
 * local R session via `vignette("miscset")`
 
 ## License 
+
+[![License][gpl_badge]][gpl3]
 
 > Copyright (C) 2016 Sven E. Templer [sven.templer at gmail dot com]
 > 
