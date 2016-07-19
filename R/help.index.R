@@ -1,7 +1,7 @@
 #' @name help.index
 #' @keywords help index browser
 #' @author Sven E. Templer
-#' @title Open The Package Help Index Page in a Browser
+#' @title Open The Package Help Index Page
 #' @description 
 #' Given a package name or string, start the package help index page
 #' in a browser.

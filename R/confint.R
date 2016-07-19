@@ -1,6 +1,6 @@
 #' @name confint
 #' @author Sven E. Templer
-#' @title Confidence intervals for numeric vectors
+#' @title Confidence Intervals for Numeric Vectors
 #' @description
 #' Calculate confidence intervals for values of a numeric vector.
 #' @param object A numeric vector.

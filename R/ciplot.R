@@ -1,7 +1,7 @@
 #' @name ciplot
 #' @keywords barplot error bars
 #' @author Sven E. Templer
-#' @title Barplot with confindence intervals
+#' @title Barplot with Confindence Intervals
 #' @description 
 #' Create barplots of a list of numeric values and error bars
 #' according to the confidence interval, standard deviation,

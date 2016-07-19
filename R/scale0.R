@@ -2,7 +2,7 @@
 #' @keywords scale
 #' @aliases scaler
 #' @author Sven E. Templer
-#' @title Scale Numeric Values to Ranges
+#' @title Scale Numeric Values to Defined Ranges
 #' @description 
 #' Scale numeric values to a range from 0 to 1 with the function
 #' \code{scale0} or to a chosen range with \code{scaler}.
