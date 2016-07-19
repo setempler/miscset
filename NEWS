@@ -2,6 +2,10 @@ NEWS
 
 ++ develop ++
 
+switched to single branch development to make most recent changes visible to github
+
+++ miscset v 1.0.1 ++ 2016/07/19
+
 function added: collapse (collapse vectors, frames and lists)
 function added: info (advanced session info)
 vignette enhanced (fixes, TOC)
