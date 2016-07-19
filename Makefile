@@ -22,7 +22,7 @@ install:
 tarball:
 	@${R} -e 'devtools::build(manual = TRUE)'
 
-html:
+html: install
 	@${R} -e 'rmarkdown::render("${VIGNETTE}", rmarkdown::html_document())'
 
 pdf:
