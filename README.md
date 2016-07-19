@@ -46,8 +46,7 @@ devtools::install_github("setempler/miscset@e8fd67b", build_vignettes = TRUE)
 For an introduction see the package vignette:
 
 * online at [CRAN][cran_vignette]
-* online at [github@master][github_vignette]
-* online at [github@develop][github_vignette_dev]
+* online at [github][github_vignette]
 * local R session via `vignette("miscset")`
 
 ## License 
