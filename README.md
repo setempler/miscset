@@ -21,7 +21,7 @@ provide default values for important parameters.
 install.packages("miscset")
 ```
 
-#### From github [latest release][github_master] version
+#### From github - [latest][github_master] version
 
 [![Travis-CI Build Status][travis_master]][travis]
 
@@ -30,13 +30,15 @@ install.packages("devtools")
 devtools::install_github("setempler/miscset", build_vignettes = TRUE)
 ```
 
-#### From github [development][github_dev] version
-
-[![Travis-CI Build Status][travis_develop]][travis]
+#### From github - other releases
 
 ```r
 install.packages("devtools")
-devtools::install_github("setempler/miscset@develop", build_vignettes = TRUE)
+# define a version by git tag
+devtools::install_github("setempler/miscset@1.0.0", build_vignettes = TRUE)
+devtools::install_github("setempler/miscset@1.0.1", build_vignettes = TRUE)
+# define a commit by hash
+devtools::install_github("setempler/miscset@e8fd67b", build_vignettes = TRUE)
 ```
 
 ## Documentation
