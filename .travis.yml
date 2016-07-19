@@ -1,5 +1,9 @@
 language: r
 
+r:
+    - release
+    - devel
+
 sudo: required
 
 branches:
