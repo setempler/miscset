@@ -21,9 +21,7 @@ provide default values for important parameters.
 install.packages("miscset")
 ```
 
-#### From github
-
-**[latest release][github_latest]**
+#### From github [latest release][github_latest]
 
 * status [![Travis-CI Build Status][travis_latest_Rdevel]][travis] @ R-devel CRAN check
 
@@ -32,7 +30,7 @@ install.packages("devtools")
 devtools::install_github("setempler/miscset@*release")
 ```
 
-**[development release][github_develop]**
+#### From github [development release][github_develop]
 
 * status [![Travis-CI Build Status][travis_develop_Rdevel]][travis] @ R-devel CRAN check
 
@@ -41,7 +39,7 @@ install.packages("devtools")
 devtools::install_github("setempler/miscset", build_vignettes = TRUE)
 ```
 
-**select release/commit**
+#### From github by manually selecting release/commit
 
 ```r
 install.packages("devtools")
