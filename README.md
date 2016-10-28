@@ -25,8 +25,7 @@ install.packages("miscset")
 
 **[latest release][github_latest]**
 
-[![Travis-CI Build Status][travis_latest_Rdevel]][travis]
-[![Travis-CI Build Status][travis_latest_Rlatest]][travis]
+* CRAN check status (R-devel): [![Travis-CI Build Status][travis_latest_Rdevel]][travis]
 
 ```r
 install.packages("devtools")
@@ -35,8 +34,7 @@ devtools::install_github("setempler/miscset@*release")
 
 **[development release][github_develop]**
 
-* [![Travis-CI Build Status][travis_develop_Rdevel]][travis]
-* [![Travis-CI Build Status][travis_develop_Rlatest]][travis]
+* CRAN check status (R-devel): [![Travis-CI Build Status][travis_develop_Rdevel]][travis]
 
 ```r
 install.packages("devtools")
