@@ -21,21 +21,33 @@ provide default values for important parameters.
 install.packages("miscset")
 ```
 
-#### From github - [latest][github_master] version
+#### From github
 
-[![Travis-CI Build Status][travis_master]][travis]
+**[latest release][github_latest]**
+
+[![Travis-CI Build Status][travis_latest_Rdevel]][travis]
+[![Travis-CI Build Status][travis_latest_Rlatest]][travis]
+
+```r
+install.packages("devtools")
+devtools::install_github("setempler/miscset@*release")
+```
+
+**[development release][github_develop]**
+
+* [![Travis-CI Build Status][travis_develop_Rdevel]][travis]
+* [![Travis-CI Build Status][travis_develop_Rlatest]][travis]
 
 ```r
 install.packages("devtools")
 devtools::install_github("setempler/miscset", build_vignettes = TRUE)
 ```
 
-#### From github - other releases
+**select release/commit**
 
 ```r
 install.packages("devtools")
 # define a version by git tag
-devtools::install_github("setempler/miscset@1.0.0", build_vignettes = TRUE)
 devtools::install_github("setempler/miscset@1.0.1", build_vignettes = TRUE)
 # define a commit by hash
 devtools::install_github("setempler/miscset@e8fd67b", build_vignettes = TRUE)
@@ -69,8 +81,10 @@ For an introduction see the package vignette:
 > along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 [rproject]: http://r-project.org
-[travis_master]: https://travis-ci.org/setempler/miscset.png?branch=master
-[travis_develop]: https://travis-ci.org/setempler/miscset.png?branch=develop
+[travis_develop_Rrelease]: https://travis-ci.org/setempler/miscset.png?branch=master
+[travis_develop_Rdevel]: https://travis-ci.org/setempler/miscset.png?branch=master
+[travis_latest_Rrelease]: https://travis-ci.org/setempler/miscset.png?branch=master
+[travis_latest_Rdevel]: https://travis-ci.org/setempler/miscset.png?branch=master
 [travis]: https://travis-ci.org/setempler/miscset
 [cran_badge]: http://www.r-pkg.org/badges/version/miscset
 [cran_pkg]: http://cran.r-project.org/package=miscset
@@ -82,5 +96,5 @@ For an introduction see the package vignette:
 [cran_vignette]: http://cran.r-project.org/web/packages/miscset/vignettes/miscset.html
 [github_vignette]: http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html
 [github_vignette_dev]: http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/develop/vignettes/miscset.html
-[github_dev]: https://github.com/setempler/miscset/tree/develop
-[github_master]: https://github.com/setempler/miscset/
+[github_develop]: https://github.com/setempler/miscset/
+[github_latest]: https://github.com/setempler/miscset/releases/latest
