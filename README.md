@@ -79,8 +79,8 @@ For an introduction see the package vignette:
 [rproject]: http://r-project.org
 [travis_develop_Rrelease]: https://travis-ci.org/setempler/miscset.png?branch=master
 [travis_develop_Rdevel]: https://travis-ci.org/setempler/miscset.png?branch=master
-[travis_latest_Rrelease]: https://travis-ci.org/setempler/miscset.png?branch=master
-[travis_latest_Rdevel]: https://travis-ci.org/setempler/miscset.png?branch=master
+[travis_latest_Rrelease]: https://travis-ci.org/setempler/miscset.png?tag=latest
+[travis_latest_Rdevel]: https://travis-ci.org/setempler/miscset.png?tag=latest
 [travis]: https://travis-ci.org/setempler/miscset
 [cran_badge]: http://www.r-pkg.org/badges/version/miscset
 [cran_pkg]: http://cran.r-project.org/package=miscset
