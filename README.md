@@ -15,7 +15,7 @@ provide default values for important parameters.
 
 #### From [CRAN][cran]
 
-[![CRAN_Status_Badge][cran_badge]][cran_pkg] [![Downloads][cran_log]][rpkg_org]
+* status [![CRAN_Status_Badge][cran_badge]][cran_pkg] [![Downloads][cran_log]][rpkg_org]
 
 ```r
 install.packages("miscset")
@@ -25,7 +25,7 @@ install.packages("miscset")
 
 **[latest release][github_latest]**
 
-* CRAN check status (R-devel): [![Travis-CI Build Status][travis_latest_Rdevel]][travis]
+* status [![Travis-CI Build Status][travis_latest_Rdevel]][travis] @ R-devel CRAN check
 
 ```r
 install.packages("devtools")
@@ -34,7 +34,7 @@ devtools::install_github("setempler/miscset@*release")
 
 **[development release][github_develop]**
 
-* CRAN check status (R-devel): [![Travis-CI Build Status][travis_develop_Rdevel]][travis]
+* status [![Travis-CI Build Status][travis_develop_Rdevel]][travis] @ R-devel CRAN check
 
 ```r
 install.packages("devtools")
