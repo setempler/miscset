@@ -15,7 +15,7 @@
 #' @param ... Forwarded to or from other methods.
 #' @param .unique Logical, return only unique values.
 #' @param .sort Logical, sort the values.
-#' @param .decreasing Logical, if sorting, the by decreasing values.
+#' @param .decreasing Logical, if sorting, then by decreasing values.
 #' @param .unlist Logical, if value columns need to be unlisted
 #' before collapsing.
 #' @param .sortby Logical, sort the output on the \code{by} columns.
