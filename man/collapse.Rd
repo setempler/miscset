@@ -27,7 +27,7 @@ collapse(x, sep, ...)
 
 \item{.sort}{Logical, sort the values.}
 
-\item{.decreasing}{Logical, if sorting, the by decreasing values.}
+\item{.decreasing}{Logical, if sorting, then by decreasing values.}
 
 \item{by}{Column names to split data frame by, before
 applying collapse on each remaining column within each piece.

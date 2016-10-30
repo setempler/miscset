@@ -3,7 +3,7 @@
 \name{confint}
 \alias{confint}
 \alias{confint.numeric}
-\title{Confidence intervals for numeric vectors}
+\title{Confidence Intervals for Numeric Vectors}
 \usage{
 \method{confint}{numeric}(object, parm = qnorm, level = 0.95, ...,
   na.rm = TRUE, ret.attr = TRUE)

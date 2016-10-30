@@ -2,7 +2,7 @@
 % Please edit documentation in R/help.index.R
 \name{help.index}
 \alias{help.index}
-\title{Open The Package Help Index Page in a Browser}
+\title{Open The Package Help Index Page}
 \usage{
 help.index(pkg, browser = NULL)
 }

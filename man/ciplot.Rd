@@ -3,7 +3,7 @@
 \name{ciplot}
 \alias{ciplot}
 \alias{ciplot.default}
-\title{Barplot with confindence intervals}
+\title{Barplot with Confindence Intervals}
 \usage{
 ciplot(x, ...)
 
