@@ -6,3 +6,4 @@ vignettes/.*\.log
 vignettes/.*\.tex
 ^dev/.*
 ^Makefile$
+^LICENSE$
