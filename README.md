@@ -1,4 +1,4 @@
-# miscset [![releases][github_svg]][github] [![CRAN][cran_svg]][cran] [![travis CI][travis_svg]][travis] [![license][license_svg]][license]
+# miscset [![CRAN][cran_svg]][cran] [![license][license_svg]][license]
 
 **A [GNU R][rproject] package for miscellaneous tools.**
 
@@ -11,17 +11,17 @@ provide default values for important parameters.
   
 ## Installation
 
-From within R, run one of the following:
+Install the latest version from **CRAN** via:
 
 ```r
-# latest CRAN version
-install.packages("miscset")
-# latest released version
-devtools::install_github("setempler/miscset@*release")
-# latest development version
-devtools::install_github("setempler/miscset")
-# older release version
-devtools::install_github("setempler/miscset@1.0.1")
+install.packages('miscset')
+```
+
+Install the development version from **github** via:
+
+```r
+install.packages('devtools')
+devtools::install_github('setempler/miscset@develop', build_vignettes = TRUE)
 ```
 
 ## Documentation
@@ -29,8 +29,14 @@ devtools::install_github("setempler/miscset@1.0.1")
 For an introduction see the package vignette:
 
 * online at [CRAN][cran_vignette]
-* online at [github][github_vignette]
-* local R session via `vignette("miscset")`
+* local R session via `vignette("miscset")` or `miscset::help.index(miscset)`
+
+## Development [![travis CI][travis_svg2]][travis] [![releases][github_svg]][github]
+
+Follow and contribute to development on github via:
+
+* [source code](https://github.com/setempler/miscset)
+* [issues](https://github.com/setempler/miscset/issues)
 
 ## License 
 
@@ -56,7 +62,7 @@ For an introduction see the package vignette:
 [license]: https://github.com/setempler/miscset/blob/master/LICENSE
 [license_svg]: https://img.shields.io/github/license/setempler/miscset.svg
 [travis]: https://travis-ci.org/setempler/miscset
-[travis_svg]: https://travis-ci.org/setempler/miscset.svg?branch=master
+[travis_svg2]: https://travis-ci.org/setempler/miscset.svg?branch=develop
 
 [rproject]: http://r-project.org
 [cran_vignette]: http://cran.r-project.org/web/packages/miscset/vignettes/miscset.html
