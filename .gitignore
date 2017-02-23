@@ -8,10 +8,7 @@ src/*.so
 src/*.dll
 src/*.rds
 vignettes/*
-!vignettes/*.Rnw
-!vignettes/*.pdf
 !vignettes/*.Rmd
-!vignettes/*.html
 TODO
 TEST*
 inst/doc
