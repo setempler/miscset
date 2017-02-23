@@ -28,14 +28,29 @@ the pattern could not be found.
 \description{
 This function extracts substring(s) which match a given pattern.
 }
+\details{
+The function is deprecated and will be removed with \code{miscset} version 2.
+It is recommended to use \link[stringr]{str_extract} or
+\link[stringr]{str_extract_all} instead.
+}
 \examples{
 #
 
+library(stringr)
+
 s <- c("A1 B1 C1","A2 B2", "AA A1", "AA", "B1 A1", "BB AB A1")
-strextr(s, "^[AB][[:digit:]]$")
-strextr(s, "^[AB][[:digit:]]$", mult = TRUE)
-strextr(s, "^[AB][[:digit:]]$", mult = TRUE, unlist = TRUE)
-strextr(s, "^[C][[:digit:]]$")
+
+strextr(s, "^[AB][[:digit:]]$") # deprecated
+str_extract(s, "[AB][:digit:]")
+
+strextr(s, "^[AB][[:digit:]]$", mult = TRUE) # deprecated
+str_extract_all(s, "[AB][:digit:]")
+
+strextr(s, "^[AB][[:digit:]]$", mult = TRUE, unlist = TRUE) # deprecated
+unlist(str_extract_all(s, "[AB][:digit:]")) # has no <NA> values
+
+strextr(s, "^[C][[:digit:]]$") # deprecated
+str_extract(s, "[C][:digit:]")
 
 #
 }
@@ -44,4 +59,3 @@ Sven E. Templer
 }
 \keyword{extract}
 \keyword{string}
-
