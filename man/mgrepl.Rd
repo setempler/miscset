@@ -4,57 +4,71 @@
 \alias{mgrepl}
 \title{Multiple Pattern Matching and Replacement}
 \usage{
-mgrepl(patterns, text, log.fun = any, use.which = FALSE, cores = 1, ...)
+mgrepl(patterns, text, log.fun = all, na.replace = FALSE,
+  use.which = FALSE, cores = 1, ...)
 }
 \arguments{
-\item{patterns}{A character vector containing a regular expression
-(\link{regex}) to be searched in \code{text}.}
+\item{patterns}{A vector or list containing regular expressions
+(\link{regex}) to be searched in \code{text}. Coerced to \code{character}.}
 
-\item{text}{Character vector where the search and replace is performed.}
+\item{text}{Character vector on which the search is performed.}
 
-\item{log.fun}{Logical function (\code{any} or \code{all}) 
-to evaluate occurence of each pattern in \code{patterns} in each
-value of \code{text}. Can also be custom. See examples.}
+\item{log.fun}{A function to apply on the result of matching each pattern
+on each element of \code{text}. Determines the output. See section \bold{Value}.}
 
-\item{use.which}{Logical, \code{TRUE} to return an integer like \link{which}
-instead a logical vector.}
+\item{na.replace}{A single value to replace each \code{NA} with in the result.}
+
+\item{use.which}{A logical value.
+\code{TRUE} to convert result with \link{which}.
+Only if output \link{is.atomic}, otherwise ignored. Deprecated.}
 
 \item{cores}{Numeric value for how many cores to use for computation using 
 \code{mclapply}.}
 
-\item{\dots}{Further arguments passed to functions \code{grepl()}, \code{sub()} and \code{gsub()}.}
+\item{\dots}{Further arguments passed to functions \link{grepl}.}
 }
 \value{
-Logical vector of sam length as \code{text} where \code{TRUE} means either
-any or all patterns in \code{patternlist} are matched in \code{text}
-depending on \code{log.fun}.
-Using \code{identity} as logical returns a matrix with results of patterns per row.
+Depending on the function defined with \code{log.fun}, the return value is either
+\itemize{
+\item a \code{vector}, e.g. for functions like \link{any}, \link{all} or \link{sum}.
+\item a \code{matrix} is obtained with e.g. \link{identity} or \link{as.integer}. Each
+row holds the result of a single pattern.
+\item a \code{list} is returned for functions which create results of different lengths
+for each element, such as \link{which}.
+}
 }
 \description{
-\code{mgrepl} searches for any or all patterns and returns logical values.
-Combination of the results is done via the logic functions \code{any},
-\code{all} or \code{identity}, for example. 
-Multicore feature is made available by \code{parallel::mclapply}.
+\code{mgrepl} allows multiple patterns search in character vectors,
+offering multicore support to parallelize search over all \code{patterns}
+using \link[parallel]{mclapply}.
 }
 \examples{
 #
 
-# Compare different "log.fun" parameters:
-mgrepl(c("a","b"), c("ab","ac","bc"), any)
-mgrepl(c("a","b"), c("ab","ac","bc"), all)
-mgrepl(c("a","b"), c("ab","ac","bc"), all, use.which = TRUE)
-mgrepl(c("a","b"), c("ab","ac","bc"), identity)
-mgrepl(letters[1:3], c("ax","xab","xbc"), function (x) sum(x)>1)
+# strings
+s <- c("ab","ac","bc", NA)
+
+# match all patterns (default)
+mgrepl(c("a", "b"), s)
+
+# match any of the patterns
+mgrepl(c("a", "b"), s, any)
+grepl("a|b", s)
+
+# return logical matrix, one column for each pattern
+mgrepl(c("a", "b"), s, identity)
+
+# return count of matches
+mgrepl(c("a", "b"), s, sum)
 
 #
 }
 \seealso{
-\link{grep}, \link{mclapply}
+\link{grepl}, \link{mclapply}
 }
 \author{
 Sven E. Templer
 }
-\keyword{grep}
-\keyword{gsub}
+\keyword{grepl}
 \keyword{multiple}
-\keyword{sub}
+\keyword{regex}

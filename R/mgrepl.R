@@ -1,54 +1,77 @@
 #' @name mgrepl
-#' @keywords multiple grep sub gsub
+#' @keywords multiple regex grepl
 #' @author Sven E. Templer
 #' @title Multiple Pattern Matching and Replacement
 #' @description 
-#' \code{mgrepl} searches for any or all patterns and returns logical values.
-#' Combination of the results is done via the logic functions \code{any},
-#' \code{all} or \code{identity}, for example. 
-#' Multicore feature is made available by \code{parallel::mclapply}.
-#' @param patterns A character vector containing a regular expression
-#' (\link{regex}) to be searched in \code{text}.
-#' @param text Character vector where the search and replace is performed.
-#' @param log.fun Logical function (\code{any} or \code{all}) 
-#' to evaluate occurence of each pattern in \code{patterns} in each
-#' value of \code{text}. Can also be custom. See examples.
-#' @param use.which Logical, \code{TRUE} to return an integer like \link{which}
-#' instead a logical vector.
+#' \code{mgrepl} allows multiple patterns search in character vectors,
+#' offering multicore support to parallelize search over all \code{patterns}
+#' using \link[parallel]{mclapply}.
+#' @param patterns A vector or list containing regular expressions
+#' (\link{regex}) to be searched in \code{text}. Coerced to \code{character}.
+#' @param text Character vector on which the search is performed.
+#' @param log.fun A function to apply on the result of matching each pattern
+#' on each element of \code{text}. Determines the output. See section \bold{Value}.
+#' @param na.replace A single value to replace each \code{NA} with in the result.
+#' @param use.which A logical value.
+#' \code{TRUE} to convert result with \link{which}.
+#' Only if output \link{is.atomic}, otherwise ignored. Deprecated.
 #' @param cores Numeric value for how many cores to use for computation using 
 #' \code{mclapply}.
-#' @param \dots Further arguments passed to functions \code{grepl()}, \code{sub()} and \code{gsub()}.
+#' @param \dots Further arguments passed to functions \link{grepl}.
 #' @return
-#' Logical vector of sam length as \code{text} where \code{TRUE} means either
-#' any or all patterns in \code{patternlist} are matched in \code{text}
-#' depending on \code{log.fun}.
-#' Using \code{identity} as logical returns a matrix with results of patterns per row.
+#' Depending on the function defined with \code{log.fun}, the return value is either
+#' \itemize{
+#' \item a \code{vector}, e.g. for functions like \link{any}, \link{all} or \link{sum}.
+#' \item a \code{matrix} is obtained with e.g. \link{identity} or \link{as.integer}. Each
+#' row holds the result of a single pattern.
+#' \item a \code{list} is returned for functions which create results of different lengths
+#' for each element, such as \link{which}.
+#' }
 #' @seealso
-#' \link{grep}, \link{mclapply}
+#' \link{grepl}, \link{mclapply}
 #' @examples
 #' #
 #' 
-#' # Compare different "log.fun" parameters:
-#' mgrepl(c("a","b"), c("ab","ac","bc"), any)
-#' mgrepl(c("a","b"), c("ab","ac","bc"), all)
-#' mgrepl(c("a","b"), c("ab","ac","bc"), all, use.which = TRUE)
-#' mgrepl(c("a","b"), c("ab","ac","bc"), identity)
-#' mgrepl(letters[1:3], c("ax","xab","xbc"), function (x) sum(x)>1)
+#' # strings
+#' s <- c("ab","ac","bc", NA)
+#' 
+#' # match all patterns (default)
+#' mgrepl(c("a", "b"), s)
+#' 
+#' # match any of the patterns
+#' mgrepl(c("a", "b"), s, any)
+#' grepl("a|b", s)
+#' 
+#' # return logical matrix, one column for each pattern
+#' mgrepl(c("a", "b"), s, identity)
+#' 
+#' # return count of matches
+#' mgrepl(c("a", "b"), s, sum)
 #' 
 #' #
 
 #' @export mgrepl
-mgrepl <- function(patterns, text, log.fun = any, use.which = FALSE, cores = 1, ...) {
-
-  ina <- is.na(text)
-  patterns <- as.list(unlist(patterns))
+mgrepl <- function(patterns, text, log.fun = all, na.replace = FALSE,
+                   use.which = FALSE, cores = 1, ...) {
+  if (!is.atomic(na.replace) || length(na.replace) != 1) 
+    stop("use a single value for na.replace")
   f <- match.fun(log.fun)
-  i <- mclapply(patterns, function (y) grepl(y, text, ...), mc.cores=cores)
+  ina <- which(is.na(text))
+  patterns <- as.list(as.character(unlist(patterns)))
+  i <- mclapply(patterns, function (y) grepl(y, text, ...), mc.cores = cores)
   i <- do.call(cbind, i)
   i <- apply(i, 1, f)
-  if (use.which)
-    return(which(i))
-  i[ina] <- NA
+  if (use.which) {
+    .Deprecated(msg = "use.which will be deprecated, use which(mgrepl(...)) instead")
+    if (is.atomic(i)) return(which(i))
+  }
+  if (length(ina)) {
+    if (is.matrix(i)) {
+      i[,ina] <- na.replace
+    } else {
+      i[ina] <- na.replace
+    }
+  }
   return(i)
   
 }
