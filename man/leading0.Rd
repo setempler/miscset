@@ -31,4 +31,3 @@ paste0("observation", leading0(1:10, 3))
 Sven E. Templer \email{sven.templer@gmail.com}
 }
 \keyword{zero}
-

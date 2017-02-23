@@ -64,4 +64,3 @@ ggplotlist(x, 2)}
 \author{
 Sven E. Templer
 }
-

@@ -29,12 +29,11 @@ lsall()
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{ls}
 }
+\author{
+Sven E. Templer
+}
 \keyword{all}
 \keyword{list}
-

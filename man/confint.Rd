@@ -41,4 +41,3 @@ confint(1:3, ret.attr = FALSE)
 \author{
 Sven E. Templer
 }
-

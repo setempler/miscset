@@ -31,13 +31,12 @@ strpart(c("abc","abcb","abc"), "", 4, roll=TRUE)
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{strsplit}
+}
+\author{
+Sven E. Templer
 }
 \keyword{extract}
 \keyword{part}
 \keyword{string}
-

@@ -24,4 +24,3 @@ Sven E. Templer (\email{sven.templer@gmail.com})
 \keyword{number}
 \keyword{triangle}
 \keyword{triangular}
-

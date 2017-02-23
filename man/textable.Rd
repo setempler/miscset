@@ -75,10 +75,9 @@ textable(d, '/tmp/trees.tex', caption=dc, as.document=TRUE,
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{xtable}
 }
-
+\author{
+Sven E. Templer
+}

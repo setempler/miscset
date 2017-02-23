@@ -2,8 +2,8 @@
 % Please edit documentation in R/collapse.R
 \name{collapse}
 \alias{collapse}
-\alias{collapse.data.frame}
 \alias{collapse.default}
+\alias{collapse.data.frame}
 \title{Collapse objects}
 \usage{
 collapse(x, sep, ...)
@@ -73,4 +73,3 @@ collapse(d, 1)
 \author{
 Sven E. Templer
 }
-

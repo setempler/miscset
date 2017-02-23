@@ -19,11 +19,10 @@ info()
 devtools::session_info()
 sessionInfo()
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link[devtools]{session_info}
 }
+\author{
+Sven E. Templer
+}
 \keyword{session}
-

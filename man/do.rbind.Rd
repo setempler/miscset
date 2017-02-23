@@ -23,4 +23,3 @@ name of each table. Missing names are replaced by integers.
 \author{
 Sven E. Templer
 }
-

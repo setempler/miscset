@@ -30,4 +30,3 @@ Sven E. Templer
 }
 \keyword{matrix}
 \keyword{square}
-

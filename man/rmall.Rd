@@ -22,12 +22,11 @@ ls()
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{rm}, \link{ls}
 }
+\author{
+Sven E. Templer
+}
 \keyword{all}
 \keyword{remove}
-

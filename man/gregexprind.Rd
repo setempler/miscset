@@ -31,15 +31,14 @@ gregexprind(c("a"),c("ababa","ab","xyz",NA), "last")
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 See \link{gregexpr} for further information on arguments.\cr
 See \link{regex} for the use of regular expressions.
+}
+\author{
+Sven E. Templer
 }
 \keyword{expression}
 \keyword{gregexpr}
 \keyword{index}
 \keyword{regular}
-

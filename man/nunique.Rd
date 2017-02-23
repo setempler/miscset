@@ -34,4 +34,3 @@ uniquei(v, FALSE)
 Sven E. Templer
 }
 \keyword{unique}
-

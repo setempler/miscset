@@ -43,4 +43,3 @@ sort(d, bye=.(a,c)) # increasing by columns 'a' and then 'c'
 \author{
 Sven E. Templer
 }
-

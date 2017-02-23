@@ -41,12 +41,11 @@ enpaire(m, lower = FALSE)
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{squarematrix}
 }
+\author{
+Sven E. Templer
+}
 \keyword{matrix}
 \keyword{pairwise}
-

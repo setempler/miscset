@@ -23,4 +23,3 @@ Sven E. Templer
 \keyword{browser}
 \keyword{help}
 \keyword{index}
-

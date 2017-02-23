@@ -48,14 +48,13 @@ mgrepl(letters[1:3], c("ax","xab","xbc"), function (x) sum(x)>1)
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{grep}, \link{mclapply}
+}
+\author{
+Sven E. Templer
 }
 \keyword{grep}
 \keyword{gsub}
 \keyword{multiple}
 \keyword{sub}
-

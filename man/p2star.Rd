@@ -28,4 +28,3 @@ p2star(c(1e-5,.1,.9))
 \author{
 Sven E. Templer
 }
-

@@ -28,10 +28,9 @@ m objects in total loaded.
 \description{
 Load multiple .RData files and return a (simplified) list.
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{load}
 }
-
+\author{
+Sven E. Templer
+}

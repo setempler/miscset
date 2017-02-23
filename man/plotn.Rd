@@ -33,4 +33,3 @@ For details about the function see \link{plot}, which is called from
 \author{
 Sven E. Templer
 }
-

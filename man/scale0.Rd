@@ -3,6 +3,7 @@
 \name{scale0}
 \alias{scale0}
 \alias{scaler}
+\alias{scaler}
 \title{Scale Numeric Values to Defined Ranges}
 \usage{
 scale0(x)
@@ -39,4 +40,3 @@ scaler(0:10, 1:2, c(0, 20))
 Sven E. Templer
 }
 \keyword{scale}
-

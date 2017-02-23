@@ -47,4 +47,3 @@ Sven E. Templer
 \keyword{barplot}
 \keyword{bars}
 \keyword{error}
-

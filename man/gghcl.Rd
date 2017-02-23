@@ -43,13 +43,12 @@ image(p, col = gghcl(10, 1:5), axes = FALSE, main ="gghcl(10, 1:5)")
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{hcl}
+}
+\author{
+Sven E. Templer
 }
 \keyword{colour}
 \keyword{ggplot}
 \keyword{palette}
-

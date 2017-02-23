@@ -18,4 +18,3 @@ and positioned as last level.
 \author{
 Sven E. Templer
 }
-

@@ -22,12 +22,11 @@ strrev(c("abc","asdf"))
 
 #
 }
-\author{
-Sven E. Templer
-}
 \seealso{
 \link{rev}
 }
+\author{
+Sven E. Templer
+}
 \keyword{inverse}
 \keyword{reverse}
-

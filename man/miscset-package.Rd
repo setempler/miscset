@@ -2,8 +2,8 @@
 % Please edit documentation in R/aaa.R
 \docType{package}
 \name{miscset-package}
-\alias{miscset}
 \alias{miscset-package}
+\alias{miscset}
 \title{Miscellaneous R Tools}
 \description{
 A collection of miscellaneous methods to simplify various tasks,
@@ -24,4 +24,3 @@ Sven E. Templer
 \keyword{misc}
 \keyword{miscellaneous}
 \keyword{tools}
-
