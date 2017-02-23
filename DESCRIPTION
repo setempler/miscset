@@ -24,7 +24,8 @@ Imports:
 LinkingTo: Rcpp
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    stringr
 VignetteBuilder: knitr
 URL: https://github.com/setempler/miscset
 BugReports: https://github.com/setempler/miscset/issues
