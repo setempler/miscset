@@ -2,6 +2,15 @@ NEWS
 
 ++ develop ++
 
+function deprecated: strextr (suggest stringr::str_extract and stringr::str_extract_all)
+function deprecated: strpart (suggest miscset::str_part)
+function deprecated: strrev (suggest miscset::str_rev)
+function deprecated: do.rbind (suggest data.table::rbindlist)
+function added: str_rev (replaces strrev)
+function added: str_part (replaces strpart)
+function fixed: mgrepl (default collapse = all; NA replacement option)
+function fixed: collapse.data.frame (fix sep=NULL issue)
+
 switched to single branch development to make most recent changes visible to github
 
 ++ miscset v 1.0.1 ++ 2016/07/19
