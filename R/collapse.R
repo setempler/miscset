@@ -86,6 +86,8 @@ collapse_frame <- function (x, sep, .unique, .sort, .decreasing, .unlist)
     if (.unlist)
       y <- unlist(y, use.names = FALSE)
     y <- collapse(y, sep = sep, .unique = .unique, .sort = .sort, .decreasing = .decreasing)
+    if (is.null(sep))
+      y <- list(y)
     return(y)
   })
 } 
