@@ -9,10 +9,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r prompt=FALSE}
-library(miscset)
-```
-
 # About
 
 R package **miscset** version ``r packageVersion("miscset")``.
@@ -78,6 +74,13 @@ Install the development version from **github** via:
 install.packages('devtools')
 devtools::install_github('setempler/miscset@develop', build_vignettes = TRUE)
 ```
+
+After installation, load the package via
+
+```{r}
+library(miscset)
+```
+
 
 If you like to contribute to the development of the packages, please
 
