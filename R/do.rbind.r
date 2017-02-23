@@ -13,6 +13,8 @@
 #' @export
 do.rbind <- function (x, idcol = "Name", keep.rownames = FALSE) {
   
+  .Deprecated("data.table::rbindlist")
+  
   # check for data.frames
   u <- sapply(x, inherits, "data.frame")
   if (any(!u))
