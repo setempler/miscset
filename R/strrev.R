@@ -1,4 +1,4 @@
-#' @name strrev
+#' @name str_rev
 #' @keywords inverse reverse
 #' @author Sven E. Templer
 #' @title Reverse Text Strings
@@ -12,13 +12,14 @@
 #' @examples 
 #' #
 #' 
-#' strrev(c("abc","asdf"))
+#' s <- c("abc","asdf")
+#' 
+#' str_rev(s)
 #' 
 #' #
 
-#' @export strrev
-strrev <- function (x) {
-  
+#' @export str_rev
+str_rev <- function (x) {
   xna <- is.na(x)
   x <- as.character(x)
   x <- strsplit(x, "")
@@ -29,5 +30,20 @@ strrev <- function (x) {
   x <- unlist(x)
   x[xna] <- NA
   return(x)
+}
 
+#' @rdname str_rev
+#' @export strrev
+strrev <- function (x) {
+  .Deprecated('str_rev')
+  xna <- is.na(x)
+  x <- as.character(x)
+  x <- strsplit(x, "")
+  x <- lapply(x, function (y) {
+    y <- paste(rev(y), collapse="")
+    return(y)
+  })
+  x <- unlist(x)
+  x[xna] <- NA
+  return(x)
 }

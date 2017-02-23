@@ -1,9 +1,9 @@
-#' @name strpart
+#' @name str_part
 #' @keywords extract part string
 #' @author Sven E. Templer
 #' @title Split String and Return Part
 #' @description 
-#' Return the nth part of a splitted string.
+#' Return the \code{n}th part of a splitted string.
 #' @param x Character vector.
 #' @param split Regular expression splitting strings.
 #' @param n Number of part to extract.
@@ -16,13 +16,27 @@
 #' @examples
 #' #
 #' 
-#' strpart(c("abc","abcb","abc"), "", 4)
-#' strpart(c("abc","abcb","abc"), "", 4, roll=TRUE)
+#' s <- c("abc","abcd","abc")
+#' 
+#' str_part(s, "", 4)
+#' str_part(s, "", 4, roll=TRUE)
 #' 
 #' #
 
+#' @export str_part
+str_part <- function (x, split, n, ..., roll = F) {
+  x <- strsplit(x, split, ...)
+  if (roll)
+    x <- unlist(lapply(x, function (y) tail(y, 1)))
+  else
+    x <- unlist(lapply(x, function (y) y[n]))
+  return(x)
+}
+
+#' @rdname str_part
 #' @export strpart
 strpart <- function (x, split, n, ..., roll = F) {
+  .Deprecated('str_part')
   x <- strsplit(x, split, ...)
   if (roll)
     x <- unlist(lapply(x, function (y) tail(y, 1)))
