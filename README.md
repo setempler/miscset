@@ -55,7 +55,7 @@ Follow and contribute to development on github via:
 > You should have received a copy of the GNU General Public License
 > along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-[cran]: http://cran.r-project.org/package=miscset
+[cran]: https://cran.r-project.org/package=miscset
 [cran_svg]: http://www.r-pkg.org/badges/version/miscset
 [github]: https://github.com/setempler/miscset/releases/
 [github_svg]: https://img.shields.io/github/release/setempler/miscset.svg
