@@ -2,16 +2,15 @@ NEWS
 
 ++ develop ++
 
-function deprecated: strextr (suggest stringr::str_extract and stringr::str_extract_all)
-function deprecated: strpart (suggest miscset::str_part)
-function deprecated: strrev (suggest miscset::str_rev)
-function deprecated: do.rbind (suggest data.table::rbindlist)
-function added: str_rev (replaces strrev)
-function added: str_part (replaces strpart)
-function fixed: mgrepl (default collapse = all; NA replacement option)
-function fixed: collapse.data.frame (fix sep=NULL issue)
+++ miscset v 1.1.0 ++ 2017/02/24
 
-switched to single branch development to make most recent changes visible to github
+changed mgrepl to default log.fun=all and added na.replace option
+fixed collapse.data.frame for sep=NULL and list objects in collapsed columns
+do.rbind deprecated, suggested data.table::rbindlist
+strextr deprecated, suggested stringr::str_extract and stringr::str_extract_all
+strpart deprecated and replaced with str_part
+strrev deprecated and replaced with str_rev
+added src/init.c to fix R-devel r72246 note on R_registerRoutines/R_useDynamicSymbols
 
 ++ miscset v 1.0.1 ++ 2016/07/19
 
