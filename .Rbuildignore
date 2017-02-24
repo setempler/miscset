@@ -1,9 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
-vignettes/.*\.toc
-vignettes/.*\.log
-vignettes/.*\.tex
+^vignettes/.*\.toc$
+^vignettes/.*\.log$
+^vignettes/.*\.tex$
+^vignettes/.*\.html$
+^vignettes/.*\.R$
 ^dev/.*
 ^Makefile$
 ^LICENSE$
