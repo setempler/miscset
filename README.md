@@ -65,5 +65,5 @@ Follow and contribute to development on github via:
 [travis_svg2]: https://travis-ci.org/setempler/miscset.svg?branch=develop
 
 [rproject]: http://r-project.org
-[cran_vignette]: http://cran.r-project.org/web/packages/miscset/vignettes/miscset.html
+[cran_vignette]: https://CRAN.R-project.org/package=miscset/vignettes/miscset.html
 [github_vignette]: http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html
