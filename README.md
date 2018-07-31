@@ -1,14 +1,20 @@
-# miscset [![CRAN][cran_svg]][cran] [![license][license_svg]][license]
-
+# miscset [![CRAN][cran_svg]][cran]
 **A [GNU R][rproject] package for miscellaneous tools.**
 
 A collection of miscellaneous methods to simplify various tasks,
 including plotting, data.frame and matrix transformations, environment
 functions, regular expression methods, and string and logical operations, as
-well as numerical and statistical tools. Most of the methods are simple but
+well as numerical and statistical tools.
+
+Most of the methods are simple but
 useful wrappers of common base R functions, which extend S3 generics or
 provide default values for important parameters.
-  
+
+## Documentation
+
+* [![CRAN Documentation][cran_vignette_svg]][cran_vignette]
+* local R session via `vignette("miscset")` or `miscset::help.index(miscset)`
+
 ## Installation
 
 Install the latest version from **CRAN** via:
@@ -24,46 +30,35 @@ install.packages('devtools')
 devtools::install_github('setempler/miscset@develop', build_vignettes = TRUE)
 ```
 
-## Documentation
+## Development
 
-For an introduction see the package vignette:
-
-* online at [CRAN][cran_vignette]
-* local R session via `vignette("miscset")` or `miscset::help.index(miscset)`
-
-## Development [![travis CI][travis_svg2]][travis] [![releases][github_svg]][github]
+* [![Github Source][github_src_svg]][github_src]
+* [![Github Releases][github_rel_latest_svg]][github_rel]
+* [![Travis CI][travis_svg2]][travis]
 
 Follow and contribute to development on github via:
 
 * [source code](https://github.com/setempler/miscset)
 * [issues](https://github.com/setempler/miscset/issues)
 
-## License 
+## License
 
-> Copyright (C) 2016 Sven E. Templer [sven.templer at gmail dot com]
-> 
-> This program is free software: you can redistribute it and/or modify
-> it under the terms of the GNU General Public License as published by
-> the Free Software Foundation, either version 3 of the License, or
-> (at your option) any later version.
-> 
-> This program is distributed in the hope that it will be useful,
-> but WITHOUT ANY WARRANTY; without even the implied warranty of
-> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
-> GNU General Public License for more details.
-> 
-> You should have received a copy of the GNU General Public License
-> along with this program. If not, see <http://www.gnu.org/licenses/>.
+* [![license][license_svg]][license]
+* see file `LICENSE`
 
 [cran]: https://cran.r-project.org/package=miscset
 [cran_svg]: http://www.r-pkg.org/badges/version/miscset
-[github]: https://github.com/setempler/miscset/releases/
-[github_svg]: https://img.shields.io/github/release/setempler/miscset.svg
+[cran_vignette]: https://CRAN.R-project.org/package=miscset/vignettes/miscset.html
+[cran_vignette_svg]: https://img.shields.io/badge/CRAN-Documentation-green.svg
+[github_src]: https://github.com/setempler/miscset/
+[github_src_svg]: https://img.shields.io/badge/source-releases-green.svg
+[github_rel]: https://github.com/setempler/miscset/releases/
+[github_rel_svg]: https://img.shields.io/badge/source-releases-green.svg
+[github_rel_latest_svg]: https://img.shields.io/github/release/setempler/miscset.svg
+[github_vignette]: http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html
 [license]: https://github.com/setempler/miscset/blob/master/LICENSE
 [license_svg]: https://img.shields.io/github/license/setempler/miscset.svg
 [travis]: https://travis-ci.org/setempler/miscset
 [travis_svg2]: https://travis-ci.org/setempler/miscset.svg?branch=develop
 
 [rproject]: http://r-project.org
-[cran_vignette]: https://CRAN.R-project.org/package=miscset/vignettes/miscset.html
-[github_vignette]: http://htmlpreview.github.io/?https://github.com/setempler/miscset/blob/master/vignettes/miscset.html
