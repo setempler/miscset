@@ -38,5 +38,6 @@ info <- function(..., width = 120) {
   cat("\n")
   
   options(width = oldwidth)
+  invisible(si)
   
 }
