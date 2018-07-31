@@ -12,8 +12,8 @@ collapse(x, sep, ...)
   .sort = FALSE, .decreasing = FALSE)
 
 \method{collapse}{data.frame}(x, sep = "", by = names(x), ...,
-  .unique = FALSE, .sort = FALSE, .decreasing = FALSE, .unlist = FALSE,
-  .sortby = FALSE)
+  .unique = FALSE, .sort = FALSE, .decreasing = FALSE,
+  .unlist = FALSE, .sortby = FALSE)
 }
 \arguments{
 \item{x}{Any R object.}

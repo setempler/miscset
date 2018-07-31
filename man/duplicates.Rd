@@ -3,7 +3,6 @@
 \name{duplicates}
 \alias{duplicates}
 \alias{duplicatei}
-\alias{duplicatei}
 \title{Determine Duplicates}
 \usage{
 duplicates(x)

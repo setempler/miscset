@@ -5,8 +5,9 @@
 \title{Table to Latex}
 \usage{
 textable(d, file, caption = NULL, label = NULL, align = NULL,
-  rownames = FALSE, topcapt = TRUE, digits = NULL, as.document = FALSE,
-  landscape = FALSE, margin = 2, pt.size = 10, cmd = NULL, ...)
+  rownames = FALSE, topcapt = TRUE, digits = NULL,
+  as.document = FALSE, landscape = FALSE, margin = 2, pt.size = 10,
+  cmd = NULL, ...)
 }
 \arguments{
 \item{d}{Object (will be coerced to data.frame) to transform to a latex table.}

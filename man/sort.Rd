@@ -5,8 +5,8 @@
 \alias{sort.data.frame}
 \title{Sort data.frame Objects}
 \usage{
-\method{sort}{data.frame}(x, decreasing = FALSE, by = NULL, bye = NULL,
-  na.last = NA, ...)
+\method{sort}{data.frame}(x, decreasing = FALSE, by = NULL,
+  bye = NULL, na.last = NA, ...)
 }
 \arguments{
 \item{x}{A data.frame.}
