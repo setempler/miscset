@@ -17,10 +17,10 @@
 */
   
 /* .Call calls */
-extern SEXP miscset_ntri(SEXP);
+extern SEXP _miscset_ntri(SEXP);
 
 static const R_CallMethodDef CallEntries[] = {
-  {"miscset_ntri", (DL_FUNC) &miscset_ntri, 1},
+  {"_miscset_ntri", (DL_FUNC) &_miscset_ntri, 1},
   {NULL, NULL, 0}
 };
 

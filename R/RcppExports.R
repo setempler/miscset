@@ -26,6 +26,6 @@ NULL
 
 #' @export ntri
 ntri <- function(n) {
-    .Call('miscset_ntri', PACKAGE = 'miscset', n)
+    .Call('_miscset_ntri', PACKAGE = 'miscset', n)
 }
 

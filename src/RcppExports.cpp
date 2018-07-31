@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // ntri
 NumericVector ntri(int n);
-RcppExport SEXP miscset_ntri(SEXP nSEXP) {
+RcppExport SEXP _miscset_ntri(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
