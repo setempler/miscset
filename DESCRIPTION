@@ -12,7 +12,7 @@ Description: A collection of miscellaneous methods to simplify various tasks,
   useful wrappers of common base R functions, which extend S3 generics or
   provide default values for important parameters.
 License: GPL-3
-Imports: 
+Imports:
     data.table,
     devtools,
     ggplot2,
@@ -22,11 +22,12 @@ Imports:
     stats,
     xtable
 LinkingTo: Rcpp
-Suggests: 
+Suggests:
     knitr,
     rmarkdown,
-    stringr
+    stringr,
+    testthat
 VignetteBuilder: knitr
 URL: https://github.com/setempler/miscset
 BugReports: https://github.com/setempler/miscset/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

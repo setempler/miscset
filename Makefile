@@ -18,7 +18,22 @@ new  <- pkgs[!pkgs %in% inst]
 if (length(new)) { install.packages(new, repos = "$(R_MIRROR)") }
 endef
 
+define RCODE_IS_INSTALLED
+pkg <- commandArgs(T)
+pkg <- suppressMessages(suppressWarnings(sapply(pkg, require, character.only=T)))
+fun <- function(k,v){cat(k, ifelse(v, "(installed)", "(missing)"), "\\n")}
+#null <- Map(fun, names(pkg), pkg)
+pkg <- data.frame(Package=names(pkg),Installed=pkg)
+rownames(pkg) <- NULL
+has <- installed.packages()
+has <- data.frame(has[,c("Package","Version","Built", "LibPath")])
+rownames(has) <- NULL
+pkg <- merge(pkg, has, all.x = T)
+print(pkg)
+endef
+
 export RCODE_INSTALL
+export RCODE_IS_INSTALLED
 
 ### main targets
 
@@ -53,6 +68,12 @@ document: r-info r-check clean-all pkg-doc
 check: r-info r-check clean-all pkg-doc pkg-install pkg-check
 	@echo "$(COL_GREEN)*** done$(COL_0)"
 
+.PHONY : test                # run unit-tests
+test:
+	@echo "$(COL_GREEN)*** running unit tests$(COL_0)"
+	@echo "devtools::test()" | R -q --no-save
+	@echo "$(COL_GREEN)*** done$(COL_0)"
+
 .PHONY : uninstall           # uninstall package
 uninstall: r-info r-check pkg-uninstall
 	@echo "$(COL_GREEN)*** done$(COL_0)"
@@ -79,13 +100,16 @@ clean-vignettes:
 
 .PHONY : r-info              # show R session information
 r-info:
-	@echo "$(COL_GREEN)*** printing R session information$(COL_0)"
+	@echo "$(COL_GREEN)*** printing R installation information$(COL_0)"
 	@echo '* binary'
 	@echo '    ${R_BIN}'
 	@echo '* library directories'
 	@${R} -e 'cat(.libPaths(), sep = "\\n")' | ${SED_R}
+	@echo "$(COL_GREEN)*** printing development information$(COL_0)"
 	@echo '* build dependencies'
-	@printf '    %s\n' ${R_BUILD_DEP}
+	@echo "$$RCODE_IS_INSTALLED" | R -q --no-save --args ${R_BUILD_DEP} | ${SED_R}
+	@echo '* package information'
+	@echo "$$RCODE_IS_INSTALLED" | R -q --no-save --args ${PACKAGE} | ${SED_R}
 
 .PHONY : r-check             # R build session requirement checks
 r-check:
